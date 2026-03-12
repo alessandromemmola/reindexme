@@ -81,6 +81,23 @@
     #footer-text { margin-bottom: 14px; }
     #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
     #footer-text a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer-widget-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent) !important;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      text-decoration: none !important;
+      border-bottom: 1px solid var(--accent) !important;
+      margin-top: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .footer-widget-btn:hover { background: var(--accent); color: #000 !important; border-color: var(--accent); }
     #footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
     #footer-links a:hover { color: var(--accent); }
@@ -230,10 +247,10 @@
     reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
     Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
     <a href="/licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
-    <a href="/widget-demo.html">Prova il Widget Gratuito</a> •
     <a href="https://paypal.me/onlycreator">Dona ❤️</a><br>
     Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
   </p>
+  <a href="/widget-demo.html" class="footer-widget-btn">📦 Prova il Widget Gratuito →</a>
   <p id="footer-links">
     <a href="https://alessandromemmola.com">Sito personale</a> ·
     <a href="https://github.com/alessandromemmola">GitHub</a> ·
