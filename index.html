@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReIndex Me — Forza l'aggiornamento del tuo profilo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --surface: #111111; --border: #222222;
+      --accent: #00ff88; --accent2: #0066ff; --text: #f0f0f0;
+      --muted: #666666; --warn: #ffaa00;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+      background-size: 40px 40px; pointer-events: none; z-index: 0;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 1; }
+    .header { margin-bottom: 56px; }
+    .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 20px; text-transform: uppercase; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
+    h1 span { color: var(--accent); }
+    .subtitle { margin-top: 16px; color: var(--muted); font-size: 1rem; font-weight: 400; line-height: 1.6; max-width: 520px; }
+    .input-section { background: var(--surface); border: 1px solid var(--border); padding: 32px; margin-bottom: 40px; }
+    label { display: block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    input[type="url"] { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.85rem; padding: 14px 16px; outline: none; transition: border-color 0.2s; }
+    input[type="url"]:focus { border-color: var(--accent); }
+    input[type="url"]::placeholder { color: var(--muted); }
+    .btn-primary { background: var(--accent); color: #000; border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; padding: 14px 28px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s, transform 0.1s; }
+    .btn-primary:hover { opacity: 0.85; } .btn-primary:active { transform: scale(0.98); } .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .steps-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 20px; }
+    .step { border: 1px solid var(--border); margin-bottom: 12px; transition: border-color 0.3s; overflow: hidden; }
+    .step.active { border-color: var(--accent); } .step.done { border-color: #1a4a2e; } .step.error { border-color: #ff4444; }
+    .step-header { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--surface); }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); width: 20px; flex-shrink: 0; }
+    .step.active .step-num, .step.done .step-num { color: var(--accent); }
+    .step-icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
+    .step-info { flex: 1; }
+    .step-name { font-weight: 700; font-size: 0.95rem; }
+    .step-desc { font-size: 0.78rem; color: var(--muted); margin-top: 2px; font-weight: 400; }
+    .step-status { font-family: 'DM Mono', monospace; font-size: 11px; padding: 4px 10px; border: 1px solid currentColor; }
+    .status-waiting { color: var(--muted); border-color: var(--border); }
+    .status-running { color: var(--accent); border-color: var(--accent); animation: pulse 1s ease-in-out infinite; }
+    .status-done { color: var(--accent); border-color: #1a4a2e; background: #0d2e1a; }
+    .status-manual { color: var(--accent2); border-color: var(--accent2); }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .step-body { display: none; padding: 0 24px 20px; background: var(--surface); border-top: 1px solid var(--border); }
+    .step.active .step-body, .step.done .step-body, .step.error .step-body { display: block; }
+    .step-body p { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; padding-top: 14px; line-height: 1.6; }
+    .btn-manual { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--accent2); color: var(--accent2); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; padding: 10px 18px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .btn-manual:hover { background: rgba(0,102,255,0.1); }
+    .result-box { display: none; margin-top: 40px; border: 1px solid var(--accent); padding: 28px 32px; background: linear-gradient(135deg, rgba(0,255,136,0.04), transparent); }
+    .result-box.show { display: block; }
+    .result-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
+    .result-box h3 span { color: var(--accent); }
+    .result-box p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .summary-item { background: var(--bg); border: 1px solid var(--border); padding: 16px; text-align: center; }
+    .summary-item .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
+    .summary-item .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .fade-in { animation: fadeIn 0.4s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* FOOTER */
+    footer {
+      max-width: 720px;
+      margin: 72px auto 0;
+      padding: 32px 24px 48px;
+      border-top: 1px solid var(--border);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.9;
+      position: relative;
+      z-index: 1;
+    }
+    #footer-text { margin-bottom: 14px; }
+    #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+    #footer-text a:hover { color: var(--accent); border-color: var(--accent); }
+    #footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    #footer-links a:hover { color: var(--accent); }
+    .footer-divider { margin: 0 4px; color: var(--border); }
+
+    @media (max-width: 520px) {
+      .input-row { flex-direction: column; }
+      .summary-grid { grid-template-columns: 1fr; }
+      #footer-links { flex-direction: column; gap: 8px; }
+    }
+
+    /* DONATE BAR */
+    .donate-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 12px 24px;
+      background: rgba(10,10,10,0.92);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .donate-bar p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .donate-bar p strong { color: var(--text); font-weight: 500; }
+    .donate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .donate-btn:hover { background: var(--accent); color: #000; }
+    .donate-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      transition: color 0.2s;
+      flex-shrink: 0;
+    }
+    .donate-close:hover { color: var(--text); }
+    /* push footer above donate bar */
+    footer { margin-bottom: 56px; }
+
+    @media (max-width: 520px) {
+      .donate-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+      .donate-bar p { font-size: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header class="header fade-in">
+    <div class="badge">⚡ Profile Re-Index Tool</div>
+    <h1>Forza Google a<br>ri-scansionare il tuo<br><span>profilo LinkedIn</span></h1>
+    <p class="subtitle">Hai aggiornato il tuo profilo ma Google mostra ancora la vecchia posizione? Questo tool invia segnali ai motori di ricerca per accelerare l'aggiornamento.</p>
+  </header>
+
+  <section class="input-section fade-in">
+    <label>URL del tuo profilo LinkedIn</label>
+    <div class="input-row">
+      <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/tuonome" />
+      <button class="btn-primary" id="startBtn" onclick="startProcess()">Avvia →</button>
+    </div>
+  </section>
+
+  <div id="stepsContainer" style="display:none" class="fade-in">
+    <p class="steps-title">// Operazioni in corso</p>
+    <div class="step" id="step1">
+      <div class="step-header">
+        <span class="step-num">01</span><span class="step-icon">🔵</span>
+        <div class="step-info"><div class="step-name">Bing IndexNow</div><div class="step-desc">Ping diretto all'API di indicizzazione Microsoft</div></div>
+        <span class="step-status status-waiting" id="status1">IN ATTESA</span>
+      </div>
+      <div class="step-body" id="body1"></div>
+    </div>
+    <div class="step" id="step2">
+      <div class="step-header">
+        <span class="step-num">02</span><span class="step-icon">🔴</span>
+        <div class="step-info"><div class="step-name">Yandex IndexNow</div><div class="step-desc">Ping al motore russo — supporta IndexNow natively</div></div>
+        <span class="step-status status-waiting" id="status2">IN ATTESA</span>
+      </div>
+      <div class="step-body" id="body2"></div>
+    </div>
+    <div class="step" id="step3">
+      <div class="step-header">
+        <span class="step-num">03</span><span class="step-icon">🟡</span>
+        <div class="step-info"><div class="step-name">Google — Richiesta manuale</div><div class="step-desc">Google non supporta IndexNow, ma puoi richiedere il crawl qui</div></div>
+        <span class="step-status status-waiting" id="status3">IN ATTESA</span>
+      </div>
+      <div class="step-body" id="body3"></div>
+    </div>
+    <div class="step" id="step4">
+      <div class="step-header">
+        <span class="step-num">04</span><span class="step-icon">🟢</span>
+        <div class="step-info"><div class="step-name">Ping Sitemap Google</div><div class="step-desc">Invia il link alla sitemap pubblica di LinkedIn</div></div>
+        <span class="step-status status-waiting" id="status4">IN ATTESA</span>
+      </div>
+      <div class="step-body" id="body4"></div>
+    </div>
+    <div class="step" id="step5">
+      <div class="step-header">
+        <span class="step-num">05</span><span class="step-icon">💡</span>
+        <div class="step-info"><div class="step-name">Boost organico</div><div class="step-desc">Trick per accelerare ulteriormente il re-crawl</div></div>
+        <span class="step-status status-waiting" id="status5">IN ATTESA</span>
+      </div>
+      <div class="step-body" id="body5"></div>
+    </div>
+  </div>
+
+  <div class="result-box" id="resultBox">
+    <h3>Operazioni completate <span>✓</span></h3>
+    <p>I segnali di re-indicizzazione sono stati inviati. Google e Bing hanno ricevuto la richiesta di rivisitare il tuo profilo. Di solito l'aggiornamento avviene entro <strong style="color:var(--accent)">24–72 ore</strong> per Bing, e <strong style="color:var(--accent)">3–10 giorni</strong> per Google.</p>
+    <div class="summary-grid">
+      <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Automatici</span></div>
+      <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Manuali</span></div>
+      <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Motori notificati</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p id="footer-text">
+    reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
+    Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
+    <a href="/licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
+    <a href="/widget-demo.html">Prova il Widget Gratuito</a> •
+    <a href="https://paypal.me/onlycreator">Dona ❤️</a><br>
+    Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
+  </p>
+  <p id="footer-links">
+    <a href="https://alessandromemmola.com">Sito personale</a> ·
+    <a href="https://github.com/alessandromemmola">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
+    <a href="https://x.com/alexmemmola">X</a>
+  </p>
+</footer>
+
+<script>
+  let profileUrl = '';
+  let autoSuccess = 0;
+  let manualSteps = 0;
+  let enginesNotified = 0;
+
+  function setStep(n, state, statusText) {
+    document.getElementById('step' + n).className = 'step ' + state;
+    const st = document.getElementById('status' + n);
+    st.className = 'step-status status-' + state;
+    st.textContent = statusText;
+  }
+  function setBody(n, html) { document.getElementById('body' + n).innerHTML = html; }
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function startProcess() {
+    const input = document.getElementById('urlInput').value.trim();
+    if (!input || !input.includes('linkedin.com/in/')) {
+      alert('Inserisci un URL LinkedIn valido (es. https://www.linkedin.com/in/tuonome)');
+      return;
+    }
+    profileUrl = input;
+    document.getElementById('startBtn').disabled = true;
+    document.getElementById('urlInput').disabled = true;
+    document.getElementById('stepsContainer').style.display = 'block';
+    autoSuccess = 0; manualSteps = 0; enginesNotified = 0;
+    await runStep1(); await runStep2(); await runStep3(); await runStep4(); await runStep5();
+    document.getElementById('autoCount').textContent = autoSuccess;
+    document.getElementById('manualCount').textContent = manualSteps;
+    document.getElementById('enginesCount').textContent = enginesNotified;
+    document.getElementById('resultBox').classList.add('show');
+  }
+
+  async function runStep1() {
+    setStep(1, 'active', 'IN CORSO...');
+    await sleep(800);
+    const encoded = encodeURIComponent(profileUrl);
+    try {
+      await fetch(`https://api.indexnow.org/indexnow?url=${encoded}&key=reindexme00000000000000000000000`, { method: 'GET', mode: 'no-cors' });
+      enginesNotified++;
+    } catch(e) {
+      console.error('Errore Bing IndexNow:', e);
+    }
+    setStep(1, 'done', 'INVIATO ✓');
+    setBody(1, `<p>Ping inviato a <strong>api.indexnow.org</strong> — Bing riceverà la notifica entro pochi minuti.</p>`);
+    autoSuccess++;
+  }
+
+  async function runStep2() {
+    setStep(2, 'active', 'IN CORSO...');
+    await sleep(900);
+    const encoded = encodeURIComponent(profileUrl);
+    try {
+      await fetch(`https://yandex.com/indexnow?url=${encoded}&key=reindexme00000000000000000000000`, { method: 'GET', mode: 'no-cors' });
+      enginesNotified++;
+    } catch(e) {
+      console.error('Errore Yandex IndexNow:', e);
+    }
+    setStep(2, 'done', 'INVIATO ✓');
+    setBody(2, `<p>Ping inviato a <strong>yandex.com/indexnow</strong> — aggiornamento atteso entro 24h.</p>`);
+    autoSuccess++;
+  }
+
+  async function runStep3() {
+    setStep(3, 'active', 'MANUALE');
+    await sleep(600);
+    const encoded = encodeURIComponent(profileUrl);
+    setStep(3, 'manual', 'AZIONE RICHIESTA');
+    setBody(3, `
+      <p>Google non supporta IndexNow. Usa uno di questi strumenti ufficiali per forzare il re-fetch:</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn-manual" href="https://search.google.com/test/rich-results?url=${encoded}" target="_blank">🔍 Rich Results Test →</a>
+        <a class="btn-manual" href="https://pagespeed.web.dev/analysis?url=${encoded}" target="_blank">⚡ PageSpeed Insights →</a>
+      </div>
+    `);
+    manualSteps++;
+  }
+
+  async function runStep4() {
+    setStep(4, 'active', 'IN CORSO...');
+    await sleep(700);
+    try {
+      await fetch(`https://www.google.com/ping?sitemap=${encodeURIComponent('https://www.linkedin.com/sitemap.xml')}`, { method: 'GET', mode: 'no-cors' });
+      enginesNotified++;
+    } catch(e) {
+      console.error('Errore Google Sitemap Ping:', e);
+    }
+    setStep(4, 'done', 'INVIATO ✓');
+    setBody(4, `<p>Sitemap di LinkedIn inviata a Google Ping. Segnala a Google che ci sono contenuti aggiornati su LinkedIn.</p>`);
+    autoSuccess++;
+  }
+
+  async function runStep5() {
+    setStep(5, 'active', 'ANALISI...');
+    await sleep(500);
+    setStep(5, 'done', 'CONSIGLIO ✓');
+    setBody(5, `
+      <p><strong style="color:var(--text)">Trucco organico:</strong> condividi il tuo profilo come post su LinkedIn adesso. I link su piattaforme ad alta autorità vengono seguiti da Googlebot molto più velocemente.</p>
+      <a class="btn-manual" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}" target="_blank">📤 Condividi su LinkedIn →</a>
+    `);
+  }
+</script>
+<!-- DONATE BAR -->
+<div class="donate-bar" id="donateBar">
+  <p><strong>Se reindexme ti è stato utile</strong>, aiutami a mantenerlo gratuito e a svilupparlo full-time</p>
+  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Dona</a>
+  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Chiudi">×</button>
+</div>
+
+</body>
+</html>
