@@ -43,7 +43,6 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
   src="https://widget.reindexme.com/index.html"
   width="480"
   height="420"
-  frameborder="0"
   title="reindexme LinkedIn profile tool"
   style="border:none;width:100%;max-width:480px;overflow:hidden;"
 ></iframe>
