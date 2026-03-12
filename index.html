@@ -49,7 +49,7 @@
     .status-manual { color: var(--accent2); border-color: var(--accent2); }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .step-body { display: none; padding: 0 24px 20px; background: var(--surface); border-top: 1px solid var(--border); }
-    .step.active .step-body, .step.done .step-body, .step.error .step-body { display: block; }
+    .step.active .step-body, .step.done .step-body, .step.error .step-body, .step.manual .step-body { display: block; }
     .step-body p { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; padding-top: 14px; line-height: 1.6; }
     .btn-manual { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--accent2); color: var(--accent2); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; padding: 10px 18px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
     .btn-manual:hover { background: rgba(0,102,255,0.1); }
@@ -175,8 +175,8 @@
 <div class="container">
   <header class="header fade-in">
     <div class="badge">⚡ Profile Re-Index Tool</div>
-    <h1>Forza i motori di ricerca a<br>ri-scansionare il tuo<br><span>profilo LinkedIn</span></h1>
-    <p class="subtitle">Hai aggiornato il tuo profilo ma i motori di ricerca mostrano ancora la vecchia posizione? Questo tool invia segnali di re-indicizzazione per accelerare l'aggiornamento.</p>
+    <h1>Forza i motori<br>di ricerca sul tuo<br><span>profilo LinkedIn</span></h1>
+    <p class="subtitle">Hai aggiornato il tuo profilo ma Google mostra ancora la vecchia posizione? Questo tool invia segnali ai motori di ricerca per accelerare l'aggiornamento.</p>
   </header>
 
   <section class="input-section fade-in">
@@ -246,11 +246,11 @@
   <p id="footer-text">
     reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
     Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
-    <a href="/licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
+    <a href="licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
     <a href="https://paypal.me/onlycreator">Dona ❤️</a><br>
     Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
   </p>
-  <a href="/widget-demo.html" class="footer-widget-btn">📦 Prova il Widget Gratuito →</a>
+  <a href="widget-demo.html" class="footer-widget-btn">📦 Prova il Widget Gratuito →</a>
   <p id="footer-links">
     <a href="https://alessandromemmola.com">Sito personale</a> ·
     <a href="https://github.com/alessandromemmola">GitHub</a> ·
@@ -370,6 +370,3 @@
 
 </body>
 </html>
-
-
-
