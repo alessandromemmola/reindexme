@@ -40,7 +40,7 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
 **iFrame**
 ```html
 <iframe
-  src="https://widget.reindexme.com/widget.html"
+  src="https://widget.reindexme.com/index.html"
   width="480"
   height="420"
   frameborder="0"
