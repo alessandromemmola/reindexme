@@ -1,46 +1,43 @@
-# reindexme.com
+# reindexme ⚡
 
-**Re-indicizza i motori di ricerca sul tuo profilo LinkedIn.**
+🇮🇹 [Versione italiana disponibile su reindexme.com](https://reindexme.com)
 
-Hai aggiornato il tuo profilo ma i motori di ricerca mostrano ancora la vecchia posizione? reindexme invia segnali di re-indicizzazione a Bing, Yandex e Google per accelerare l'aggiornamento — senza registrazione, senza cookie, direttamente dal browser.
+> Make search engines update your LinkedIn profile faster.
 
-🔗 **[reindexme.com](https://reindexme.com)**
+**reindexme** sends re-indexing signals to Bing, Yandex and Google when you update your LinkedIn profile — so search results reflect your changes in hours, not weeks.
 
----
-
-## Come funziona
-
-1. Inserisci l'URL del tuo profilo LinkedIn
-2. Il tool invia automaticamente ping a **Bing IndexNow** e **Yandex IndexNow**
-3. Fornisce link diretti agli strumenti ufficiali Google per forzare il re-fetch
-4. Suggerisce il boost organico tramite condivisione su LinkedIn
-
-Aggiornamento atteso: **24–72h** su Bing · **3–10 giorni** su Google.
+🔗 **Live at [reindexme.com/en](https://reindexme.com/en/)**
 
 ---
 
-## Struttura del repo
+## Why reindexme?
 
-```
-reindexme/
-├── index.html        # Tool principale
-├── widget-demo.html  # Pagina demo del widget embeddabile
-├── licenza.html      # Licenza d'uso sito + widget
-└── README.md
-```
-
-> Il codice sorgente del widget embeddabile è ospitato in un repo privato e deployato su [widget.reindexme.com](https://widget.reindexme.com).
+Updated your LinkedIn profile but Google still shows your old job title?
+Search engines don't know your profile changed until they re-crawl it.
+reindexme notifies them automatically.
 
 ---
 
-## Widget embeddabile
+## How it works
 
-reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, personale o commerciale.
+| Step | Engine | Method | Time |
+|------|--------|--------|------|
+| 01 | Bing | IndexNow API (automatic) | Minutes |
+| 02 | Yandex | IndexNow API (automatic) | ~24h |
+| 03 | Google | Rich Results Test / PageSpeed (manual) | 3–10 days |
+| 04 | Google | Sitemap Ping (automatic) | 3–10 days |
+| 05 | All | Organic boost tip | — |
 
-**iFrame**
+---
+
+## Free embeddable widget
+
+Add reindexme to your own site in 30 seconds:
+
+**iFrame:**
 ```html
 <iframe
-  src="https://widget.reindexme.com/index.html"
+  src="https://reindexme-widget.vercel.app/en/"
   width="480"
   height="420"
   title="reindexme LinkedIn profile tool"
@@ -48,36 +45,40 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
 ></iframe>
 ```
 
-**Script tag**
-```html
-<div id="reindex-widget-container"></div>
-<script>
-  (function() {
-    var s = document.createElement('script');
-    s.src = 'https://widget.reindexme.com/widget.js';
-    s.dataset.container = 'reindex-widget-container';
-    document.head.appendChild(s);
-  })();
-</script>
-```
-
-→ [Vedi la demo e le istruzioni complete](https://reindexme.com/widget-demo.html)
+👉 [Widget demo & docs](https://reindexme.com/en/widget-demo.html)
 
 ---
 
-## Licenza
+## Privacy
 
-Il sito e i suoi contenuti sono di proprietà di **Alessandro Memmola** — tutti i diritti riservati.  
-Il widget è concesso in licenza gratuita per l'embed su qualsiasi sito a condizione che il branding rimanga intatto.
-
-→ [Leggi la licenza completa](https://reindexme.com/licenza.html)
+- No account required
+- No data collected
+- No cookies or tracking
+- Your URL never leaves your browser
 
 ---
 
-## Autore
+## Stack
 
-**Alessandro Memmola**  
-[alessandromemmola.com](https://alessandromemmola.com) · [LinkedIn](https://www.linkedin.com/in/alessandro-memmola-233868372/) · [GitHub](https://github.com/alessandromemmola) · [X](https://x.com/alexmemmola)
+- Pure HTML / CSS / Vanilla JS
+- Hosted on GitHub Pages
+- Widget hosted on Vercel
 
-Se reindexme ti è stato utile, puoi supportare il progetto:  
-❤️ [paypal.me/onlycreator](https://paypal.me/onlycreator)
+---
+
+## Support
+
+If reindexme saved you time, consider supporting:
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://paypal.me/onlycreator)
+
+---
+
+## License
+
+Proprietary — free to use and embed with attribution.
+[Read the full license](https://reindexme.com/en/license.html)
+
+---
+
+*Built by [Memmola Labs - Alessandro Memmola](https://alessandromemmola.com)*
