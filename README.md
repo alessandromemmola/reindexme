@@ -1,6 +1,6 @@
 # reindexme.com
 
-**Forza i motori di ricerca a ri-scansionare il tuo profilo LinkedIn.**
+**Re-indicizza i motori di ricerca sul tuo profilo LinkedIn.**
 
 Hai aggiornato il tuo profilo ma i motori di ricerca mostrano ancora la vecchia posizione? reindexme invia segnali di re-indicizzazione a Bing, Yandex e Google per accelerare l'aggiornamento — senza registrazione, senza cookie, direttamente dal browser.
 
