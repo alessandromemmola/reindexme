@@ -1,6 +1,6 @@
 # reindexme ⚡
 
-🇮🇹 [Versione italiana disponibile su reindexme.com](https://reindexme.com/it/)
+🇮🇹 [Versione italiana disponibile su reindexme.com/it/](https://reindexme.com/it/)
 
 > Make search engines update your LinkedIn profile faster.
 
