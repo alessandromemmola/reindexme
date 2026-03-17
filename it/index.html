@@ -166,12 +166,14 @@
     /* push footer above donate bar */
     footer { margin-bottom: 56px; }
 
-    @media (max-width: 520px) {
-      .donate-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
-      .donate-bar p { font-size: 10px; text-align: center; }
-      .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-top: 14px; transition: color 0.2s, border-color 0.2s; }
-      .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
-    }
+   .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-top: 14px; margin-bottom: 24px; transition: color 0.2s, border-color 0.2s; }
+   .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
+
+   @media (max-width: 520px) {
+     .donate-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
+     .donate-bar p { font-size: 10px; text-align: center; }
+   }
+}
   </style>
 </head>
 <body>
