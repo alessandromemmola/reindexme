@@ -1,12 +1,12 @@
 # reindexme ⚡
 
-🇮🇹 [Versione italiana disponibile su reindexme.com](https://reindexme.com)
+🇮🇹 [Versione italiana disponibile su reindexme.com](https://reindexme.com/it/)
 
 > Make search engines update your LinkedIn profile faster.
 
 **reindexme** sends re-indexing signals to Bing, Yandex and Google when you update your LinkedIn profile — so search results reflect your changes in hours, not weeks.
 
-🔗 **Live at [reindexme.com/en](https://reindexme.com/en/)**
+🔗 **Live at [reindexme.com](https://reindexme.com)**
 
 ---
 
@@ -37,7 +37,7 @@ Add reindexme to your own site in 30 seconds:
 **iFrame:**
 ```html
 <iframe
-  src="https://reindexme-widget.vercel.app/en/"
+  src="https://reindexme-widget.vercel.app"
   width="480"
   height="420"
   title="reindexme LinkedIn profile tool"
@@ -45,7 +45,7 @@ Add reindexme to your own site in 30 seconds:
 ></iframe>
 ```
 
-👉 [Widget demo & docs](https://reindexme.com/en/widget-demo.html)
+👉 [Widget demo & docs](https://reindexme.com/widget-demo.html)
 
 ---
 
@@ -77,7 +77,7 @@ If reindexme saved you time, consider supporting:
 ## License
 
 Proprietary — free to use and embed with attribution.
-[Read the full license](https://reindexme.com/en/license.html)
+[Read the full license](https://reindexme.com/license.html)
 
 ---
 
