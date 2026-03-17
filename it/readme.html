@@ -1,10 +1,12 @@
 # reindexme.com
 
-**Forza i motori di ricerca a ri-scansionare il tuo profilo LinkedIn.**
+🇬🇧 [English version available at reindexme.com](https://reindexme.com)
+
+**Re-indicizza il tuo profilo LinkedIn sui motori di ricerca.**
 
 Hai aggiornato la tua posizione su LinkedIn ma Google mostra ancora quella vecchia? reindexme invia segnali di re-indicizzazione a Bing, Yandex e Google per accelerare l'aggiornamento — senza registrazione, senza cookie, direttamente dal browser.
 
-🔗 **[reindexme.com](https://reindexme.com)**
+🔗 **[reindexme.com/it](https://reindexme.com/it/)**
 
 ---
 
@@ -23,13 +25,19 @@ Aggiornamento atteso: **24–72h** su Bing · **3–10 giorni** su Google.
 
 ```
 reindexme/
-├── index.html        # Tool principale
-├── widget-demo.html  # Pagina demo del widget embeddabile
-├── licenza.html      # Licenza d'uso sito + widget
+├── index.html            # Tool principale (inglese)
+├── widget-demo.html      # Pagina demo widget (inglese)
+├── license.html          # Licenza (inglese)
+├── it/
+│   ├── index.html        # Tool principale (italiano)
+│   ├── widget-demo.html  # Pagina demo widget (italiano)
+│   └── licenza.html      # Licenza (italiano)
+├── sitemap.xml
+├── robots.txt
 └── README.md
 ```
 
-> Il codice sorgente del widget embeddabile è ospitato in un repo privato e deployato su [widget.reindexme.com](https://widget.reindexme.com).
+> Il codice sorgente del widget embeddabile è ospitato in un repo privato e deployato su [reindexme-widget.vercel.app](https://reindexme-widget.vercel.app).
 
 ---
 
@@ -40,7 +48,7 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
 **iFrame**
 ```html
 <iframe
-  src="https://widget.reindexme.com/index.html"
+  src="https://reindexme-widget.vercel.app/it/"
   width="480"
   height="420"
   title="reindexme LinkedIn profile tool"
@@ -54,14 +62,14 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
 <script>
   (function() {
     var s = document.createElement('script');
-    s.src = 'https://widget.reindexme.com/widget.js';
+    s.src = 'https://reindexme-widget.vercel.app/widget.js';
     s.dataset.container = 'reindex-widget-container';
     document.head.appendChild(s);
   })();
 </script>
 ```
 
-→ [Vedi la demo e le istruzioni complete](https://reindexme.com/widget-demo.html)
+→ [Vedi la demo e le istruzioni complete](https://reindexme.com/it/widget-demo.html)
 
 ---
 
@@ -70,14 +78,14 @@ reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, pe
 Il sito e i suoi contenuti sono di proprietà di **Alessandro Memmola** — tutti i diritti riservati.  
 Il widget è concesso in licenza gratuita per l'embed su qualsiasi sito a condizione che il branding rimanga intatto.
 
-→ [Leggi la licenza completa](https://reindexme.com/licenza.html)
+→ [Leggi la licenza completa](https://reindexme.com/it/licenza.html)
 
 ---
 
 ## Autore
 
 **Alessandro Memmola**  
-[alessandromemmola.com](https://alessandromemmola.com) · [LinkedIn](https://www.linkedin.com/in/alessandro-memmola-233868372/) · [GitHub](https://github.com/alessandromemmola) · [X](https://x.com/alexmemmola)
+[alessandromemmola.com](https://alessandromemmola.com) · [LinkedIn](https://www.linkedin.com/in/alessandro-memmola-233868372/) · [GitHub](https://github.com/alessandromemmola) · [X](https://x.com/MemmolaLabs) · [Product Hunt](https://www.producthunt.com/@alessandromemmola)
 
 Se reindexme ti è stato utile, puoi supportare il progetto:  
 ❤️ [paypal.me/onlycreator](https://paypal.me/onlycreator)
