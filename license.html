@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="reindexme.com license — what you can do with the site and the embeddable widget. Free for personal and commercial use with attribution." />
+  <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
+  <title>License — reindexme.com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --surface: #111; --border: #222;
+      --accent: #00ff88; --accent2: #0066ff; --text: #f0f0f0; --muted: #666;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,255,136,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.025) 1px, transparent 1px);
+      background-size: 40px 40px; pointer-events: none; z-index: 0;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 1; }
+    .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 20px; text-transform: uppercase; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 8px; }
+    h1 span { color: var(--accent); }
+    .meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 48px; }
+    .meta span { color: var(--accent); }
+    .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-bottom: 40px; transition: color 0.2s, border-color 0.2s; }
+    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+    .summary-card { background: var(--surface); border: 1px solid var(--border); padding: 24px; }
+    .summary-card.allowed { border-left: 3px solid var(--accent); }
+    .summary-card.forbidden { border-left: 3px solid #ff4444; }
+    .summary-card h3 { font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .summary-card ul { list-style: none; }
+    .summary-card ul li { font-size: 0.78rem; color: var(--muted); padding: 5px 0; border-bottom: 1px solid #1a1a1a; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .summary-card ul li:last-child { border-bottom: none; }
+    .summary-card ul li::before { flex-shrink: 0; margin-top: 1px; }
+    .allowed ul li::before { content: '✓'; color: var(--accent); font-family: 'DM Mono', monospace; font-size: 10px; }
+    .forbidden ul li::before { content: '✕'; color: #ff4444; font-family: 'DM Mono', monospace; font-size: 10px; }
+    .lic-section { margin-bottom: 40px; }
+    .lic-section-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .lic-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .lic-section-title .num { color: var(--muted); }
+    .lic-block { background: var(--surface); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 12px; }
+    .lic-block h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
+    .lic-block p, .lic-block li { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+    .lic-block ul { margin-left: 16px; margin-top: 8px; }
+    .lic-block ul li { margin-bottom: 4px; }
+    .lic-block strong { color: var(--text); }
+    .lic-block a { color: var(--accent2); text-decoration: none; }
+    .lic-block a:hover { text-decoration: underline; }
+    .attribution-box { background: #0d0d0d; border: 1px solid var(--border); padding: 20px 24px; font-family: 'DM Mono', monospace; font-size: 12px; color: #888; margin-top: 12px; }
+    .attribution-box .kw { color: #ff6b9d; }
+    .attribution-box .str { color: var(--accent); }
+    footer { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.9; }
+    #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s; }
+    #footer-text a:hover { color: var(--accent); }
+    #footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
+    #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    #footer-links a:hover { color: var(--accent); }
+    @media (max-width: 560px) { .summary-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="badge">⚖️ License</div>
+  <h1>Terms of use<br><span>reindexme.com</span></h1>
+  <p class="meta">Version <span>1.0</span> · Effective from <span>January 1, 2026</span> · Author: <span>Alessandro Memmola</span></p>
+  <a href="../licenza.html" class="lang-switch">🇮🇹 Versione italiana</a>
+
+  <div class="summary-grid">
+    <div class="summary-card allowed">
+      <h3>✅ What you can do</h3>
+      <ul>
+        <li>Use the tool on reindexme.com freely</li>
+        <li>Embed the widget on any website</li>
+        <li>Use the widget on commercial and paid sites</li>
+        <li>Share the link to the tool and widget</li>
+        <li>Suggest improvements and report bugs</li>
+      </ul>
+    </div>
+    <div class="summary-card forbidden">
+      <h3>❌ What you cannot do</h3>
+      <ul>
+        <li>Copy or redistribute the source code</li>
+        <li>Create modified versions or public forks</li>
+        <li>Remove the "reindexme.com" signature from the widget</li>
+        <li>Sell the tool or widget as your own product</li>
+        <li>Use the "reindexme" brand for other products</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lic-section">
+    <div class="lic-section-title"><span class="num">01 //</span> The Website (reindexme.com)</div>
+    <div class="lic-block">
+      <h4>Intellectual property</h4>
+      <p>All content published on reindexme.com — including text, graphics, source code, structure and design — is the exclusive property of <strong>Alessandro Memmola</strong> and is protected by copyright laws in Italy and the European Union.</p>
+    </div>
+    <div class="lic-block">
+      <h4>Permitted use</h4>
+      <p>The site is freely accessible and usable by anyone for personal and professional use. No registration or attribution is required to use the online tool.</p>
+    </div>
+    <div class="lic-block">
+      <h4>Prohibited use</h4>
+      <p>The following are expressly forbidden:</p>
+      <ul>
+        <li>Copying, reproducing or redistributing the site's source code in whole or in part</li>
+        <li>Creating derivative services based on the site's code or structure</li>
+        <li>Automated scraping of the site's content</li>
+        <li>Using the "reindexme" or "reindexme.com" brand without written authorization</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lic-section">
+    <div class="lic-section-title"><span class="num">02 //</span> The Embeddable Widget</div>
+    <div class="lic-block">
+      <h4>Free embed license</h4>
+      <p>The reindexme widget is licensed <strong>free of charge and non-exclusively</strong> for embedding on any website, personal or commercial, provided the following conditions are met:</p>
+      <ul>
+        <li>The widget must be embedded via the <strong>official iframe or script tag</strong> provided by reindexme.com</li>
+        <li>The <strong>"reindexme.com"</strong> signature and <strong>"BY ALESSANDRO MEMMOLA"</strong> attribution visible in the widget must not be removed or altered</li>
+        <li>The widget's source code must not be modified</li>
+      </ul>
+    </div>
+    <div class="lic-block">
+      <h4>Required attribution</h4>
+      <p>The embed automatically includes the visible signature. No additional attribution in the page hosting the widget is required, as long as the internal widget signature remains intact.</p>
+      <div class="attribution-box">
+        <span class="cm">// Signature automatically included in the widget</span><br>
+        <span class="kw">powered by</span> <span class="str">reindexme.com</span> · BY ALESSANDRO MEMMOLA
+      </div>
+    </div>
+    <div class="lic-block">
+      <h4>Prohibitions</h4>
+      <p>The following are forbidden:</p>
+      <ul>
+        <li>Copying the widget's HTML/CSS/JS code and self-hosting it</li>
+        <li>Creating modified versions of the widget that remove branding</li>
+        <li>Selling or sub-licensing access to the widget</li>
+        <li>Using the widget in illegal, fraudulent or harmful contexts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lic-section">
+    <div class="lic-section-title"><span class="num">03 //</span> Warranties and Liability</div>
+    <div class="lic-block">
+      <h4>No warranties</h4>
+      <p>The tool and widget are provided <strong>"as-is"</strong>, without warranties of any kind, express or implied. Alessandro Memmola does not guarantee that the tool will produce specific results in search engine indexing times, which depend exclusively on Google, Bing and other third-party engines.</p>
+    </div>
+    <div class="lic-block">
+      <h4>Limitation of liability</h4>
+      <p>In no event shall Alessandro Memmola be liable for direct, indirect, incidental or consequential damages arising from the use or inability to use the tool or widget.</p>
+    </div>
+  </div>
+
+  <div class="lic-section">
+    <div class="lic-section-title"><span class="num">04 //</span> Privacy and Data</div>
+    <div class="lic-block">
+      <h4>No data collected</h4>
+      <p>reindexme.com and the widget <strong>do not collect, process or store any personal data</strong> from users. URLs entered in the tool are processed entirely in the user's browser and sent directly to Bing, Yandex and Google APIs without passing through any proprietary servers.</p>
+      <p style="margin-top: 10px;">The site does not use profiling cookies or behavioral tracking systems.</p>
+    </div>
+  </div>
+
+  <div class="lic-section">
+    <div class="lic-section-title"><span class="num">05 //</span> Contacts and Permissions</div>
+    <div class="lic-block">
+      <h4>Permission requests</h4>
+      <p>For uses not covered by this license, partnership requests or to report violations, contact Alessandro Memmola via:</p>
+      <ul style="margin-top: 10px;">
+        <li><a href="https://alessandromemmola.com" target="_blank">alessandromemmola.com</a></li>
+        <li><a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/alessandromemmola" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p id="footer-text">
+    reindexme.com and its contents © Alessandro Memmola 2026 – All rights reserved.<br>
+    reindexme widget: free to embed on any site (personal or commercial).<br>
+    <a href="https://reindexme.com/en/license.html" target="_blank">Read the full license (site + widget)</a> •
+    <a href="https://reindexme.com/en/widget-demo.html">Try the Free Widget</a> •
+    <a href="https://paypal.me/onlycreator">Donate ❤️</a><br>
+    This site does not collect personal data or use profiling cookies
+  </p>
+  <p id="footer-links">
+    <a href="https://alessandromemmola.com">Personal site</a> ·
+    <a href="https://github.com/alessandromemmola">GitHub</a> ·
+    <a href="https://www.producthunt.com/@alessandromemmola">Producthunt</a> ·
+    <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
+    <a href="https://x.com/alexmemmola">X</a>
+  </p>
+</footer>
+
+</body>
+</html>
