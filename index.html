@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hai aggiornato il tuo profilo LinkedIn ma i motori di ricerca mostrano ancora la vecchia posizione? reindexme invia segnali di re-indicizzazione a Bing, Yandex e Google per accelerare l'aggiornamento." />
-  <title>ReIndex Me — Re-indicizza l'aggiornamento del tuo profilo</title>
+  <meta name="description" content="Updated your LinkedIn profile but search engines still show the old position? reindexme sends re-indexing signals to Bing, Yandex and Google to speed up the update." />
+  <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
+  <title>ReIndex Me — Speed up your LinkedIn profile update on search engines</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,6 +26,8 @@
     h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
     h1 span { color: var(--accent); }
     .subtitle { margin-top: 16px; color: var(--muted); font-size: 1rem; font-weight: 400; line-height: 1.6; max-width: 520px; }
+    .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-top: 14px; transition: color 0.2s, border-color 0.2s; }
+    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
     .input-section { background: var(--surface); border: 1px solid var(--border); padding: 32px; margin-bottom: 40px; }
     label { display: block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
     .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -66,7 +69,6 @@
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* FOOTER */
     footer {
       max-width: 720px;
       margin: 72px auto 0;
@@ -102,7 +104,6 @@
     #footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
     #footer-links a:hover { color: var(--accent); }
-    .footer-divider { margin: 0 4px; color: var(--border); }
 
     @media (max-width: 520px) {
       .input-row { flex-direction: column; }
@@ -110,12 +111,9 @@
       #footer-links { flex-direction: column; gap: 8px; }
     }
 
-    /* DONATE BAR */
     .donate-bar {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
@@ -127,133 +125,113 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
-    .donate-bar p {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
+    .donate-bar p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
     .donate-bar p strong { color: var(--text); font-weight: 500; }
     .donate-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      padding: 6px 14px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s, color 0.2s;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; border: 1px solid var(--accent);
+      color: var(--accent); font-family: 'DM Mono', monospace;
+      font-size: 11px; letter-spacing: 0.06em; padding: 6px 14px;
+      text-decoration: none; transition: background 0.2s, color 0.2s;
     }
     .donate-btn:hover { background: var(--accent); color: #000; }
     .donate-close {
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 16px;
-      cursor: pointer;
-      padding: 0 4px;
-      line-height: 1;
-      transition: color 0.2s;
-      flex-shrink: 0;
+      background: none; border: none; color: var(--muted);
+      font-size: 16px; cursor: pointer; padding: 0 4px;
+      line-height: 1; transition: color 0.2s; flex-shrink: 0;
     }
     .donate-close:hover { color: var(--text); }
-    /* push footer above donate bar */
-    footer { margin-bottom: 56px; }
-
-    @media (max-width: 520px) {
-      .donate-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
-      .donate-bar p { font-size: 10px; text-align: center; }
-    }
   </style>
 </head>
 <body>
+
 <div class="container">
-  <header class="header fade-in">
+  <div class="header">
     <div class="badge">⚡ Profile Re-Index Tool</div>
-    <h1>Re-indicizza i motori<br>di ricerca sul tuo<br><span>profilo LinkedIn</span></h1>
-    <p class="subtitle">Hai aggiornato il tuo profilo ma i motori di ricerca mostrano ancora la vecchia posizione? Questo tool invia segnali di re-indicizzazione per accelerare l'aggiornamento.</p>
-  </header>
+    <h1>Make search engines update your <span>LinkedIn profile</span> faster</h1>
+    <p class="subtitle">Updated your profile but Google still shows the old position? This tool sends re-indexing signals to speed up the update.</p>
+    <a href="../index.html" class="lang-switch">🇮🇹 Versione italiana</a>
+  </div>
 
-  <section class="input-section fade-in">
-    <label>URL del tuo profilo LinkedIn</label>
+  <div class="input-section">
+    <label for="urlInput">Your LinkedIn profile URL</label>
     <div class="input-row">
-      <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/tuonome" />
-      <button class="btn-primary" id="startBtn" onclick="startProcess()">Avvia →</button>
+      <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/yourname" autocomplete="off" spellcheck="false" />
+      <button class="btn-primary" id="startBtn" onclick="startProcess()">Run →</button>
     </div>
-  </section>
+  </div>
 
-  <div id="stepsContainer" style="display:none" class="fade-in">
-    <p class="steps-title">// Operazioni in corso</p>
+  <div id="stepsContainer" style="display:none">
+    <p class="steps-title">// Operations in progress</p>
+
     <div class="step" id="step1">
       <div class="step-header">
         <span class="step-num">01</span><span class="step-icon">🔵</span>
-        <div class="step-info"><div class="step-name">Bing IndexNow</div><div class="step-desc">Ping diretto all'API di indicizzazione Microsoft</div></div>
-        <span class="step-status status-waiting" id="status1">IN ATTESA</span>
+        <div class="step-info"><div class="step-name">Bing IndexNow</div><div class="step-desc">Direct ping to Microsoft's indexing API</div></div>
+        <span class="step-status status-waiting" id="status1">WAITING</span>
       </div>
       <div class="step-body" id="body1"></div>
     </div>
+
     <div class="step" id="step2">
       <div class="step-header">
         <span class="step-num">02</span><span class="step-icon">🔴</span>
-        <div class="step-info"><div class="step-name">Yandex IndexNow</div><div class="step-desc">Ping al motore russo — supporta IndexNow natively</div></div>
-        <span class="step-status status-waiting" id="status2">IN ATTESA</span>
+        <div class="step-info"><div class="step-name">Yandex IndexNow</div><div class="step-desc">Ping to Yandex — natively supports IndexNow</div></div>
+        <span class="step-status status-waiting" id="status2">WAITING</span>
       </div>
       <div class="step-body" id="body2"></div>
     </div>
+
     <div class="step" id="step3">
       <div class="step-header">
         <span class="step-num">03</span><span class="step-icon">🟡</span>
-        <div class="step-info"><div class="step-name">Google — Richiesta manuale</div><div class="step-desc">Google non supporta IndexNow, ma puoi richiedere il crawl qui</div></div>
-        <span class="step-status status-waiting" id="status3">IN ATTESA</span>
+        <div class="step-info"><div class="step-name">Google — Manual request</div><div class="step-desc">Google doesn't support IndexNow, but you can request a crawl here</div></div>
+        <span class="step-status status-waiting" id="status3">WAITING</span>
       </div>
       <div class="step-body" id="body3"></div>
     </div>
+
     <div class="step" id="step4">
       <div class="step-header">
         <span class="step-num">04</span><span class="step-icon">🟢</span>
-        <div class="step-info"><div class="step-name">Ping Sitemap Google</div><div class="step-desc">Invia il link alla sitemap pubblica di LinkedIn</div></div>
-        <span class="step-status status-waiting" id="status4">IN ATTESA</span>
+        <div class="step-info"><div class="step-name">Google Sitemap Ping</div><div class="step-desc">Sends LinkedIn's public sitemap link to Google</div></div>
+        <span class="step-status status-waiting" id="status4">WAITING</span>
       </div>
       <div class="step-body" id="body4"></div>
     </div>
+
     <div class="step" id="step5">
       <div class="step-header">
         <span class="step-num">05</span><span class="step-icon">💡</span>
-        <div class="step-info"><div class="step-name">Boost organico</div><div class="step-desc">Trick per accelerare ulteriormente il re-crawl</div></div>
-        <span class="step-status status-waiting" id="status5">IN ATTESA</span>
+        <div class="step-info"><div class="step-name">Organic boost</div><div class="step-desc">A trick to further speed up re-crawling</div></div>
+        <span class="step-status status-waiting" id="status5">WAITING</span>
       </div>
       <div class="step-body" id="body5"></div>
     </div>
   </div>
 
   <div class="result-box" id="resultBox">
-    <h3>Operazioni completate <span>✓</span></h3>
-    <p>I segnali di re-indicizzazione sono stati inviati. Google e Bing hanno ricevuto la richiesta di rivisitare il tuo profilo. Di solito l'aggiornamento avviene entro <strong style="color:var(--accent)">24–72 ore</strong> per Bing, e <strong style="color:var(--accent)">3–10 giorni</strong> per Google.</p>
+    <h3>Operations completed <span>✓</span></h3>
+    <p>Re-indexing signals have been sent. Google and Bing have received the request to re-visit your profile. Updates usually happen within <strong style="color:var(--accent)">24–72 hours</strong> for Bing, and <strong style="color:var(--accent)">3–10 days</strong> for Google.</p>
     <div class="summary-grid">
-      <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Automatici</span></div>
-      <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Manuali</span></div>
-      <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Motori notificati</span></div>
+      <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Automatic</span></div>
+      <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Manual</span></div>
+      <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Engines notified</span></div>
     </div>
   </div>
 </div>
 
 <footer>
   <p id="footer-text">
-    reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
-    Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
-    <a href="licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
-    <a href="https://paypal.me/onlycreator">Dona ❤️</a><br>
-    Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
+    reindexme.com and its contents © Alessandro Memmola 2026 – All rights reserved.<br>
+    reindexme widget: free to embed on any site (personal or commercial).<br>
+    <a href="https://reindexme.com/en/license.html" target="_blank">Read the full license (site + widget)</a> •
+    <a href="https://paypal.me/onlycreator">Donate ❤️</a><br>
+    This site does not collect personal data or use profiling cookies
   </p>
-  <a href="widget-demo.html" class="footer-widget-btn">📦 Prova il Widget Gratuito →</a>
+ <a href="https://reindexme.com/en/widget-demo.html" class="footer-widget-btn">📦 Try the Free Widget →</a>
   <p id="footer-links">
-    <a href="https://alessandromemmola.com">Sito personale</a> ·
+    <a href="https://alessandromemmola.com">Personal site</a> ·
     <a href="https://github.com/alessandromemmola">GitHub</a> ·
     <a href="https://www.producthunt.com/@alessandromemmola">Producthunt</a> · 
     <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
@@ -279,7 +257,7 @@
   async function startProcess() {
     const input = document.getElementById('urlInput').value.trim();
     if (!input || !input.includes('linkedin.com/in/')) {
-      alert('Inserisci un URL LinkedIn valido (es. https://www.linkedin.com/in/tuonome)');
+      alert('Please enter a valid LinkedIn URL (e.g. https://www.linkedin.com/in/yourname)');
       return;
     }
     profileUrl = input;
@@ -295,42 +273,42 @@
   }
 
   async function runStep1() {
-    setStep(1, 'active', 'IN CORSO...');
+    setStep(1, 'active', 'RUNNING...');
     await sleep(800);
     const encoded = encodeURIComponent(profileUrl);
     try {
       await fetch(`https://api.indexnow.org/indexnow?url=${encoded}&key=reindexme00000000000000000000000`, { method: 'GET', mode: 'no-cors' });
       enginesNotified++;
     } catch(e) {
-      console.error('Errore Bing IndexNow:', e);
+      console.error('Bing IndexNow error:', e);
     }
-    setStep(1, 'done', 'INVIATO ✓');
-    setBody(1, `<p>Ping inviato a <strong>api.indexnow.org</strong> — Bing riceverà la notifica entro pochi minuti.</p>`);
+    setStep(1, 'done', 'SENT ✓');
+    setBody(1, `<p>Ping sent to <strong>api.indexnow.org</strong> — Bing will receive the notification within minutes.</p>`);
     autoSuccess++;
   }
 
   async function runStep2() {
-    setStep(2, 'active', 'IN CORSO...');
+    setStep(2, 'active', 'RUNNING...');
     await sleep(900);
     const encoded = encodeURIComponent(profileUrl);
     try {
       await fetch(`https://yandex.com/indexnow?url=${encoded}&key=reindexme00000000000000000000000`, { method: 'GET', mode: 'no-cors' });
       enginesNotified++;
     } catch(e) {
-      console.error('Errore Yandex IndexNow:', e);
+      console.error('Yandex IndexNow error:', e);
     }
-    setStep(2, 'done', 'INVIATO ✓');
-    setBody(2, `<p>Ping inviato a <strong>yandex.com/indexnow</strong> — aggiornamento atteso entro 24h.</p>`);
+    setStep(2, 'done', 'SENT ✓');
+    setBody(2, `<p>Ping sent to <strong>yandex.com/indexnow</strong> — update expected within 24h.</p>`);
     autoSuccess++;
   }
 
   async function runStep3() {
-    setStep(3, 'active', 'MANUALE');
+    setStep(3, 'active', 'MANUAL');
     await sleep(600);
     const encoded = encodeURIComponent(profileUrl);
-    setStep(3, 'manual', 'AZIONE RICHIESTA');
+    setStep(3, 'manual', 'ACTION REQUIRED');
     setBody(3, `
-      <p>Google non supporta IndexNow. Usa uno di questi strumenti ufficiali per accellerare il re-fetch:</p>
+      <p>Google doesn't support IndexNow. Use one of these official tools to force a re-fetch:</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a class="btn-manual" href="https://search.google.com/test/rich-results?url=${encoded}" target="_blank">🔍 Rich Results Test →</a>
         <a class="btn-manual" href="https://pagespeed.web.dev/analysis?url=${encoded}" target="_blank">⚡ PageSpeed Insights →</a>
@@ -340,34 +318,34 @@
   }
 
   async function runStep4() {
-    setStep(4, 'active', 'IN CORSO...');
+    setStep(4, 'active', 'RUNNING...');
     await sleep(700);
     try {
       await fetch(`https://www.google.com/ping?sitemap=${encodeURIComponent('https://www.linkedin.com/sitemap.xml')}`, { method: 'GET', mode: 'no-cors' });
       enginesNotified++;
     } catch(e) {
-      console.error('Errore Google Sitemap Ping:', e);
+      console.error('Google Sitemap Ping error:', e);
     }
-    setStep(4, 'done', 'INVIATO ✓');
-    setBody(4, `<p>Sitemap di LinkedIn inviata a Google Ping. Segnala a Google che ci sono contenuti aggiornati su LinkedIn.</p>`);
+    setStep(4, 'done', 'SENT ✓');
+    setBody(4, `<p>LinkedIn's sitemap sent to Google Ping. Signals Google that there is updated content on LinkedIn.</p>`);
     autoSuccess++;
   }
 
   async function runStep5() {
-    setStep(5, 'active', 'ANALISI...');
+    setStep(5, 'active', 'ANALYZING...');
     await sleep(500);
-    setStep(5, 'done', 'CONSIGLIO ✓');
+    setStep(5, 'done', 'TIP ✓');
     setBody(5, `
-      <p><strong style="color:var(--text)">Trucco organico:</strong> condividi il tuo profilo come post su LinkedIn adesso. I link su piattaforme ad alta autorità vengono seguiti da Googlebot molto più velocemente.</p>
-      <a class="btn-manual" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}" target="_blank">📤 Condividi su LinkedIn →</a>
+      <p><strong style="color:var(--text)">Organic trick:</strong> share your profile as a post on LinkedIn right now. Links on high-authority platforms are followed by Googlebot much faster.</p>
+      <a class="btn-manual" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}" target="_blank">📤 Share on LinkedIn →</a>
     `);
   }
 </script>
-<!-- DONATE BAR -->
+
 <div class="donate-bar" id="donateBar">
-  <p><strong>Se reindexme ti è stato utile</strong>, aiutami a mantenerlo gratuito e a svilupparlo full-time</p>
-  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Dona</a>
-  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Chiudi">×</button>
+  <p><strong>If reindexme was useful to you</strong>, help me keep it free and develop it full-time</p>
+  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Donate</a>
+  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Close">×</button>
 </div>
 
 </body>
