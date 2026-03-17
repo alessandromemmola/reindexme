@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Embed il widget reindexme sul tuo sito gratuitamente. Permetti ai tuoi utenti di forzare la re-indicizzazione del loro profilo LinkedIn su tutti i motori di ricerca." />
+  <meta name="description" content="Embed the reindexme widget on your site for free. Let your users speed up their LinkedIn profile update on all major search engines." />
+  <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
   <title>Widget Demo — reindexme.com</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -19,104 +20,41 @@
       background-size: 40px 40px; pointer-events: none; z-index: 0;
     }
     .container { max-width: 860px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 1; }
-
     .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 20px; text-transform: uppercase; }
     h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px; }
     h1 span { color: var(--accent); }
     .subtitle { color: var(--muted); font-size: 0.95rem; line-height: 1.6; max-width: 560px; margin-bottom: 56px; }
-
-    /* Section */
+    .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-top: -40px; margin-bottom: 40px; display: block; width: fit-content; transition: color 0.2s, border-color 0.2s; }
+    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
     .section { margin-bottom: 56px; }
     .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
     .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-    /* Preview card */
-    .preview-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      min-height: 320px;
-    }
-
-    /* Tabs */
+    .preview-card { background: var(--surface); border: 1px solid var(--border); padding: 40px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; min-height: 320px; }
     .tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid var(--border); }
-    .tab {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      transition: color 0.2s;
-    }
+    .tab { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 20px; background: none; border: none; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.2s; }
     .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
     .tab:hover { color: var(--text); }
-
-    /* Code block */
     .code-panel { display: none; }
     .code-panel.active { display: block; }
-    .code-block {
-      background: #0d0d0d;
-      border: 1px solid var(--border);
-      border-top: none;
-      padding: 24px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      line-height: 1.7;
-      color: #a0a0a0;
-      overflow-x: auto;
-      position: relative;
-    }
+    .code-block { background: #0d0d0d; border: 1px solid var(--border); border-top: none; padding: 24px; font-family: 'DM Mono', monospace; font-size: 12px; line-height: 1.7; color: #a0a0a0; overflow-x: auto; position: relative; }
     .code-block .kw { color: #ff6b9d; }
     .code-block .str { color: var(--accent); }
     .code-block .cm { color: #444; }
     .code-block .tag { color: #7ec8e3; }
-    .copy-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 5px 12px;
-      cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
-    }
+    .copy-btn { position: absolute; top: 12px; right: 12px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; background: var(--surface); border: 1px solid var(--border); color: var(--muted); padding: 5px 12px; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
     .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
     .copy-btn.copied { color: var(--accent); border-color: var(--accent); }
-
-    /* Features grid */
     .features-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 32px; }
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 20px;
-    }
+    .feature-card { background: var(--surface); border: 1px solid var(--border); padding: 20px; }
     .feature-icon { font-size: 1.4rem; margin-bottom: 10px; }
     .feature-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; }
     .feature-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
-
-    /* Customization */
     .config-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
     .config-table th { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
     .config-table td { font-family: 'DM Mono', monospace; font-size: 11px; padding: 10px 12px; border-bottom: 1px solid #1a1a1a; vertical-align: top; }
     .config-table td:first-child { color: var(--accent); }
     .config-table td:nth-child(2) { color: #7ec8e3; }
     .config-table td:nth-child(3) { color: var(--muted); }
-
-    /* CTA */
     .cta-box { background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,102,255,0.04)); border: 1px solid rgba(0,255,136,0.2); padding: 36px; text-align: center; margin-top: 48px; }
     .cta-box h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
     .cta-box p { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
@@ -124,71 +62,22 @@
     .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 12px 24px; text-decoration: none; transition: opacity 0.2s; }
     .btn-cta:hover { opacity: 0.82; }
     .btn-cta-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
-
-    /* Footer */
-    footer { max-width: 860px; margin: 72px auto 0; padding: 32px 24px 48px; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.9; position: relative; z-index: 1; }
+    footer { max-width: 860px; margin: 72px auto 0; padding: 32px 24px 48px; border-top: 1px solid var(--border); font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.9; position: relative; z-index: 1; margin-bottom: 56px; }
     #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s; }
     #footer-text a:hover { color: var(--accent); }
     #footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
     #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
     #footer-links a:hover { color: var(--accent); }
-
+    .donate-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 12px 24px; background: rgba(10,10,10,0.92); border-top: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .donate-bar p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
+    .donate-bar p strong { color: var(--text); font-weight: 500; }
+    .donate-btn { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--accent); color: var(--accent); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; padding: 6px 14px; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
+    .donate-btn:hover { background: var(--accent); color: #000; }
+    .donate-close { background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; padding: 0 4px; line-height: 1; transition: color 0.2s; flex-shrink: 0; }
+    .donate-close:hover { color: var(--text); }
     @media (max-width: 600px) {
       .features-grid { grid-template-columns: 1fr; }
       .preview-card { padding: 20px; }
-    }
-
-    /* DONATE BAR */
-    .donate-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 12px 24px;
-      background: rgba(10,10,10,0.92);
-      border-top: 1px solid var(--border);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .donate-bar p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
-    .donate-bar p strong { color: var(--text); font-weight: 500; }
-    .donate-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      padding: 6px 14px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s, color 0.2s;
-      flex-shrink: 0;
-    }
-    .donate-btn:hover { background: var(--accent); color: #000; }
-    .donate-close {
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 16px;
-      cursor: pointer;
-      padding: 0 4px;
-      line-height: 1;
-      transition: color 0.2s;
-      flex-shrink: 0;
-    }
-    .donate-close:hover { color: var(--text); }
-    footer { margin-bottom: 56px; }
-
-    @media (max-width: 600px) {
       .donate-bar { flex-wrap: wrap; gap: 10px; padding: 12px 16px; }
       .donate-bar p { font-size: 10px; text-align: center; }
     }
@@ -197,30 +86,30 @@
 <body>
 <div class="container">
 
-  <div class="badge">📦 Widget Gratuito</div>
-  <h1>Embed il widget<br><span>reindexme</span> ovunque</h1>
-  <p class="subtitle">Aggiungi il tool di re-indicizzazione LinkedIn al tuo sito in meno di 2 minuti. Gratuito per qualsiasi uso, personale o commerciale.</p>
+  <div class="badge">📦 Free Widget</div>
+  <h1>Embed the <span>reindexme</span> widget anywhere</h1>
+  <p class="subtitle">Add the LinkedIn re-indexing tool to your site in under 2 minutes. Free for any use, personal or commercial.</p>
+  <a href="index.html" class="lang-switch">🇮🇹 Versione italiana</a>
 
   <!-- PREVIEW -->
   <div class="section">
-    <div class="section-label">// Anteprima Live</div>
+    <div class="section-label">// Live Preview</div>
     <div class="preview-card">
-      <iframe src="https://reindexme-widget.vercel.app/index.html" style="border:none;width:100%;max-width:480px;height:420px;overflow:hidden;" title="reindexme widget"></iframe>
+      <iframe src="https://reindexme-widget.vercel.app/en/index.html" style="border:none;width:100%;max-width:480px;height:420px;overflow:hidden;" title="reindexme widget"></iframe>
     </div>
   </div>
 
   <!-- EMBED CODE -->
   <div class="section">
-    <div class="section-label">// Codice di Embed</div>
+    <div class="section-label">// Embed Code</div>
     <div class="tabs">
       <button class="tab active" onclick="showTab('script', event)">Script Tag</button>
       <button class="tab" onclick="showTab('iframe', event)">iFrame</button>
     </div>
 
-    <!-- Script tab -->
     <div class="code-panel active" id="tab-script">
       <div class="code-block">
-        <button class="copy-btn" onclick="copyCode('script')">COPIA</button>
+        <button class="copy-btn" onclick="copyCode('script')">COPY</button>
 <span class="cm">&lt;!-- reindexme Widget — reindexme.com --&gt;</span>
 <span class="tag">&lt;div</span> <span class="kw">id</span>=<span class="str">"reindex-widget-container"</span><span class="tag">&gt;&lt;/div&gt;</span>
 <span class="tag">&lt;script&gt;</span>
@@ -234,13 +123,12 @@
       </div>
     </div>
 
-    <!-- iFrame tab -->
     <div class="code-panel" id="tab-iframe">
       <div class="code-block">
-        <button class="copy-btn" onclick="copyCode('iframe')">COPIA</button>
+        <button class="copy-btn" onclick="copyCode('iframe')">COPY</button>
 <span class="cm">&lt;!-- reindexme Widget (iframe) — reindexme.com --&gt;</span>
 <span class="tag">&lt;iframe</span>
-  <span class="kw">src</span>=<span class="str">"https://reindexme-widget.vercel.app/index.html"</span>
+  <span class="kw">src</span>=<span class="str">"https://reindexme-widget.vercel.app/en/index.html"</span>
   <span class="kw">width</span>=<span class="str">"480"</span>
   <span class="kw">height</span>=<span class="str">"420"</span>
   <span class="kw">title</span>=<span class="str">"reindexme LinkedIn profile tool"</span>
@@ -252,64 +140,63 @@
 
   <!-- FEATURES -->
   <div class="section">
-    <div class="section-label">// Cosa include il Widget</div>
+    <div class="section-label">// What the Widget includes</div>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">🔵</div>
         <div class="feature-title">Bing IndexNow</div>
-        <div class="feature-desc">Ping automatico all'API di Microsoft. Aggiornamento atteso in poche ore.</div>
+        <div class="feature-desc">Automatic ping to Microsoft's API. Update expected within hours.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔴</div>
         <div class="feature-title">Yandex IndexNow</div>
-        <div class="feature-desc">Notifica diretta a Yandex. Aggiornamento atteso entro 24h.</div>
+        <div class="feature-desc">Direct notification to Yandex. Update expected within 24h.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🟡</div>
         <div class="feature-title">Google Assist</div>
-        <div class="feature-desc">Link precompilati ai tool ufficiali Google per forzare il re-fetch.</div>
+        <div class="feature-desc">Pre-filled links to official Google tools to force a re-fetch.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🪶</div>
-        <div class="feature-title">Zero dipendenze</div>
-        <div class="feature-desc">Vanilla JS puro, nessuna libreria esterna. &lt;5KB totali.</div>
+        <div class="feature-title">Zero dependencies</div>
+        <div class="feature-desc">Pure vanilla JS, no external libraries. Under 5KB total.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
         <div class="feature-title">Privacy first</div>
-        <div class="feature-desc">Nessun cookie, nessun dato raccolto. L'URL rimane nel browser dell'utente.</div>
+        <div class="feature-desc">No cookies, no data collected. The URL stays in the user's browser.</div>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎨</div>
         <div class="feature-title">Dark theme</div>
-        <div class="feature-desc">Design coerente con reindexme.com, brandizzato e professionale.</div>
+        <div class="feature-desc">Consistent design with reindexme.com, branded and professional.</div>
       </div>
     </div>
   </div>
 
   <!-- PARAMS TABLE -->
   <div class="section">
-    <div class="section-label">// Parametri iFrame opzionali</div>
+    <div class="section-label">// Optional iFrame parameters</div>
     <table class="config-table">
       <thead>
-        <tr><th>Parametro</th><th>Default</th><th>Descrizione</th></tr>
+        <tr><th>Parameter</th><th>Default</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td>width</td><td>"480"</td><td>Larghezza in px (responsive con max-width CSS)</td></tr>
-        <tr><td>height</td><td>"420"</td><td>Altezza in px — non modificare se non necessario</td></tr>
-        <tr><td>scrolling</td><td>"no"</td><td>Disabilita scroll interno — consigliato</td></tr>
-        <tr><td>title</td><td>—</td><td>Attributo accessibilità — tienilo sempre</td></tr>
+        <tr><td>width</td><td>"480"</td><td>Width in px (responsive with CSS max-width)</td></tr>
+        <tr><td>height</td><td>"420"</td><td>Height in px — do not change unless necessary</td></tr>
+        <tr><td>title</td><td>—</td><td>Accessibility attribute — always keep it</td></tr>
       </tbody>
     </table>
   </div>
 
   <!-- CTA -->
   <div class="cta-box">
-    <h2>Pronto ad usarlo?</h2>
-    <p>Copia il codice qui sopra e incollalo nel tuo sito. In 30 secondi sei online.</p>
+    <h2>Ready to use it?</h2>
+    <p>Copy the code above and paste it into your site. You're live in 30 seconds.</p>
     <div class="cta-links">
-      <a class="btn-cta" href="index.html">← Tool completo</a>
-      <a class="btn-cta btn-cta-outline" href="licenza.html">Leggi la licenza</a>
+      <a class="btn-cta" href="index.html">← Full tool</a>
+      <a class="btn-cta btn-cta-outline" href="../licenza.html">Read the license</a>
     </div>
   </div>
 
@@ -317,15 +204,14 @@
 
 <footer>
   <p id="footer-text">
-    reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
-    Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
-    <a href="licenza.html" target="_blank">Leggi la licenza completa (sito + widget)</a> •
-    <a href="widget-demo.html">Prova il Widget Gratuito</a> •
-    <a href="https://paypal.me/onlycreator">Dona ❤️</a><br>
-    Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
+    reindexme.com and its contents © Alessandro Memmola 2026 – All rights reserved.<br>
+    reindexme widget: free to embed on any site (personal or commercial).<br>
+    <a href="https://reindexme.com/en/license.html" target="_blank">Read the full license (site + widget)</a> •
+    <a href="https://paypal.me/onlycreator">Donate ❤️</a><br>
+    This site does not collect personal data or use profiling cookies
   </p>
   <p id="footer-links">
-    <a href="https://alessandromemmola.com">Sito personale</a> ·
+    <a href="https://alessandromemmola.com">Personal site</a> ·
     <a href="https://github.com/alessandromemmola">GitHub</a> ·
     <a href="https://www.producthunt.com/@alessandromemmola">Producthunt</a> · 
     <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
@@ -365,17 +251,17 @@
   function copyCode(type) {
     navigator.clipboard.writeText(codes[type]).then(() => {
       const btn = event.target;
-      btn.textContent = 'COPIATO ✓';
+      btn.textContent = 'COPIED ✓';
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'COPIA'; btn.classList.remove('copied'); }, 2000);
-    }).catch(err => console.error('Errore copia:', err));
+      setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+    }).catch(err => console.error('Copy error:', err));
   }
 </script>
-<!-- DONATE BAR -->
+
 <div class="donate-bar" id="donateBar">
-  <p><strong>Se reindexme ti è stato utile</strong>, aiutami a mantenerlo gratuito e a svilupparlo full-time</p>
-  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Dona</a>
-  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Chiudi">×</button>
+  <p><strong>If reindexme was useful to you</strong>, help me keep it free and develop it full-time</p>
+  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Donate</a>
+  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Close">×</button>
 </div>
 
 </body>
