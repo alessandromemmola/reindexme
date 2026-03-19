@@ -70,7 +70,7 @@ Add reindexme to your own site in 30 seconds:
 
 If reindexme saved you time, consider supporting:
 
-[![Donate](https://github.com/sponsors/alessandromemmola)
+[![Donate] (https://github.com/sponsors/alessandromemmola)
 
 ---
 
