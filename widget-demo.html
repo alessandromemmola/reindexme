@@ -68,11 +68,9 @@
     #footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
     #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
     #footer-links a:hover { color: var(--accent); }
-    .donate-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 12px 24px; background: rgba(10,10,10,0.92); border-top: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .donate-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 12px 24px; background: rgba(10,10,10,0.92); border-top: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); flex-wrap: wrap; }
     .donate-bar p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
     .donate-bar p strong { color: var(--text); font-weight: 500; }
-    .donate-btn { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--accent); color: var(--accent); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.06em; padding: 6px 14px; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
-    .donate-btn:hover { background: var(--accent); color: #000; }
     .donate-close { background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; padding: 0 4px; line-height: 1; transition: color 0.2s; flex-shrink: 0; }
     .donate-close:hover { color: var(--text); }
     @media (max-width: 600px) {
@@ -89,13 +87,13 @@
   <div class="badge">📦 Free Widget</div>
   <h1>Embed the <span>reindexme</span> widget anywhere</h1>
   <p class="subtitle">Add the LinkedIn re-indexing tool to your site in under 2 minutes. Free for any use, personal or commercial.</p>
-  <a href="index.html" class="lang-switch">🇮🇹 Versione italiana</a>
+  <a href="https://reindexme.com/it/widget-demo.html" class="lang-switch">🇮🇹 Versione italiana</a>
 
   <!-- PREVIEW -->
   <div class="section">
     <div class="section-label">// Live Preview</div>
     <div class="preview-card">
-      <iframe src="https://reindexme-widget.vercel.app/index.html" style="border:none;width:100%;max-width:480px;height:420px;overflow:hidden;" title="reindexme widget"></iframe>
+      <iframe src="https://reindexme-widget.vercel.app/" style="border:none;width:100%;max-width:480px;height:420px;overflow:hidden;" title="reindexme widget"></iframe>
     </div>
   </div>
 
@@ -128,7 +126,7 @@
         <button class="copy-btn" onclick="copyCode('iframe')">COPY</button>
 <span class="cm">&lt;!-- reindexme Widget (iframe) — reindexme.com --&gt;</span>
 <span class="tag">&lt;iframe</span>
-  <span class="kw">src</span>=<span class="str">"https://reindexme-widget.vercel.app/index.html"</span>
+  <span class="kw">src</span>=<span class="str">"https://reindexme-widget.vercel.app/"</span>
   <span class="kw">width</span>=<span class="str">"480"</span>
   <span class="kw">height</span>=<span class="str">"420"</span>
   <span class="kw">title</span>=<span class="str">"reindexme LinkedIn profile tool"</span>
@@ -195,8 +193,8 @@
     <h2>Ready to use it?</h2>
     <p>Copy the code above and paste it into your site. You're live in 30 seconds.</p>
     <div class="cta-links">
-      <a class="btn-cta" href="index.html">← Full tool</a>
-      <a class="btn-cta btn-cta-outline" href="../licenza.html">Read the license</a>
+      <a class="btn-cta" href="https://reindexme.com/">← Full tool</a>
+      <a class="btn-cta btn-cta-outline" href="https://reindexme.com/license.html">Read the license</a>
     </div>
   </div>
 
@@ -207,13 +205,14 @@
     reindexme.com and its contents © Alessandro Memmola 2026 – All rights reserved.<br>
     reindexme widget: free to embed on any site (personal or commercial).<br>
     <a href="https://reindexme.com/license.html" target="_blank">Read the full license (site + widget)</a> •
-    <a href="https://paypal.me/onlycreator">Donate ❤️</a><br>
+    <a href="https://github.com/sponsors/alessandromemmola">⭐ Sponsor on GitHub</a> •
+    <a href="https://paypal.me/onlycreator" style="font-size:10px;opacity:0.6;">or donate via PayPal</a><br>
     This site does not collect personal data or use profiling cookies
   </p>
   <p id="footer-links">
     <a href="https://alessandromemmola.com">Personal site</a> ·
     <a href="https://github.com/alessandromemmola">GitHub</a> ·
-    <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> · 
+    <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> ·
     <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
     <a href="https://x.com/MemmolaLabs">X</a>
   </p>
@@ -240,7 +239,7 @@
 </` + `script>`,
     iframe: `<!-- reindexme Widget (iframe) — reindexme.com -->
 <iframe
-  src="https://reindexme-widget.vercel.app/index.html"
+  src="https://reindexme-widget.vercel.app/"
   width="480"
   height="420"
   title="reindexme LinkedIn profile tool"
@@ -260,7 +259,7 @@
 
 <div class="donate-bar" id="donateBar">
   <p><strong>If reindexme was useful to you</strong>, help me keep it free and develop it full-time</p>
-  <a class="donate-btn" href="https://paypal.me/onlycreator" target="_blank">❤️ Donate</a>
+  <iframe src="https://github.com/sponsors/alessandromemmola/button" title="Sponsor alessandromemmola" height="32" width="114" style="border:0;border-radius:6px;vertical-align:middle;"></iframe>
   <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Close">×</button>
 </div>
 
