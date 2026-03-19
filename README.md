@@ -70,7 +70,7 @@ Add reindexme to your own site in 30 seconds:
 
 If reindexme saved you time, consider supporting:
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://paypal.me/onlycreator)
+[![Donate](https://github.com/sponsors/alessandromemmola)
 
 ---
 
