@@ -66,6 +66,23 @@
     .summary-item { background: var(--bg); border: 1px solid var(--border); padding: 16px; text-align: center; }
     .summary-item .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
     .summary-item .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .apps-section { margin-top: 52px; }
+    .apps-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 18px; }
+    .apps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .app-feature-link { display: block; border: 1px solid var(--border); }
+    .app-feature-link img { display: block; width: 100%; height: auto; }
+    .play-badge-link { display: inline-flex; width: fit-content; }
+    .play-badge-link img { display: block; width: 168px; max-width: 100%; height: auto; }
     .fade-in { animation: fadeIn 0.4s ease forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -108,6 +125,7 @@
     @media (max-width: 520px) {
       .input-row { flex-direction: column; }
       .summary-grid { grid-template-columns: 1fr; }
+      .apps-grid { grid-template-columns: 1fr; }
       #footer-links { flex-direction: column; gap: 8px; }
     }
 
@@ -220,6 +238,28 @@
       <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Engines notified</span></div>
     </div>
   </div>
+
+  <section class="apps-section" aria-label="Memmola Labs apps on Google Play">
+    <p class="apps-title">// Discover new app by Memmola Labs</p>
+    <div class="apps-grid">
+      <article class="app-card">
+        <a class="app-feature-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.autobit" target="_blank" rel="noopener noreferrer" aria-label="Open AutoBit on Google Play">
+          <img src="autobit_feature_graphic.png" alt="AutoBit app preview graphic" loading="lazy" />
+        </a>
+        <a class="play-badge-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.autobit" target="_blank" rel="noopener noreferrer" aria-label="Get AutoBit on Google Play">
+          <img src="GetItOnGooglePlay_Badge_Web_color_Italian.png" alt="Disponibile su Google Play" loading="lazy" />
+        </a>
+      </article>
+      <article class="app-card">
+        <a class="app-feature-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.immobit" target="_blank" rel="noopener noreferrer" aria-label="Open ImmoBit on Google Play">
+          <img src="immobit_feature_graphic.png" alt="ImmoBit app preview graphic" loading="lazy" />
+        </a>
+        <a class="play-badge-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.immobit" target="_blank" rel="noopener noreferrer" aria-label="Get ImmoBit on Google Play">
+          <img src="GetItOnGooglePlay_Badge_Web_color_Italian.png" alt="Disponibile su Google Play" loading="lazy" />
+        </a>
+      </article>
+    </div>
+  </section>
 </div>
 
 <footer>
