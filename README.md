@@ -4,7 +4,7 @@ Simple, privacy-first URL indexing utility with embeddable widget support.
 
 ReIndexMe helps website owners, developers, and small businesses submit URLs for indexing and reindexing workflows through a lightweight public interface.
 
-ReIndexMe is a production tool actively maintained and deployed in real-world usage.
+ReIndexMe is a production tool actively maintained in real-world usage.
 
 ---
 
@@ -104,8 +104,8 @@ Deployment Philosophy
 * Minimal dependencies
 * Easy maintenance
 * Fast loading times
-* stateless request handling
-* no persistent user storage
+* Stateless request handling
+* No persistent user storage
 * CDN-based delivery
 
 ---
@@ -200,5 +200,5 @@ For licensing questions, please refer to the license documentation.
 
 ReIndexMe is publicly available and free to use. The source repository is public,
 while the service and widget are distributed under a custom license
-designed to preserve free public access and prevent commercial rebranding of the project.
+designed to preserve free public access of the project.
 
