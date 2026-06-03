@@ -4,7 +4,7 @@ Simple, privacy-first URL indexing utility with embeddable widget support.
 
 ReIndexMe helps website owners, developers, and small businesses submit URLs for indexing and reindexing workflows through a lightweight public interface.
 
-The project focuses on simplicity, accessibility, privacy, and real-world usability.
+ReIndexMe is a production tool actively maintained and deployed in real-world usage.
 
 ---
 
@@ -17,6 +17,16 @@ https://reindexme.com
 Widget Demo:
 
 https://reindexme.com/widget-demo.html
+
+---
+
+![ReIndexMe screenshot](assets/reindexme.com_page-1.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-2.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-3.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-4.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-5.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-6.png)
+![ReIndexMe screenshot](assets/reindexme.com_page-7.png)
 
 ---
 
@@ -58,6 +68,14 @@ The project uses a minimal technology stack focused on reliability, maintainabil
 
 ---
 
+## Usage
+
+- Live production service
+- Embeddable widget used in external websites
+- Real URL submission workflows
+
+---
+
 ## Architecture
 
 Frontend
@@ -80,6 +98,9 @@ Deployment Philosophy
 * Minimal dependencies
 * Easy maintenance
 * Fast loading times
+* stateless request handling
+* no persistent user storage
+* CDN-based delivery
 
 ---
 
@@ -175,12 +196,3 @@ ReIndexMe is publicly available and free to use. The source repository is public
 while the service and widget are distributed under a custom license
 designed to preserve free public access and prevent commercial rebranding of the project.
 
----
-
-![ReIndexMe screenshot](assets/reindexme.com_page-1.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-2.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-3.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-4.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-5.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-6.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-7.png)
