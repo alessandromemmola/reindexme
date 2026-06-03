@@ -1,83 +1,124 @@
 # reindexme ⚡
 
-🇮🇹 [Versione italiana disponibile su reindexme.com/it/](https://reindexme.com/it/)
+Infrastructure tool for search engine indexing updates.
 
-> Make search engines update your LinkedIn profile faster.
+ReIndexMe helps synchronize publicly available web content with search engines by leveraging existing indexing protocols such as IndexNow and sitemap submission workflows.
 
-**reindexme** sends re-indexing signals to Bing, Yandex and Google when you update your LinkedIn profile — so search results reflect your changes in hours, not weeks.
+The goal is to reduce the delay between content updates and search engine re-crawling, improving the freshness of search results for updated web content.
 
-🔗 **Live at [reindexme.com](https://reindexme.com)**
-
----
-
-## Why reindexme?
-
-Updated your LinkedIn profile but Google still shows your old job title?
-Search engines don't know your profile changed until they re-crawl it.
-reindexme notifies them automatically.
+🔗 Live service: https://reindexme.com
 
 ---
 
-## How it works
+## 🧭 Overview
 
-| Step | Engine | Method | Time |
-|------|--------|--------|------|
-| 01 | Bing | IndexNow API (automatic) | Minutes |
-| 02 | Yandex | IndexNow API (automatic) | ~24h |
-| 03 | Google | Rich Results Test / PageSpeed (manual) | 3–10 days |
-| 04 | Google | Sitemap Ping (automatic) | 3–10 days |
-| 05 | All | Organic boost tip | — |
+Search engines do not instantly detect when web content changes.
+
+In many cases, updates to pages such as profiles, articles, or public information may take days or weeks to be reflected in search results.
+
+ReIndexMe provides a simple interface to trigger indexing signals through supported search engine protocols, helping reduce this delay.
 
 ---
 
-## Free embeddable widget
+## ⚙️ How it works
 
-Add reindexme to your own site in 30 seconds:
+ReIndexMe uses existing, publicly available indexing mechanisms:
 
-**iFrame:**
+| Step | Engine | Method | Estimated Time |
+|------|--------|--------|----------------|
+| 1 | Bing | IndexNow API | Minutes |
+| 2 | Yandex | IndexNow API | ~24 hours |
+| 3 | Google | Sitemap submission | Days |
+| 4 | Google | URL inspection / indexing workflows | Days |
+
+The system operates within existing search engine guidelines and does not bypass or manipulate indexing rules.
+
+---
+
+## 🔌 Integrations
+
+ReIndexMe integrates with established search engine indexing systems:
+
+- Bing IndexNow API
+- Yandex IndexNow API
+- Sitemap-based submission workflows
+- Standard URL re-crawling mechanisms used by search engines
+
+It is designed to complement existing SEO and indexing infrastructure.
+
+---
+
+## 🧩 Widget
+
+ReIndexMe provides an embeddable widget that can be integrated into external websites.
+
 ```html
 <iframe
   src="https://reindexme-widget.vercel.app"
   width="480"
   height="420"
-  title="reindexme LinkedIn profile tool"
+  title="ReIndexMe widget"
   style="border:none;width:100%;max-width:480px;overflow:hidden;"
 ></iframe>
-```
 
-👉 [Widget demo & docs](https://reindexme.com/widget-demo.html)
+Widget documentation: https://reindexme.com/widget-demo.html
 
----
+## 🚀 Production usage
 
-## Privacy
+ReIndexMe is a live service available at:
 
-- No account required
-- No data collected
-- No cookies or tracking
-- Your URL never leaves your browser
+- https://reindexme.com
+- embeddable widget for third-party websites
 
----
+The system is designed for real-world usage rather than experimental or demo purposes.
 
-## Stack
 
-- Pure HTML / CSS / Vanilla JS
+## 🛠 Actively maintained
+
+ReIndexMe is actively maintained with ongoing iterative development.
+
+Current engineering focus includes:
+
+- improving reliability of indexing workflows
+- expanding support for additional search engine integrations
+- improving widget stability and embeddability
+- refining UI and user experience
+- optimizing performance and load handling
+
+## 🔒 Privacy
+
+ReIndexMe follows a privacy-first design philosophy.
+
+The service is intentionally built to minimize data collection and user tracking:
+
+- No user accounts are required
+- No cookies or tracking mechanisms are used
+- No personal data is stored or processed beyond request handling
+- Submitted URLs are processed transiently without persistent storage
+
+
+## 🧱 Stack
+
+- Vanilla HTML, CSS, and JavaScript
 - Hosted on GitHub Pages
 - Widget hosted on Vercel
 
----
 
-## Support
+## 📌 Design principles
 
-If reindexme saved you time, consider supporting:
+ReIndexMe is built around a set of constraints focused on simplicity, openness, and usability:
 
-https://github.com/sponsors/alessandromemmola
----
+- Uses existing open web standards where possible
+- Avoids proprietary or closed indexing mechanisms
+- Prioritizes simplicity and accessibility in design
+- Does not collect or store user data
+- Remains free and publicly accessible
 
-## License
 
-Proprietary — free to use and embed with attribution.
-[Read the full license](https://reindexme.com/license.html)
+## 📄 License
 
----
+ReIndexMe uses a proprietary source code license.
 
-*Built by [Memmola Labs - Alessandro Memmola](https://alessandromemmola.com)*
+The service is free to use and can be embedded in external websites with attribution.
+
+For full licensing terms, see: https://reindexme.com/license.html
