@@ -200,5 +200,5 @@ For licensing questions, please refer to the license documentation.
 
 ReIndexMe is publicly available and free to use. The source repository is public,
 while the service and widget are distributed under a custom license
-designed to preserve free public access of the project.
+designed to preserve free public access to the project.
 
