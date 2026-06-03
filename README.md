@@ -1,6 +1,6 @@
 # ReIndexMe
 
-Simple, privacy-first LinkedIn URL inspection utility with embeddable widget support.
+Simple, privacy-first LinkedIn link preview refresh tool with embeddable widget support.
 
 ReIndexMe helps website owners, content creators, marketers, and developers streamline LinkedIn URL inspection workflows when shared content does not immediately update on the platform.
 
@@ -28,8 +28,6 @@ https://reindexme.com/widget-demo.html
 
 ---
 
---- 
-
 ![ReIndexMe screenshot](assets/reindexme.com_page-1.png) 
 ![ReIndexMe screenshot](assets/reindexme.com_page-2.png) 
 ![ReIndexMe screenshot](assets/reindexme.com_page-3.png) 
@@ -45,6 +43,8 @@ https://reindexme.com/widget-demo.html
 ReIndexMe was created to solve a practical issue frequently encountered by website owners and content publishers: LinkedIn sometimes continues displaying outdated previews after a page has been updated.
 
 The service simplifies the process of requesting a fresh inspection of a URL through LinkedIn's public inspection workflow.
+
+It does not replace LinkedIn's official tools, but makes the workflow easier to access, understand, and integrate into existing publishing processes.
 
 The platform provides:
 
