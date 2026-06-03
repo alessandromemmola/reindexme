@@ -8,6 +8,12 @@ ReIndexMe is a production tool actively maintained and deployed in real-world us
 
 ---
 
+## Release
+
+Latest version: [v1.0.0](https://github.com/alessandromemmola/reindexme/releases/tag/v1.0.0)
+
+---
+
 ## Live Service
 
 Website:
