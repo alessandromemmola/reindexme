@@ -28,6 +28,8 @@ https://reindexme.com/widget-demo.html
 
 ---
 
+## Screenshots
+
 ![ReIndexMe screenshot](assets/reindexme.com_page-1.png) 
 ![ReIndexMe screenshot](assets/reindexme.com_page-2.png) 
 ![ReIndexMe screenshot](assets/reindexme.com_page-3.png) 
@@ -106,7 +108,10 @@ The goal is not to replace publishing platforms or SEO tools, but to simplify a 
 
 ## License 
 
-Source code licensing information is available at: https://reindexme.com/license.html
+Source code licensing information is available at: 
+
+https://reindexme.com/license.html
+
 For licensing questions, please refer to the license documentation. 
 ReIndexMe is publicly available and free to use. The source repository is public, 
 while the service and widget are distributed under a custom license designed to preserve free public access to the project.
