@@ -28,6 +28,18 @@ https://reindexme.com/widget-demo.html
 
 ---
 
+--- 
+
+![ReIndexMe screenshot](assets/reindexme.com_page-1.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-2.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-3.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-4.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-5.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-6.png) 
+![ReIndexMe screenshot](assets/reindexme.com_page-7.png) 
+
+---
+
 ## Overview
 
 ReIndexMe was created to solve a practical issue frequently encountered by website owners and content publishers: LinkedIn sometimes continues displaying outdated previews after a page has been updated.
