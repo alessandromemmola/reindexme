@@ -1,6 +1,6 @@
 # ReIndexMe
 
-Simple, privacy-first LinkedIn re-indexing assistant with embeddable widget support.
+Simple, privacy-first LinkedIn content refresh assistant with embeddable widget support.
 
 ReIndexMe helps website owners, content creators, marketers, and developers streamline LinkedIn URL inspection workflows when shared content does not immediately update on the platform.
 
