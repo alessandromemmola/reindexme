@@ -1,127 +1,172 @@
-# reindexme ⚡
+# ReIndexMe
 
-Infrastructure tool for search engine indexing updates.
+Simple, privacy-first URL indexing utility with embeddable widget support.
 
-ReIndexMe helps synchronize publicly available web content with search engines by leveraging existing indexing protocols such as IndexNow and sitemap submission workflows.
+ReIndexMe helps website owners, developers, and small businesses submit URLs for indexing and reindexing workflows through a lightweight public interface.
 
-The goal is to reduce the delay between content updates and search engine re-crawling, improving the freshness of search results for updated web content.
-
-🔗 Live service: https://reindexme.com
+The project focuses on simplicity, accessibility, privacy, and real-world usability.
 
 ---
 
-## 🧭 Overview
+## Live Service
 
-Search engines do not instantly detect when web content changes.
+Website:
 
-In many cases, updates to pages such as profiles, articles, or public information may take days or weeks to be reflected in search results.
+https://reindexme.com
 
-ReIndexMe provides a simple interface to trigger indexing signals through supported search engine protocols, helping reduce this delay.
+Widget Demo:
 
----
-
-## ⚙️ How it works
-
-ReIndexMe uses existing, publicly available indexing mechanisms:
-
-| Step | Engine | Method | Estimated Time |
-|------|--------|--------|----------------|
-| 1 | Bing | IndexNow API | Minutes |
-| 2 | Yandex | IndexNow API | ~24 hours |
-| 3 | Google | Sitemap submission | Days |
-| 4 | Google | URL inspection / indexing workflows | Days |
-
-The system operates within existing search engine guidelines and does not bypass or manipulate indexing rules.
+https://reindexme.com/widget-demo.html
 
 ---
 
-## 🔌 Integrations
+## Overview
 
-ReIndexMe integrates with established search engine indexing systems:
+ReIndexMe was created to simplify indexing workflows for website owners who need a straightforward way to manage URL submissions without complex setup requirements.
 
-- Bing IndexNow API
-- Yandex IndexNow API
-- Sitemap-based submission workflows
-- Standard URL re-crawling mechanisms used by search engines
+The platform provides:
 
-It is designed to complement existing SEO and indexing infrastructure.
+* Public web interface
+* Embeddable widget
+* Privacy-first architecture
+* Lightweight deployment model
+* Continuous maintenance and improvements
+
+The project is actively developed and deployed in production.
 
 ---
 
-## 🧩 Widget
+## Features
 
-ReIndexMe provides an embeddable widget that can be integrated into external websites.
+### URL Submission
 
-```html
-<iframe
-  src="https://reindexme-widget.vercel.app"
-  width="480"
-  height="420"
-  title="ReIndexMe widget"
-  style="border:none;width:100%;max-width:480px;overflow:hidden;"
-></iframe>
+Submit URLs through a simple web interface designed for fast and accessible usage.
 
-Widget documentation: https://reindexme.com/widget-demo.html
+### Embeddable Widget
 
+ReIndexMe includes a standalone widget that can be integrated into external websites.
 
+The widget allows third-party sites to provide indexing functionality directly within their own pages.
 
+### Privacy-First Design
 
-## 🚀 Production usage
+The service intentionally minimizes data collection and avoids unnecessary tracking mechanisms.
 
-ReIndexMe is a live service available at:
+### Lightweight Architecture
 
-- https://reindexme.com
-- embeddable widget for third-party websites
+The project uses a minimal technology stack focused on reliability, maintainability, and performance.
 
-The system is designed for real-world usage rather than experimental or demo purposes.
+---
 
+## Architecture
 
-## 🛠 Actively maintained
+Frontend
 
-ReIndexMe is actively maintained with ongoing iterative development.
+* HTML
+* CSS
+* Vanilla JavaScript
 
-Current engineering focus includes:
+Hosting
 
-- improving reliability of indexing workflows
-- expanding support for additional search engine integrations
-- improving widget stability and embeddability
-- refining UI and user experience
-- optimizing performance and load handling
+* GitHub Pages
 
-## 🔒 Privacy
+Widget
 
-ReIndexMe follows a privacy-first design philosophy.
+* Hosted separately on Vercel
 
-The service is intentionally built to minimize data collection and user tracking:
+Deployment Philosophy
 
-- No user accounts are required
-- No cookies or tracking mechanisms are used
-- No personal data is stored or processed beyond request handling
-- Submitted URLs are processed transiently without persistent storage
+* Simple infrastructure
+* Minimal dependencies
+* Easy maintenance
+* Fast loading times
 
+---
 
-## 🧱 Stack
+## Project Goals
 
-- Vanilla HTML, CSS, and JavaScript
-- Hosted on GitHub Pages
-- Widget hosted on Vercel
+ReIndexMe is built around a small set of guiding principles:
 
+* Simplicity over complexity
+* Accessibility by default
+* Privacy-first operation
+* Open web standards whenever possible
+* Minimal infrastructure requirements
+* Long-term maintainability
 
-## 📌 Design principles
+---
 
-ReIndexMe is built around a set of constraints focused on simplicity, openness, and usability:
+## Privacy
 
-- Uses existing open web standards where possible
-- Avoids proprietary or closed indexing mechanisms
-- Prioritizes simplicity and accessibility in design
-- Does not collect or store user data
-- Remains free and publicly accessible
+Privacy is a core design objective.
 
+The service:
 
-## 📄 License
+* Does not require user accounts
+* Does not use cookies for tracking
+* Does not build user profiles
+* Does not perform behavioral analytics
+* Processes submitted URLs only for request handling purposes
 
-ReIndexMe uses a proprietary source code license.
+The project aims to keep data collection to the absolute minimum required for operation.
 
-The service is free to use and can be embedded in external websites with attribution.
+---
 
-For full licensing terms, see: https://reindexme.com/license.html
+## Active Development
+
+ReIndexMe is actively maintained and continuously improved.
+
+Current areas of development include:
+
+* Reliability improvements
+* Widget enhancements
+* Additional indexing workflow support
+* Accessibility improvements
+* User experience refinements
+* Performance optimization
+
+---
+
+## Roadmap
+
+Planned future work includes:
+
+* Expanded indexing integrations
+* Enhanced widget customization
+* Additional automation workflows
+* Improved reporting and feedback systems
+* Further performance improvements
+
+Roadmap items evolve based on project priorities and real-world usage feedback.
+
+---
+
+## Maintenance
+
+The repository is actively maintained through:
+
+* Ongoing development
+* Bug fixes
+* Feature improvements
+* Release management
+* Infrastructure updates
+
+The project is intended for long-term operation and continuous improvement.
+
+---
+
+## Contributing
+
+Feedback, bug reports, and suggestions are welcome.
+
+Contributions that improve reliability, accessibility, usability, or performance are especially appreciated.
+
+---
+
+## License
+
+Source code licensing information is available at:
+
+https://reindexme.com/license.html
+
+For licensing questions, please refer to the license documentation.
