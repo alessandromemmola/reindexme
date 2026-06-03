@@ -1,8 +1,10 @@
 # ReIndexMe
 
-Simple, privacy-first URL indexing utility with embeddable widget support.
+Simple, privacy-first LinkedIn URL inspection utility with embeddable widget support.
 
-ReIndexMe helps website owners, developers, and small businesses submit URLs for indexing and reindexing workflows through a lightweight public interface.
+ReIndexMe helps website owners, content creators, marketers, and developers request LinkedIn URL inspections when shared content does not immediately update on the platform.
+
+The project provides a lightweight public interface and an embeddable widget designed to simplify a common content publishing workflow.
 
 ReIndexMe is a production tool actively maintained in real-world usage.
 
@@ -26,19 +28,11 @@ https://reindexme.com/widget-demo.html
 
 ---
 
-![ReIndexMe screenshot](assets/reindexme.com_page-1.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-2.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-3.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-4.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-5.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-6.png)
-![ReIndexMe screenshot](assets/reindexme.com_page-7.png)
-
----
-
 ## Overview
 
-ReIndexMe was created to simplify indexing workflows for website owners who need a straightforward way to manage URL submissions without complex setup requirements.
+ReIndexMe was created to solve a practical issue frequently encountered by website owners and content publishers: LinkedIn sometimes continues displaying outdated previews after a page has been updated.
+
+The service simplifies the process of requesting a fresh inspection of a URL through LinkedIn's public inspection workflow.
 
 The platform provides:
 
@@ -54,15 +48,15 @@ The project is actively developed and deployed in production.
 
 ## Features
 
-### URL Submission
+### LinkedIn URL Inspection
 
-Submit URLs through a simple web interface designed for fast and accessible usage.
+Quick access to LinkedIn URL inspection workflows through a simple and accessible interface.
 
 ### Embeddable Widget
 
-ReIndexMe includes a standalone widget that can be integrated into external websites.
+ReIndexMe includes a standalone widget that can be integrated into third-party websites.
 
-The widget allows third-party sites to provide indexing functionality directly within their own pages.
+The widget allows external websites to offer LinkedIn URL inspection functionality directly within their own pages.
 
 ### Privacy-First Design
 
@@ -76,37 +70,10 @@ The project uses a minimal technology stack focused on reliability, maintainabil
 
 ## Usage
 
-- Live production service
-- Embeddable widget used in external websites
-- Real URL submission workflows
-
----
-
-## Architecture
-
-Frontend
-
-* HTML
-* CSS
-* Vanilla JavaScript
-
-Hosting
-
-* GitHub Pages
-
-Widget
-
-* Hosted separately on Vercel
-
-Deployment Philosophy
-
-* Simple infrastructure
-* Minimal dependencies
-* Easy maintenance
-* Fast loading times
-* Stateless request handling
-* No persistent user storage
-* CDN-based delivery
+* Live production service
+* Embeddable widget for third-party websites
+* LinkedIn URL inspection workflows
+* Content publishing and sharing support
 
 ---
 
@@ -121,84 +88,4 @@ ReIndexMe is built around a small set of guiding principles:
 * Minimal infrastructure requirements
 * Long-term maintainability
 
----
-
-## Privacy
-
-Privacy is a core design objective.
-
-The service:
-
-* Does not require user accounts
-* Does not use cookies for tracking
-* Does not build user profiles
-* Does not perform behavioral analytics
-* Processes submitted URLs only for request handling purposes
-
-The project aims to keep data collection to the absolute minimum required for operation.
-
----
-
-## Active Development
-
-ReIndexMe is actively maintained and continuously improved.
-
-Current areas of development include:
-
-* Reliability improvements
-* Widget enhancements
-* Additional indexing workflow support
-* Accessibility improvements
-* User experience refinements
-* Performance optimization
-
----
-
-## Roadmap
-
-Planned future work includes:
-
-* Expanded indexing integrations
-* Enhanced widget customization
-* Additional automation workflows
-* Improved reporting and feedback systems
-* Further performance improvements
-
-Roadmap items evolve based on project priorities and real-world usage feedback.
-
----
-
-## Maintenance
-
-The repository is actively maintained through:
-
-* Ongoing development
-* Bug fixes
-* Feature improvements
-* Release management
-* Infrastructure updates
-
-The project is intended for long-term operation and continuous improvement.
-
----
-
-## Contributing
-
-Feedback, bug reports, and suggestions are welcome.
-
-Contributions that improve reliability, accessibility, usability, or performance are especially appreciated.
-
----
-
-## License
-
-Source code licensing information is available at:
-
-https://reindexme.com/license.html
-
-For licensing questions, please refer to the license documentation.
-
-ReIndexMe is publicly available and free to use. The source repository is public,
-while the service and widget are distributed under a custom license
-designed to preserve free public access to the project.
-
+The goal is not to replace publishing platforms or SEO tools, but to simplify a specific workflow that content creators and website owners regularly encounter when sharing updated content on LinkedIn.
