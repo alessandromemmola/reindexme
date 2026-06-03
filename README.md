@@ -101,3 +101,12 @@ ReIndexMe is built around a small set of guiding principles:
 * Long-term maintainability
 
 The goal is not to replace publishing platforms or SEO tools, but to simplify a specific workflow that content creators and website owners regularly encounter when sharing updated content on LinkedIn.
+
+--- 
+
+## License 
+
+Source code licensing information is available at: https://reindexme.com/license.html
+For licensing questions, please refer to the license documentation. 
+ReIndexMe is publicly available and free to use. The source repository is public, 
+while the service and widget are distributed under a custom license designed to preserve free public access to the project.
