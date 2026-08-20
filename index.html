@@ -3,286 +3,686 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Updated your LinkedIn profile but search engines still show the old position? ReIndexMe helps you check current visibility, open official diagnostic tools and follow legitimate discovery steps." />
+  <meta name="description" content="ReIndexMe helps you understand whether updated content is ready to be rediscovered by search engines. Local website inspection and a guided LinkedIn refresh workflow." />
   <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
-  <title>ReIndex Me — Check and improve LinkedIn profile discoverability</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <title>ReIndexMe — Help search engines rediscover what changed</title>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a0a; --surface: #111111; --border: #222222;
-      --accent: #00ff88; --accent2: #0066ff; --text: #f0f0f0;
-      --muted: #666666; --warn: #ffaa00;
+    :root{
+      --bg:#ffffff;
+      --surface:#f7f9fc;
+      --surface2:#eef5ff;
+      --line:#dde6f0;
+      --text:#0b1730;
+      --muted:#667085;
+      --muted2:#8b98aa;
+      --blue:#2f73ff;
+      --cyan:#20bfe8;
+      --green:#18a66a;
+      --violet:#7458e8;
+      --dark:#09121d;
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
-      background-size: 40px 40px; pointer-events: none; z-index: 0;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:#fff;color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      overflow-x:hidden
     }
-    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 1; }
-    .header { margin-bottom: 56px; }
-    .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 20px; text-transform: uppercase; }
-    h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; }
-    h1 span { color: var(--accent); }
-    .subtitle { margin-top: 16px; color: var(--muted); font-size: 1rem; font-weight: 400; line-height: 1.6; max-width: 520px; }
-    .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-top: 14px; transition: color 0.2s, border-color 0.2s; }
-    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
-    .input-section { background: var(--surface); border: 1px solid var(--border); padding: 32px; margin-bottom: 40px; }
-    label { display: block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
-    .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
-    input[type="url"] { flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.85rem; padding: 14px 16px; outline: none; transition: border-color 0.2s; }
-    input[type="url"]:focus { border-color: var(--accent); }
-    input[type="url"]::placeholder { color: var(--muted); }
-    .btn-primary { background: var(--accent); color: #000; border: none; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; padding: 14px 28px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s, transform 0.1s; }
-    .btn-primary:hover { opacity: 0.85; } .btn-primary:active { transform: scale(0.98); } .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-    .steps-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 20px; }
-    .step { border: 1px solid var(--border); margin-bottom: 12px; transition: border-color 0.3s; overflow: hidden; }
-    .step.active { border-color: var(--accent); } .step.done { border-color: #1a4a2e; } .step.error { border-color: #ff4444; }
-    .step-header { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--surface); }
-    .step-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); width: 20px; flex-shrink: 0; }
-    .step.active .step-num, .step.done .step-num { color: var(--accent); }
-    .step-icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
-    .step-info { flex: 1; }
-    .step-name { font-weight: 700; font-size: 0.95rem; }
-    .step-desc { font-size: 0.78rem; color: var(--muted); margin-top: 2px; font-weight: 400; }
-    .step-status { font-family: 'DM Mono', monospace; font-size: 11px; padding: 4px 10px; border: 1px solid currentColor; }
-    .status-waiting { color: var(--muted); border-color: var(--border); }
-    .status-running { color: var(--accent); border-color: var(--accent); animation: pulse 1s ease-in-out infinite; }
-    .status-done { color: var(--accent); border-color: #1a4a2e; background: #0d2e1a; }
-    .status-manual { color: var(--accent2); border-color: var(--accent2); }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .step-body { display: none; padding: 0 24px 20px; background: var(--surface); border-top: 1px solid var(--border); }
-    .step.active .step-body, .step.done .step-body, .step.error .step-body, .step.manual .step-body { display: block; }
-    .step-body p { font-size: 0.82rem; color: var(--muted); margin-bottom: 12px; padding-top: 14px; line-height: 1.6; }
-    .btn-manual { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--accent2); color: var(--accent2); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.8rem; padding: 10px 18px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
-    .btn-manual:hover { background: rgba(0,102,255,0.1); }
-    .result-box { display: none; margin-top: 40px; border: 1px solid var(--accent); padding: 28px 32px; background: linear-gradient(135deg, rgba(0,255,136,0.04), transparent); }
-    .result-box.show { display: block; }
-    .result-box h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; }
-    .result-box h3 span { color: var(--accent); }
-    .result-box p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
-    .summary-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
-    .summary-item { background: var(--bg); border: 1px solid var(--border); padding: 16px; text-align: center; }
-    .summary-item .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block; }
-    .summary-item .lbl { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-    .apps-section { margin-top: 52px; }
-    .apps-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 18px; }
-    .apps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .app-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .app-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .app-feature-link { display: block; border: 1px solid var(--border); }
-    .app-feature-link img { display: block; width: 100%; height: auto; }
-    .play-badge-link { display: inline-flex; width: fit-content; }
-    .play-badge-link img { display: block; width: 168px; max-width: 100%; height: auto; }
-    .fade-in { animation: fadeIn 0.4s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    a{color:inherit}
+    button,input{font:inherit}
 
-    footer {
-      max-width: 720px;
-      margin: 72px auto 0;
-      padding: 32px 24px 48px;
-      border-top: 1px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.9;
-      position: relative;
-      z-index: 1;
-    }
-    #footer-text { margin-bottom: 14px; }
-    #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
-    #footer-text a:hover { color: var(--accent); border-color: var(--accent); }
-    .footer-widget-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent) !important;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      padding: 6px 14px;
-      text-decoration: none !important;
-      border-bottom: 1px solid var(--accent) !important;
-      margin-top: 12px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .footer-widget-btn:hover { background: var(--accent); color: #000 !important; border-color: var(--accent); }
-    #footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    #footer-links a:hover { color: var(--accent); }
-
-    @media (max-width: 520px) {
-      .input-row { flex-direction: column; }
-      .summary-grid { grid-template-columns: 1fr; }
-      .apps-grid { grid-template-columns: 1fr; }
-      #footer-links { flex-direction: column; gap: 8px; }
+    .container{
+      width:100%;
+      max-width:none;
+      margin:0;
+      padding:0 3.5vw
     }
 
-    .donate-bar {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 12px 24px;
-      background: rgba(10,10,10,0.92);
-      border-top: 1px solid var(--border);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      flex-wrap: wrap;
+    /* NAV */
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid rgba(11,23,48,.08);
+      backdrop-filter:blur(18px)
     }
-    .donate-bar p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
-    .donate-bar p strong { color: var(--text); font-weight: 500; }
-    .donate-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: transparent; border: 1px solid var(--accent);
-      color: var(--accent); font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: 0.06em; padding: 6px 14px;
-      text-decoration: none; transition: background 0.2s, color 0.2s;
+    .nav{
+      min-height:66px;
+      display:flex;align-items:center;justify-content:space-between;gap:24px
     }
-    .donate-btn:hover { background: var(--accent); color: #000; }
-    .donate-close {
-      background: none; border: none; color: var(--muted);
-      font-size: 16px; cursor: pointer; padding: 0 4px;
-      line-height: 1; transition: color 0.2s; flex-shrink: 0;
+    .brand{
+      text-decoration:none;
+      display:flex;align-items:center;gap:11px;
+      font-weight:900;letter-spacing:-.04em
     }
-    .donate-close:hover { color: var(--text); }
+    .brand-mark{
+      width:34px;height:34px;border-radius:9px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:white;font-size:12px
+    }
+    .brand-text{font-size:1rem}
+    .brand-text span{color:var(--blue)}
+    .nav-links{display:flex;align-items:center;gap:24px}
+    .nav-links a{
+      text-decoration:none;color:#344054;
+      font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase
+    }
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{
+      padding:10px 14px;border:1px solid #d5dee8;border-radius:8px;background:#fff
+    }
+
+    /* HERO */
+    .hero{
+      min-height:72vh;
+      display:grid;
+      grid-template-columns:minmax(380px,.7fr) minmax(560px,1.3fr);
+      gap:3vw;
+      align-items:center;
+      padding:56px 3.5vw 50px;
+      background:
+        radial-gradient(circle at 78% 18%,rgba(47,115,255,.10),transparent 24%),
+        radial-gradient(circle at 68% 78%,rgba(32,191,232,.07),transparent 24%),
+        linear-gradient(180deg,#fff,#fbfdff)
+    }
+    .hero-copy{max-width:680px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 11px;margin-bottom:18px;
+      border:1px solid #dbe5f0;border-radius:999px;
+      background:#f7fbff;color:#587088;
+      font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase
+    }
+    .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+    h1{
+      font-size:clamp(3.2rem,5.2vw,6.4rem);
+      line-height:.95;letter-spacing:-.058em;
+      max-width:760px
+    }
+    h1 span{
+      background:linear-gradient(90deg,var(--blue),var(--cyan),var(--violet));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .hero-subtitle{
+      max-width:650px;
+      margin-top:22px;
+      color:#5f6d82;
+      font-size:clamp(1rem,1.25vw,1.2rem);
+      line-height:1.7
+    }
+    .hero-actions{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:26px
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:44px;padding:10px 17px;
+      border:1px solid #d5dee8;border-radius:9px;
+      text-decoration:none;font-weight:850;font-size:11px;
+      background:#fff;cursor:pointer
+    }
+    .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-note{
+      display:flex;flex-wrap:wrap;gap:9px 18px;margin-top:20px;
+      color:#6b788b;font-size:.8rem
+    }
+    .hero-note span::before{content:"✓";margin-right:7px;color:var(--green);font-weight:900}
+
+    /* Inspector preview */
+    .inspector-shell{
+      min-height:520px;
+      border:1px solid #d9e3ee;
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 28px 80px rgba(38,59,84,.10);
+      overflow:hidden;
+      display:grid;
+      grid-template-rows:44px 1fr
+    }
+    .browser-bar{
+      display:flex;align-items:center;gap:8px;
+      padding:0 15px;border-bottom:1px solid #e5ebf2;background:#f8fafc
+    }
+    .browser-dot{width:8px;height:8px;border-radius:50%;background:#c7d1dd}
+    .browser-address{
+      margin-left:8px;flex:1;
+      border:1px solid #dde5ee;background:#fff;border-radius:7px;
+      padding:6px 10px;color:#8996a8;font-size:.72rem
+    }
+    .browser-body{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
+      min-height:476px
+    }
+    .page-preview{
+      padding:36px;
+      background:
+        radial-gradient(circle at 70% 20%,rgba(47,115,255,.08),transparent 28%),
+        linear-gradient(180deg,#fff,#fbfdff)
+    }
+    .preview-kicker{font-size:.72rem;color:var(--muted2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .preview-title{
+      margin-top:12px;
+      width:72%;height:22px;border-radius:6px;background:#101828
+    }
+    .preview-line{margin-top:13px;width:84%;height:9px;border-radius:6px;background:#dfe6ef}
+    .preview-line.short{width:56%}
+    .preview-card{
+      margin-top:36px;width:82%;height:150px;border-radius:14px;
+      border:1px solid #e0e7ef;background:#fff;
+      box-shadow:0 10px 30px rgba(38,59,84,.04)
+    }
+    .inspector-panel{
+      padding:22px 20px;border-left:1px solid #e4eaf1;background:#fbfdff
+    }
+    .panel-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .panel-brand{font-weight:900;letter-spacing:-.03em}
+    .panel-badge{
+      padding:5px 8px;border-radius:999px;background:#eef8f2;color:var(--green);
+      font-size:.64rem;font-weight:850;text-transform:uppercase
+    }
+    .score{
+      display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center;margin:24px 0
+    }
+    .score-ring{
+      width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+      background:conic-gradient(var(--green) 0 90%,#e8eef5 90% 100%);
+      position:relative
+    }
+    .score-ring::after{
+      content:"";position:absolute;inset:8px;border-radius:50%;background:#fff
+    }
+    .score-ring strong{position:relative;z-index:1;font-size:1.25rem}
+    .score-copy b{display:block;margin-bottom:3px}
+    .score-copy span{color:var(--muted);font-size:.78rem}
+    .check-list{display:flex;flex-direction:column;gap:9px}
+    .check{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:10px 11px;border:1px solid #e3e9f0;border-radius:10px;background:#fff;
+      font-size:.78rem
+    }
+    .check span:last-child{font-weight:900;color:var(--green)}
+    .check.warn span:last-child{color:#d78a00}
+    .panel-footer{
+      margin-top:16px;padding-top:15px;border-top:1px solid #e5ebf2;
+      color:var(--muted);font-size:.72rem;line-height:1.5
+    }
+
+    /* TWO PATHS */
+    section{padding:68px 0}
+    .section-heading{max-width:980px;margin-bottom:30px}
+    .section-heading h2{
+      font-size:clamp(2.6rem,4.2vw,4.8rem);
+      line-height:.98;letter-spacing:-.052em
+    }
+    .section-heading p{
+      max-width:800px;margin-top:14px;color:var(--muted);line-height:1.7
+    }
+
+    .paths{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px
+    }
+    .path-card{
+      min-height:420px;padding:34px;
+      border:1px solid var(--line);border-radius:22px;
+      position:relative;overflow:hidden
+    }
+    .path-card.website{
+      background:
+        radial-gradient(circle at 78% 18%,rgba(47,115,255,.12),transparent 28%),
+        linear-gradient(135deg,#f8fbff,#fff)
+    }
+    .path-card.linkedin{
+      background:
+        radial-gradient(circle at 82% 16%,rgba(32,191,232,.13),transparent 28%),
+        linear-gradient(135deg,#f7fcff,#fff)
+    }
+    .path-label{
+      font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)
+    }
+    .path-card h3{
+      margin-top:16px;max-width:520px;
+      font-size:clamp(2.2rem,3.4vw,4rem);line-height:1;letter-spacing:-.05em
+    }
+    .path-card p{
+      max-width:560px;margin-top:14px;color:var(--muted);line-height:1.7
+    }
+    .path-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .mini-ui{
+      position:absolute;right:24px;bottom:22px;width:40%;min-width:210px;
+      padding:16px;border:1px solid #dfe6ee;border-radius:14px;background:rgba(255,255,255,.86);
+      box-shadow:0 15px 35px rgba(38,59,84,.06)
+    }
+    .mini-row{height:8px;border-radius:6px;background:#e2e8f0;margin:9px 0}
+    .mini-row.accent{width:58%;background:#a9c5ff}
+    .mini-score{font-size:2rem;font-weight:900;color:var(--blue)}
+    .linkedin-mark{
+      position:absolute;right:32px;bottom:28px;
+      width:120px;height:120px;border-radius:28px;
+      display:grid;place-items:center;
+      background:#0a66c2;color:#fff;font-size:3rem;font-weight:900
+    }
+
+    /* PRINCIPLES */
+    .principle-band{
+      background:#08131f;color:#fff
+    }
+    .principle-band .section-heading p{color:#a9b4c2}
+    .principles{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+    }
+    .principle{
+      padding:26px;border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;background:rgba(255,255,255,.03)
+    }
+    .principle b{display:block;margin-bottom:8px;font-size:1rem}
+    .principle span{color:#aeb8c5;font-size:.9rem;line-height:1.6}
+
+    /* LINKEDIN TOOL */
+    .tool-section{background:#fbfcfe}
+    .tool-grid{
+      display:grid;grid-template-columns:minmax(320px,.58fr) minmax(0,1.42fr);
+      gap:4vw;align-items:start
+    }
+    .tool-copy{position:sticky;top:96px}
+    .tool-copy h2{
+      font-size:clamp(2.6rem,4vw,4.7rem);line-height:.98;letter-spacing:-.05em
+    }
+    .tool-copy p{margin-top:15px;color:var(--muted);line-height:1.7}
+    .tool-card{
+      border:1px solid var(--line);border-radius:20px;background:#fff;
+      padding:26px;box-shadow:0 15px 42px rgba(38,59,84,.05)
+    }
+    label{
+      display:block;margin-bottom:9px;
+      font-size:10px;font-weight:850;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2)
+    }
+    .input-row{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="url"]{
+      flex:1;min-width:240px;
+      border:1px solid #dbe3ed;border-radius:9px;background:#fff;
+      padding:13px 14px;color:var(--text);outline:none
+    }
+    input[type="url"]:focus{border-color:var(--blue)}
+    .btn-primary{
+      border:0;border-radius:9px;background:var(--blue);color:#fff;
+      padding:13px 18px;font-weight:850;cursor:pointer
+    }
+    .steps-title{
+      margin:28px 0 14px;
+      font-size:10px;font-weight:850;letter-spacing:.09em;text-transform:uppercase;color:var(--muted2)
+    }
+    .step{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;background:#fff}
+    .step.active{border-color:#9bc0ff}.step.done{border-color:#cfe7d8}.step.error{border-color:#ffc5c5}
+    .step-header{display:flex;align-items:center;gap:12px;padding:15px 16px}
+    .step-num{width:22px;color:var(--muted2);font-size:.72rem;font-weight:850}
+    .step-icon{width:24px;text-align:center}
+    .step-info{flex:1}.step-name{font-weight:850}.step-desc{color:var(--muted);font-size:.78rem;margin-top:2px}
+    .step-status{
+      padding:4px 8px;border:1px solid currentColor;border-radius:999px;
+      font-size:.65rem;font-weight:850;letter-spacing:.05em
+    }
+    .status-waiting{color:#8b98aa}.status-running{color:var(--blue)}.status-done{color:var(--green)}.status-manual{color:var(--violet)}
+    .step-body{display:none;padding:0 16px 16px;border-top:1px solid #edf1f5}
+    .step.active .step-body,.step.done .step-body,.step.error .step-body,.step.manual .step-body{display:block}
+    .step-body p{padding-top:13px;color:var(--muted);font-size:.85rem;line-height:1.65}
+    .btn-manual{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:9px 12px;margin-top:10px;
+      border:1px solid #cdd9e8;border-radius:8px;text-decoration:none;
+      color:#355275;background:#fff;font-size:.78rem;font-weight:800
+    }
+    .result-box{
+      display:none;margin-top:24px;padding:24px;border:1px solid #d9e5f4;border-radius:15px;
+      background:linear-gradient(135deg,#f8fbff,#fff)
+    }
+    .result-box.show{display:block}
+    .result-box h3{font-size:1.2rem;margin-bottom:10px}.result-box h3 span{color:var(--green)}
+    .result-box p{color:var(--muted);line-height:1.65;font-size:.88rem}
+    .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .summary-item{
+      padding:15px;border:1px solid var(--line);border-radius:10px;background:#fff;text-align:center
+    }
+    .summary-item .num{display:block;font-size:1.65rem;font-weight:900;color:var(--blue)}
+    .summary-item .lbl{display:block;margin-top:3px;color:var(--muted2);font-size:.66rem;text-transform:uppercase;font-weight:850}
+
+    /* LEARN */
+    .learn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .learn-card{
+      min-height:210px;padding:24px;border:1px solid var(--line);border-radius:16px;background:#fff
+    }
+    .learn-card small{color:var(--blue);font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+    .learn-card h3{margin-top:12px;font-size:1.25rem}
+    .learn-card p{margin-top:10px;color:var(--muted);font-size:.9rem;line-height:1.6}
+    .learn-card a{display:inline-block;margin-top:18px;color:var(--blue);text-decoration:none;font-weight:850;font-size:.84rem}
+
+    footer{
+      padding:38px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem
+    }
+    .footer{
+      display:flex;justify-content:space-between;align-items:flex-start;gap:30px
+    }
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .footer a{text-decoration:none}.footer a:hover{color:var(--blue)}
+
+    @media(max-width:1100px){
+      .nav-links a:not(.nav-cta){display:none}
+      .hero{grid-template-columns:1fr;padding-top:44px}
+      .hero-copy{text-align:center;margin:auto}
+      .hero-actions,.hero-note{justify-content:center}
+      .inspector-shell{max-width:1050px;margin:auto}
+      .paths,.tool-grid{grid-template-columns:1fr}
+      .tool-copy{position:static}
+      .principles,.learn-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:650px){
+      .container{padding:0 18px}
+      .hero{padding:36px 18px}
+      h1{font-size:3.6rem;line-height:.98}
+      .browser-body{grid-template-columns:1fr}
+      .page-preview{display:none}
+      .inspector-panel{border-left:0}
+      .paths{grid-template-columns:1fr}
+      .path-card{min-height:360px;padding:26px}
+      .mini-ui,.linkedin-mark{opacity:.42}
+      .principles,.learn-grid,.summary-grid{grid-template-columns:1fr}
+      .input-row{flex-direction:column}
+      input[type="url"]{min-width:0;width:100%}
+      .footer{flex-direction:column}
+    }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <div class="badge">⚡ LinkedIn Refresh Tool</div>
-    <h1>Help search engines rediscover your <span>updated LinkedIn profile</span></h1>
-    <p class="subtitle">Updated your profile but search results still show the old position? ReIndexMe helps you check visibility, open official diagnostics and improve discoverability without pretending to force a recrawl.</p>
-    <a href="https://reindexme.com/it/index.html" class="lang-switch">🇮🇹 Versione italiana</a>
+<header class="site-header">
+  <div class="container nav">
+    <a href="#top" class="brand">
+      <span class="brand-mark">RI</span>
+      <span class="brand-text">ReIndex<span>Me</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#paths">Tools</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#learn">Learn</a>
+      <a class="nav-cta" href="https://reindexme.com/it/index.html">Italiano</a>
+    </nav>
   </div>
+</header>
 
-  <div class="input-section">
-    <label for="urlInput">Your LinkedIn profile URL</label>
-    <div class="input-row">
-      <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/yourname" autocomplete="off" spellcheck="false" />
-      <button class="btn-primary" id="startBtn" onclick="startProcess()">Run →</button>
-    </div>
-  </div>
+<main id="top">
 
-  <div id="stepsContainer" style="display:none">
-    <p class="steps-title">// Guided refresh workflow</p>
-
-    <div class="step" id="step1">
-      <div class="step-header">
-        <span class="step-num">01</span><span class="step-icon">🔵</span>
-        <div class="step-info"><div class="step-name">Profile check</div><div class="step-desc">Verify the LinkedIn URL and open the public profile</div></div>
-        <span class="step-status status-waiting" id="status1">WAITING</span>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Search discovery toolkit</div>
+      <h1>Help search engines <span>rediscover what changed.</span></h1>
+      <p class="hero-subtitle">
+        ReIndexMe helps you understand whether updated content is ready to be found again.
+        Analyze your website locally in the browser, or use the guided LinkedIn refresh workflow.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#paths">Choose a tool</a>
+        <a class="btn" href="#linkedin">Refresh LinkedIn</a>
       </div>
-      <div class="step-body" id="body1"></div>
-    </div>
-
-    <div class="step" id="step2">
-      <div class="step-header">
-        <span class="step-num">02</span><span class="step-icon">🔴</span>
-        <div class="step-info"><div class="step-name">Search visibility</div><div class="step-desc">Check how the profile currently appears on Google and Bing</div></div>
-        <span class="step-status status-waiting" id="status2">WAITING</span>
+      <div class="hero-note">
+        <span>No account</span>
+        <span>No domain verification</span>
+        <span>No permanent URL collection</span>
       </div>
-      <div class="step-body" id="body2"></div>
     </div>
 
-    <div class="step" id="step3">
-      <div class="step-header">
-        <span class="step-num">03</span><span class="step-icon">🟡</span>
-        <div class="step-info"><div class="step-name">Google diagnostics</div><div class="step-desc">Open official Google tools that can inspect the public URL</div></div>
-        <span class="step-status status-waiting" id="status3">WAITING</span>
+    <div class="inspector-shell" aria-label="ReIndexMe Local Inspector preview">
+      <div class="browser-bar">
+        <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+        <div class="browser-address">https://yourwebsite.com/updated-page</div>
       </div>
-      <div class="step-body" id="body3"></div>
-    </div>
-
-    <div class="step" id="step4">
-      <div class="step-header">
-        <span class="step-num">04</span><span class="step-icon">🟢</span>
-        <div class="step-info"><div class="step-name">Improve discoverability</div><div class="step-desc">Create legitimate public paths that help the profile be rediscovered</div></div>
-        <span class="step-status status-waiting" id="status4">WAITING</span>
+      <div class="browser-body">
+        <div class="page-preview">
+          <div class="preview-kicker">Your updated page</div>
+          <div class="preview-title"></div>
+          <div class="preview-line"></div>
+          <div class="preview-line short"></div>
+          <div class="preview-card"></div>
+        </div>
+        <aside class="inspector-panel">
+          <div class="panel-head">
+            <div class="panel-brand">ReIndexMe</div>
+            <div class="panel-badge">Local</div>
+          </div>
+          <div class="score">
+            <div class="score-ring"><strong>90</strong></div>
+            <div class="score-copy">
+              <b>Ready for rediscovery</b>
+              <span>Most important signals look good.</span>
+            </div>
+          </div>
+          <div class="check-list">
+            <div class="check"><span>Indexability</span><span>✓</span></div>
+            <div class="check"><span>Canonical</span><span>✓</span></div>
+            <div class="check"><span>Title & description</span><span>✓</span></div>
+            <div class="check"><span>Structured data</span><span>✓</span></div>
+            <div class="check warn"><span>dateModified</span><span>!</span></div>
+          </div>
+          <div class="panel-footer">
+            Preview of ReIndexMe Local Inspector. The extension will analyze the active page only when you ask it to.
+          </div>
+        </aside>
       </div>
-      <div class="step-body" id="body4"></div>
-    </div>
-
-    <div class="step" id="step5">
-      <div class="step-header">
-        <span class="step-num">05</span><span class="step-icon">💡</span>
-        <div class="step-info"><div class="step-name">Check again later</div><div class="step-desc">Revisit search results after crawlers have had time to refresh</div></div>
-        <span class="step-status status-waiting" id="status5">WAITING</span>
-      </div>
-      <div class="step-body" id="body5"></div>
-    </div>
-  </div>
-
-  <div class="result-box" id="resultBox">
-    <h3>Refresh workflow ready <span>✓</span></h3>
-    <p>
-      ReIndexMe cannot force Google, Bing or LinkedIn to recrawl a profile.
-      It helps you verify the public URL, inspect current search visibility,
-      use official diagnostic tools and follow legitimate discovery actions.
-    </p>
-    <div class="summary-grid">
-      <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Checks prepared</span></div>
-      <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Manual actions</span></div>
-      <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Automatic submissions</span></div>
-    </div>
-  </div>
-
-  <section class="apps-section" aria-label="Memmola Labs apps on Google Play">
-    <p class="apps-title">// Discover new app by Memmola Labs</p>
-    <div class="apps-grid">
-      <article class="app-card">
-        <a class="app-feature-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.autobit" target="_blank" rel="noopener noreferrer" aria-label="Open AutoBit on Google Play">
-          <img src="images/autobit_feature_graphic.png" alt="AutoBit app preview graphic" loading="lazy" />
-        </a>
-        <a class="play-badge-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.autobit" target="_blank" rel="noopener noreferrer" aria-label="Get AutoBit on Google Play">
-          <img src="images/GetItOnGooglePlay_Badge_Web_color_Italian.png" alt="Disponibile su Google Play" loading="lazy" />
-        </a>
-      </article>
-      <article class="app-card">
-        <a class="app-feature-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.immobit" target="_blank" rel="noopener noreferrer" aria-label="Open ImmoBit on Google Play">
-          <img src="images/immobit_feature_graphic.png" alt="ImmoBit app preview graphic" loading="lazy" />
-        </a>
-        <a class="play-badge-link" href="https://play.google.com/store/apps/details?id=com.memmolalabs.immobit" target="_blank" rel="noopener noreferrer" aria-label="Get ImmoBit on Google Play">
-          <img src="images/GetItOnGooglePlay_Badge_Web_color_Italian.png" alt="Disponibile su Google Play" loading="lazy" />
-        </a>
-      </article>
     </div>
   </section>
-</div>
+
+  <section id="paths">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Two updates. One problem.</h2>
+        <p>You changed something online. ReIndexMe helps you understand the correct path for getting that change rediscovered.</p>
+      </div>
+
+      <div class="paths">
+        <article class="path-card website">
+          <div class="path-label">Website</div>
+          <h3>I changed a page on my website.</h3>
+          <p>
+            ReIndexMe Local Inspector will analyze the active page directly in your browser
+            and show whether important discovery and indexability signals are in place.
+          </p>
+          <div class="path-actions">
+            <a class="btn primary" href="#local-inspector">Local Inspector</a>
+            <a class="btn" href="#learn">How it works</a>
+          </div>
+          <div class="mini-ui" aria-hidden="true">
+            <div class="mini-score">90/100</div>
+            <div class="mini-row accent"></div>
+            <div class="mini-row"></div>
+            <div class="mini-row"></div>
+          </div>
+        </article>
+
+        <article class="path-card linkedin">
+          <div class="path-label">LinkedIn</div>
+          <h3>I changed my LinkedIn profile.</h3>
+          <p>
+            Check current search visibility, open official diagnostics and follow a guided
+            refresh workflow without fake submissions or promises of forced crawling.
+          </p>
+          <div class="path-actions">
+            <a class="btn primary" href="#linkedin">Open LinkedIn Refresh</a>
+          </div>
+          <div class="linkedin-mark" aria-hidden="true">in</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="principle-band" id="privacy">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Your website stays yours.</h2>
+        <p>ReIndexMe is being designed around a simple trust model: inspect only what the user explicitly asks to inspect, without turning the product into another webmaster account.</p>
+      </div>
+      <div class="principles">
+        <div class="principle"><b>No account</b><span>No ReIndexMe login is required to use the core tools.</span></div>
+        <div class="principle"><b>No domain verification</b><span>You do not need to prove ownership of a site to ReIndexMe.</span></div>
+        <div class="principle"><b>No permanent site access</b><span>The Local Inspector will analyze the active page only when you trigger it.</span></div>
+        <div class="principle"><b>No permanent URL collection</b><span>The product is not built around storing a history of pages you inspect.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="local-inspector">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Local Inspector is coming next.</h2>
+        <p>
+          The browser extension will inspect the page you are currently viewing and report
+          indexability, canonical signals, metadata, structured data and other discovery clues.
+          Chrome and Edge links will appear here when the extensions are published.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <span class="btn">Chrome extension — coming soon</span>
+        <span class="btn">Edge extension — coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="linkedin" class="tool-section">
+    <div class="container tool-grid">
+      <div class="tool-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> LinkedIn Refresh</div>
+        <h2>Updated your profile?</h2>
+        <p>
+          ReIndexMe cannot force Google or Bing to recrawl LinkedIn.
+          It can help you check the public profile, compare current search visibility,
+          open official diagnostics and follow legitimate discovery steps.
+        </p>
+      </div>
+
+      <div class="tool-card">
+        <label for="urlInput">Your LinkedIn profile URL</label>
+        <div class="input-row">
+          <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/yourname" autocomplete="off" spellcheck="false" />
+          <button class="btn-primary" id="startBtn" onclick="startProcess()">Run refresh →</button>
+        </div>
+
+        <div id="stepsContainer" style="display:none">
+          <p class="steps-title">Guided refresh workflow</p>
+
+          <div class="step" id="step1">
+            <div class="step-header">
+              <span class="step-num">01</span><span class="step-icon">🔵</span>
+              <div class="step-info"><div class="step-name">Profile check</div><div class="step-desc">Verify the LinkedIn URL and open the public profile</div></div>
+              <span class="step-status status-waiting" id="status1">WAITING</span>
+            </div>
+            <div class="step-body" id="body1"></div>
+          </div>
+
+          <div class="step" id="step2">
+            <div class="step-header">
+              <span class="step-num">02</span><span class="step-icon">🔎</span>
+              <div class="step-info"><div class="step-name">Search visibility</div><div class="step-desc">Check how the profile currently appears on Google and Bing</div></div>
+              <span class="step-status status-waiting" id="status2">WAITING</span>
+            </div>
+            <div class="step-body" id="body2"></div>
+          </div>
+
+          <div class="step" id="step3">
+            <div class="step-header">
+              <span class="step-num">03</span><span class="step-icon">🧩</span>
+              <div class="step-info"><div class="step-name">Google diagnostics</div><div class="step-desc">Open official Google tools that can inspect the public URL</div></div>
+              <span class="step-status status-waiting" id="status3">WAITING</span>
+            </div>
+            <div class="step-body" id="body3"></div>
+          </div>
+
+          <div class="step" id="step4">
+            <div class="step-header">
+              <span class="step-num">04</span><span class="step-icon">↗</span>
+              <div class="step-info"><div class="step-name">Improve discoverability</div><div class="step-desc">Create legitimate public paths that help the profile be rediscovered</div></div>
+              <span class="step-status status-waiting" id="status4">WAITING</span>
+            </div>
+            <div class="step-body" id="body4"></div>
+          </div>
+
+          <div class="step" id="step5">
+            <div class="step-header">
+              <span class="step-num">05</span><span class="step-icon">⏱</span>
+              <div class="step-info"><div class="step-name">Check again later</div><div class="step-desc">Revisit search results after crawlers have had time to refresh</div></div>
+              <span class="step-status status-waiting" id="status5">WAITING</span>
+            </div>
+            <div class="step-body" id="body5"></div>
+          </div>
+        </div>
+
+        <div class="result-box" id="resultBox">
+          <h3>Refresh workflow ready <span>✓</span></h3>
+          <p>
+            ReIndexMe cannot force Google, Bing or LinkedIn to recrawl a profile.
+            It helps you verify the public URL, inspect current search visibility,
+            use official diagnostic tools and follow legitimate discovery actions.
+          </p>
+          <div class="summary-grid">
+            <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Checks prepared</span></div>
+            <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Manual actions</span></div>
+            <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Automatic submissions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="learn">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Understand what happens after an update.</h2>
+        <p>These pages will become the educational layer of ReIndexMe. We can build them next, one by one.</p>
+      </div>
+
+      <div class="learn-grid">
+        <article class="learn-card">
+          <small>Guide 01</small>
+          <h3>Crawling is not indexing</h3>
+          <p>Why being discovered by a crawler does not automatically mean appearing in search results.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+        <article class="learn-card">
+          <small>Guide 02</small>
+          <h3>Why Google has not seen your update yet</h3>
+          <p>What can delay rediscovery after a page changes.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+        <article class="learn-card">
+          <small>Guide 03</small>
+          <h3>Canonical URLs</h3>
+          <p>How canonical signals can change which URL search engines treat as the preferred version.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+        <article class="learn-card">
+          <small>Guide 04</small>
+          <h3>Sitemaps and lastmod</h3>
+          <p>How discovery signals can help crawlers understand what changed and when.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer>
-  <p id="footer-text">
-    reindexme.com and its contents © Alessandro Memmola 2026 – All rights reserved.<br>
-    reindexme widget: free to embed on any site (personal or commercial).<br>
-    <a href="https://reindexme.com/license.html" target="_blank">Read the full license (site + widget)</a> •
-    <a href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL">❤️ Donate via PayPal</a> •
-    <a href="https://github.com/sponsors/alessandromemmola">⭐ Sponsor on GitHub</a> •
-    This site does not collect personal data or use profiling cookies
-  </p>
-  <a href="https://reindexme.com/widget-demo.html" class="footer-widget-btn">📦 Try the Free Widget →</a>
-  <p id="footer-links">
-    <a href="https://alessandromemmola.com">Personal site</a> ·
-    <a href="https://github.com/alessandromemmola">GitHub</a> ·
-    <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> ·
-    <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
-    <a href="https://x.com/MemmolaLabs">X</a>
-  </p>
+  <div class="container footer">
+    <div>
+      <strong>ReIndexMe</strong><br>
+      Help search engines rediscover what changed.
+    </div>
+    <div class="footer-links">
+      <a href="https://reindexme.com/license.html">License</a>
+      <a href="#privacy">Privacy</a>
+      <a href="https://github.com/alessandromemmola">GitHub</a>
+      <a href="https://x.com/MemmolaLabs">X</a>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -467,12 +867,5 @@
     checksPrepared++;
   }
 </script>
-
-<div class="donate-bar" id="donateBar">
-  <p><strong>If reindexme was useful to you</strong>, help me keep it free and develop it full-time</p>
-  <iframe src="https://github.com/sponsors/alessandromemmola/button" title="Sponsor alessandromemmola" height="32" width="114" style="border:0;border-radius:6px;vertical-align:middle;"></iframe>
-  <button class="donate-close" onclick="document.getElementById('donateBar').style.display='none'" title="Close">×</button>
-</div>
-
 </body>
 </html>
