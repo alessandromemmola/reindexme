@@ -361,10 +361,27 @@
       padding:38px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem
     }
     .footer{
-      display:flex;justify-content:space-between;align-items:flex-start;gap:30px
+      display:grid;grid-template-columns:minmax(260px,1.5fr) minmax(180px,.8fr) minmax(190px,.8fr);
+      gap:5vw;align-items:start
     }
-    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-brand strong{display:block;color:var(--text);font-size:1.05rem;margin-bottom:7px}
+    .footer-brand p{max-width:390px;line-height:1.6}
+    .footer-group-title{
+      display:block;margin-bottom:11px;color:var(--muted2);font-size:.67rem;
+      font-weight:850;letter-spacing:.1em;text-transform:uppercase
+    }
+    .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
     .footer a{text-decoration:none}.footer a:hover{color:var(--blue)}
+    .support-link{
+      display:inline-flex;align-items:center;gap:7px;padding:7px 10px;
+      border:1px solid var(--line);border-radius:8px;background:#fff;color:#4d5d70
+    }
+    .footer-bottom{
+      margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+      color:var(--muted2);font-size:.74rem;line-height:1.6
+    }
+    .footer-bottom-links{display:flex;gap:14px;flex-wrap:wrap}
 
     @media(max-width:1100px){
       .nav-links a:not(.nav-cta){display:none}
@@ -389,7 +406,8 @@
       .principles,.learn-grid,.summary-grid{grid-template-columns:1fr}
       .input-row{flex-direction:column}
       input[type="url"]{min-width:0;width:100%}
-      .footer{flex-direction:column}
+      .footer{grid-template-columns:1fr;gap:28px}
+      .footer-bottom{flex-direction:column}
     }
   </style>
 </head>
@@ -406,6 +424,7 @@
       <a href="#privacy">Privacy</a>
       <a href="#linkedin">LinkedIn</a>
       <a href="#learn">Learn</a>
+      <a href="https://memmolalabs.com/">Memmola Labs</a>
       <a class="nav-cta" href="https://reindexme.com/it/index.html">Italiano</a>
     </nav>
   </div>
@@ -671,16 +690,35 @@
 </main>
 
 <footer>
-  <div class="container footer">
-    <div>
-      <strong>ReIndexMe</strong><br>
-      Help search engines rediscover what changed.
+  <div class="container">
+    <div class="footer">
+      <div class="footer-brand">
+        <strong>ReIndexMe</strong>
+        <p>Help search engines rediscover what changed.</p>
+      </div>
+      <div>
+        <span class="footer-group-title">Project</span>
+        <div class="footer-links">
+          <a href="https://memmolalabs.com/">Memmola Labs</a>
+          <a href="https://alessandromemmola.com/">Alessandro Memmola</a>
+          <a href="https://github.com/alessandromemmola">GitHub</a>
+          <a href="https://x.com/MemmolaLabs">X</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-group-title">Support</span>
+        <div class="footer-links">
+          <a class="support-link" href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL" target="_blank" rel="noopener noreferrer">♡ Donate via PayPal</a>
+          <a class="support-link" href="https://github.com/sponsors/alessandromemmola" target="_blank" rel="noopener noreferrer">☆ Sponsor on GitHub</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="https://reindexme.com/license.html">License</a>
-      <a href="#privacy">Privacy</a>
-      <a href="https://github.com/alessandromemmola">GitHub</a>
-      <a href="https://x.com/MemmolaLabs">X</a>
+    <div class="footer-bottom">
+      <span>reindexme.com and its contents © Alessandro Memmola 2026 — All rights reserved. No profiling cookies. No personally identifiable data collected.</span>
+      <div class="footer-bottom-links">
+        <a href="https://reindexme.com/it/licenza.html">License</a>
+        <a href="#privacy">Privacy</a>
+      </div>
     </div>
   </div>
 </footer>
