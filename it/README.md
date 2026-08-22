@@ -96,11 +96,13 @@ reindexme/
 
 ## Widget embeddabile
 
-LinkedIn Refresh è disponibile anche come widget gratuito da incorporare in siti personali o commerciali.
+LinkedIn Refresh è disponibile anche come **widget gratuito** da incorporare in siti personali o commerciali.
 
 Il widget permette agli utenti di utilizzare una versione compatta del workflow direttamente all'interno del sito ospitante.
 
-iFrame
+### iFrame
+
+```html
 <iframe
   src="https://reindexme-widget.vercel.app/it/index.html"
   width="480"
@@ -109,44 +111,49 @@ iFrame
   loading="lazy"
   style="border:0;width:100%;max-width:480px;overflow:hidden;"
 ></iframe>
+```
 
 Il widget non richiede account, configurazioni backend o integrazioni JavaScript con il sito ospitante.
 
-→ Demo e istruzioni complete
+→ [Demo e istruzioni complete](https://reindexme.com/it/widget-demo.html)
 
-Cosa ReIndexMe non fa
+---
+
+## Cosa ReIndexMe non fa
 
 ReIndexMe non promette di:
 
-forzare il crawling di Google o Bing
-forzare l'indicizzazione o la re-indicizzazione
-garantire tempi di aggiornamento
-garantire ranking o presenza nei risultati di ricerca
-inviare URL appartenenti a domini di terzi fingendo di controllarli
+- forzare il crawling di Google o Bing
+- forzare l'indicizzazione o la re-indicizzazione
+- garantire tempi di aggiornamento
+- garantire ranking o presenza nei risultati di ricerca
+- inviare URL appartenenti a domini di terzi fingendo di controllarli
 
-ReIndexMe fornisce invece analisi, controlli, diagnostica e percorsi trasparenti per capire meglio cosa può aiutare un contenuto aggiornato a essere riscoperto.
+ReIndexMe fornisce invece **analisi, controlli, diagnostica e percorsi trasparenti** per capire meglio cosa può aiutare un contenuto aggiornato a essere riscoperto.
 
 ---
 
 ## Licenza
 
-ReIndexMe è un progetto di Alessandro Memmola / Memmola Labs.
+ReIndexMe è un progetto di **Alessandro Memmola / Memmola Labs**.
 
 Il sito, l'interfaccia, il branding, la documentazione e il codice proprietario sono protetti salvo diversa indicazione.
 
 Il widget ufficiale può essere incorporato gratuitamente su siti personali o commerciali mantenendo intatta l'attribuzione ReIndexMe / Memmola Labs e rispettando le condizioni della licenza.
 
-→ Leggi la licenza completa
+→ [Leggi la licenza completa](https://reindexme.com/it/licenza.html)
 
-Memmola Labs
+---
 
-ReIndexMe è sviluppato da Memmola Labs, studio software indipendente creato da Alessandro Memmola.
+## Memmola Labs
 
-🌐 memmolalabs.com
-🌐 alessandromemmola.com
-💻 GitHub
-💼 LinkedIn
-𝕏 Memmola Labs su X
+ReIndexMe è sviluppato da **Memmola Labs**, studio software indipendente creato da Alessandro Memmola.
+
+🌐 [memmolalabs.com](https://memmolalabs.com)  
+🌐 [alessandromemmola.com](https://alessandromemmola.com)  
+💻 [GitHub](https://github.com/alessandromemmola)  
+💼 [LinkedIn](https://www.linkedin.com/in/alessandro-memmola-233868372/)  
+𝕏 [Memmola Labs su X](https://x.com/MemmolaLabs)
 
 ---
 
@@ -156,7 +163,9 @@ ReIndexMe è disponibile gratuitamente.
 
 Se vuoi contribuire allo sviluppo e al mantenimento del progetto:
 
-❤️ Dona tramite PayPal
-⭐ GitHub Sponsors
+❤️ [Dona tramite PayPal](https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL)  
+⭐ [GitHub Sponsors](https://github.com/sponsors/alessandromemmola)
+
+---
 
 © 2026 Alessandro Memmola — Memmola Labs. Tutti i diritti riservati.
