@@ -2,90 +2,161 @@
 
 🇬🇧 [English version available at reindexme.com](https://reindexme.com)
 
-**Re-indicizza il tuo profilo LinkedIn sui motori di ricerca.**
+**Aiuta i motori di ricerca a riscoprire ciò che è cambiato.**
 
-Hai aggiornato la tua posizione su LinkedIn ma Google mostra ancora quella vecchia? reindexme invia segnali di re-indicizzazione a Bing, Yandex e Google per accelerare l'aggiornamento — senza registrazione, senza cookie, direttamente dal browser.
+ReIndexMe è un progetto di Memmola Labs dedicato alla riscoperta dei contenuti aggiornati nei motori di ricerca.
+
+Il progetto parte da un principio semplice:
+
+**nessun account, nessuna verifica del dominio, nessun accesso permanente al sito e nessuna raccolta permanente degli URL.**
+
+ReIndexMe comprende due percorsi principali:
+
+- **LinkedIn Refresh** — per controllare un profilo LinkedIn aggiornato e verificarne la visibilità attuale nei motori di ricerca.
+- **ReIndexMe Local Inspector** — estensione browser in sviluppo per analizzare localmente una pagina web e individuare segnali che possono influenzarne crawling, indicizzabilità e riscoperta.
 
 🔗 **[reindexme.com/it](https://reindexme.com/it/)**
 
 ---
 
-## Come funziona
+## LinkedIn Refresh
 
-1. Inserisci l'URL del tuo profilo LinkedIn
-2. Il tool invia automaticamente ping a **Bing IndexNow** e **Yandex IndexNow**
-3. Fornisce link diretti agli strumenti ufficiali Google per forzare il re-fetch
-4. Suggerisce il boost organico tramite condivisione su LinkedIn
+Hai aggiornato il tuo profilo LinkedIn ma Google o Bing mostrano ancora informazioni precedenti?
 
-Aggiornamento atteso: **24–72h** su Bing · **3–10 giorni** su Google.
+LinkedIn Refresh offre un workflow guidato per:
+
+1. Verificare l'URL pubblico del profilo LinkedIn
+2. Aprire e controllare il profilo aggiornato
+3. Controllare la visibilità attuale su **Google**
+4. Controllare la visibilità attuale su **Bing**
+5. Aprire strumenti diagnostici ufficiali Google
+6. Seguire azioni legittime che possono aiutare il profilo a essere riscoperto
+7. Ricontrollare successivamente i risultati
+
+ReIndexMe **non invia richieste di indicizzazione per linkedin.com** e non afferma di poter forzare Google, Bing o LinkedIn a effettuare nuovamente il crawl di un profilo.
+
+I motori di ricerca decidono autonomamente quando e come aggiornare i propri risultati.
+
+---
+
+## ReIndexMe Local Inspector
+
+**Local Inspector è attualmente in sviluppo.**
+
+Sarà un'estensione browser progettata per analizzare la pagina che l'utente sta visualizzando, direttamente nel browser e solo quando viene richiesto.
+
+L'obiettivo è aiutare a individuare segnali utili alla riscoperta di una pagina aggiornata, tra cui:
+
+- indicizzabilità
+- canonical
+- title e meta description
+- dati strutturati
+- `dateModified`
+- altri segnali tecnici rilevanti
+
+Non sarà necessario creare un account ReIndexMe o verificare la proprietà del dominio.
+
+Le estensioni per **Google Chrome** e **Microsoft Edge** saranno collegate al sito quando disponibili.
+
+---
+
+## Privacy by design
+
+ReIndexMe è progettato per richiedere il minor livello di fiducia possibile all'utente.
+
+Il workflow principale non richiede:
+
+- account ReIndexMe
+- verifica del dominio
+- accesso permanente al sito
+- installazione di file di verifica nella root del dominio
+- raccolta permanente degli URL analizzati
+- cookie di profilazione
+
+Local Inspector è progettato per eseguire l'analisi della pagina attiva localmente nel browser quando l'utente la richiede.
 
 ---
 
 ## Struttura del repo
 
-```
+```text
 reindexme/
-├── index.html            # Tool principale (inglese)
-├── widget-demo.html      # Pagina demo widget (inglese)
-├── license.html          # Licenza (inglese)
+├── index.html            # ReIndexMe principale (inglese)
+├── widget-demo.html      # Widget e istruzioni embed (inglese)
+├── license.html          # Licenza e condizioni (inglese)
 ├── it/
-│   ├── index.html        # Tool principale (italiano)
-│   ├── widget-demo.html  # Pagina demo widget (italiano)
-│   └── licenza.html      # Licenza (italiano)
+│   ├── index.html        # ReIndexMe principale (italiano)
+│   ├── widget-demo.html  # Widget e istruzioni embed (italiano)
+│   └── licenza.html      # Licenza e condizioni (italiano)
 ├── sitemap.xml
 ├── robots.txt
 └── README.md
-```
-
-> Il codice sorgente del widget embeddabile è ospitato in un repo privato e deployato su [reindexme-widget.vercel.app](https://reindexme-widget.vercel.app).
 
 ---
 
 ## Widget embeddabile
 
-reindexme è disponibile come widget gratuito da integrare su qualsiasi sito, personale o commerciale.
+LinkedIn Refresh è disponibile anche come widget gratuito da incorporare in siti personali o commerciali.
 
-**iFrame**
-```html
+Il widget permette agli utenti di utilizzare una versione compatta del workflow direttamente all'interno del sito ospitante.
+
+iFrame
 <iframe
-  src="https://reindexme-widget.vercel.app/it/"
+  src="https://reindexme-widget.vercel.app/it/index.html"
   width="480"
   height="420"
-  title="reindexme LinkedIn profile tool"
-  style="border:none;width:100%;max-width:480px;overflow:hidden;"
+  title="ReIndexMe LinkedIn Refresh widget"
+  loading="lazy"
+  style="border:0;width:100%;max-width:480px;overflow:hidden;"
 ></iframe>
-```
 
-**Script tag**
-```html
-<div id="reindex-widget-container"></div>
-<script>
-  (function() {
-    var s = document.createElement('script');
-    s.src = 'https://reindexme-widget.vercel.app/widget.js';
-    s.dataset.container = 'reindex-widget-container';
-    document.head.appendChild(s);
-  })();
-</script>
-```
+Il widget non richiede account, configurazioni backend o integrazioni JavaScript con il sito ospitante.
 
-→ [Vedi la demo e le istruzioni complete](https://reindexme.com/it/widget-demo.html)
+→ Demo e istruzioni complete
+
+Cosa ReIndexMe non fa
+
+ReIndexMe non promette di:
+
+forzare il crawling di Google o Bing
+forzare l'indicizzazione o la re-indicizzazione
+garantire tempi di aggiornamento
+garantire ranking o presenza nei risultati di ricerca
+inviare URL appartenenti a domini di terzi fingendo di controllarli
+
+ReIndexMe fornisce invece analisi, controlli, diagnostica e percorsi trasparenti per capire meglio cosa può aiutare un contenuto aggiornato a essere riscoperto.
 
 ---
 
 ## Licenza
 
-Il sito e i suoi contenuti sono di proprietà di **Alessandro Memmola** — tutti i diritti riservati.  
-Il widget è concesso in licenza gratuita per l'embed su qualsiasi sito a condizione che il branding rimanga intatto.
+ReIndexMe è un progetto di Alessandro Memmola / Memmola Labs.
 
-→ [Leggi la licenza completa](https://reindexme.com/it/licenza.html)
+Il sito, l'interfaccia, il branding, la documentazione e il codice proprietario sono protetti salvo diversa indicazione.
+
+Il widget ufficiale può essere incorporato gratuitamente su siti personali o commerciali mantenendo intatta l'attribuzione ReIndexMe / Memmola Labs e rispettando le condizioni della licenza.
+
+→ Leggi la licenza completa
+
+Memmola Labs
+
+ReIndexMe è sviluppato da Memmola Labs, studio software indipendente creato da Alessandro Memmola.
+
+🌐 memmolalabs.com
+🌐 alessandromemmola.com
+💻 GitHub
+💼 LinkedIn
+𝕏 Memmola Labs su X
 
 ---
 
-## Autore
+## Supporta il progetto
 
-**Alessandro Memmola**  
-[alessandromemmola.com](https://alessandromemmola.com) · [LinkedIn](https://www.linkedin.com/in/alessandro-memmola-233868372/) · [GitHub](https://github.com/alessandromemmola) · [X](https://x.com/MemmolaLabs) · [Product Hunt](https://www.producthunt.com/@alessandromemmola)
+ReIndexMe è disponibile gratuitamente.
 
-Se reindexme ti è stato utile, puoi supportare il progetto:  
-❤️ [paypal.me/onlycreator](https://paypal.me/onlycreator)
+Se vuoi contribuire allo sviluppo e al mantenimento del progetto:
+
+❤️ Dona tramite PayPal
+⭐ GitHub Sponsors
+
+© 2026 Alessandro Memmola — Memmola Labs. Tutti i diritti riservati.
