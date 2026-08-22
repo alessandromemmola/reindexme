@@ -3,212 +3,686 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Licenza d'uso di reindexme.com — cosa puoi fare con il sito e il widget embeddabile. Gratuito per uso personale e commerciale con attribuzione." />
-  <title>Licenza — reindexme.com</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Licenza e condizioni d'uso di ReIndexMe per il sito, il workflow LinkedIn Refresh, Local Inspector e il widget embeddabile." />
+  <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://reindexme.com/it/licenza.html" />
+  <title>Licenza e condizioni d'uso — ReIndexMe</title>
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0a0a0a; --surface: #111; --border: #222;
-      --accent: #00ff88; --accent2: #0066ff; --text: #f0f0f0; --muted: #666;
+    :root{
+      --bg:#ffffff;
+      --surface:#f7f9fc;
+      --surface2:#eef5ff;
+      --line:#dde5ef;
+      --text:#0b1730;
+      --muted:#667085;
+      --muted2:#8b98aa;
+      --blue:#2f73ff;
+      --cyan:#20bfe8;
+      --green:#18a66a;
+      --red:#d84a4a;
+      --violet:#7458e8;
+      --dark:#09131f;
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(0,255,136,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.025) 1px, transparent 1px);
-      background-size: 40px 40px; pointer-events: none; z-index: 0;
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:#fff;
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.7;
+      overflow-x:hidden
     }
-    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; position: relative; z-index: 1; }
-    .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); border: 1px solid var(--accent); padding: 4px 10px; margin-bottom: 20px; text-transform: uppercase; }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 8px; }
-    h1 span { color: var(--accent); }
-    .meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 24px; }
-    .meta span { color: var(--accent); }
-    .lang-switch { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 4px 10px; margin-bottom: 40px; transition: color 0.2s, border-color 0.2s; }
-    .lang-switch:hover { color: var(--accent); border-color: var(--accent); }
-    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
-    .summary-card { background: var(--surface); border: 1px solid var(--border); padding: 24px; }
-    .summary-card.allowed { border-left: 3px solid var(--accent); }
-    .summary-card.forbidden { border-left: 3px solid #ff4444; }
-    .summary-card h3 { font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-    .summary-card ul { list-style: none; }
-    .summary-card ul li { font-size: 0.78rem; color: var(--muted); padding: 5px 0; border-bottom: 1px solid #1a1a1a; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
-    .summary-card ul li:last-child { border-bottom: none; }
-    .summary-card ul li::before { flex-shrink: 0; margin-top: 1px; }
-    .allowed ul li::before { content: '✓'; color: var(--accent); font-family: 'DM Mono', monospace; font-size: 10px; }
-    .forbidden ul li::before { content: '✕'; color: #ff4444; font-family: 'DM Mono', monospace; font-size: 10px; }
-    .lic-section { margin-bottom: 40px; }
-    .lic-section-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-    .lic-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .lic-section-title .num { color: var(--muted); }
-    .lic-block { background: var(--surface); border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 12px; }
-    .lic-block h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
-    .lic-block p, .lic-block li { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
-    .lic-block ul { margin-left: 16px; margin-top: 8px; }
-    .lic-block ul li { margin-bottom: 4px; }
-    .lic-block strong { color: var(--text); }
-    .lic-block a { color: var(--accent2); text-decoration: none; }
-    .lic-block a:hover { text-decoration: underline; }
-    .attribution-box { background: #0d0d0d; border: 1px solid var(--border); padding: 20px 24px; font-family: 'DM Mono', monospace; font-size: 12px; color: #888; margin-top: 12px; }
-    .attribution-box .kw { color: #ff6b9d; }
-    .attribution-box .str { color: var(--accent); }
-    footer {
-      max-width: 720px;
-      margin: 72px auto 0;
-      padding: 32px 24px 48px;
-      border-top: 1px solid var(--border);
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.9;
-      position: relative;
-      z-index: 1;
-      text-align: center;
+
+    a{color:inherit}
+
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,255,255,.94);
+      border-bottom:1px solid rgba(11,23,48,.08);
+      backdrop-filter:blur(18px)
     }
-    #footer-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s; }
-    #footer-text a:hover { color: var(--accent); }
-    #footer-links { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; justify-content: center; }
-    #footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    #footer-links a:hover { color: var(--accent); }
-    @media (max-width: 560px) { .summary-grid { grid-template-columns: 1fr; } }
+
+    .nav{
+      min-height:64px;
+      padding:0 3.5vw;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:-.035em
+    }
+
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:9px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      color:#fff;
+      font-size:11px
+    }
+
+    .brand span:last-child span{color:var(--blue)}
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#344054;
+      font-size:10px;
+      font-weight:850;
+      letter-spacing:.08em;
+      text-transform:uppercase
+    }
+
+    .nav-links a:hover{color:var(--blue)}
+
+    .lang-link{
+      padding:8px 12px;
+      border:1px solid #d5dee8;
+      border-radius:8px
+    }
+
+    .hero{
+      padding:100px 5vw 82px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 18% 18%,rgba(47,115,255,.10),transparent 24%),
+        radial-gradient(circle at 84% 22%,rgba(32,191,232,.10),transparent 22%),
+        linear-gradient(180deg,#fff,#fbfdff);
+      border-bottom:1px solid var(--line)
+    }
+
+    .hero-inner{
+      max-width:1120px;
+      margin:0 auto
+    }
+
+    .eyebrow{
+      margin-bottom:16px;
+      color:#7d8998;
+      font-size:10px;
+      font-weight:850;
+      letter-spacing:.14em;
+      text-transform:uppercase
+    }
+
+    h1{
+      font-size:clamp(3rem,5.4vw,6rem);
+      line-height:.96;
+      letter-spacing:-.058em
+    }
+
+    h1 span{
+      display:block;
+      background:linear-gradient(90deg,var(--blue),var(--cyan),var(--violet));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent
+    }
+
+    .hero p{
+      max-width:800px;
+      margin:22px auto 0;
+      color:var(--muted);
+      font-size:1.03rem
+    }
+
+    .meta{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:23px;
+      padding:7px 11px;
+      border:1px solid #dde5ee;
+      border-radius:999px;
+      background:#fff;
+      color:#7b8798;
+      font-size:.75rem;
+      font-weight:700
+    }
+
+    .meta::before{
+      content:"";
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:var(--green)
+    }
+
+    .layout{
+      width:min(1480px,100%);
+      margin:0 auto;
+      padding:66px 4vw 100px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 290px;
+      gap:6vw;
+      align-items:start
+    }
+
+    .content{max-width:980px}
+
+    .summary-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-bottom:50px
+    }
+
+    .summary-card{
+      padding:24px;
+      border:1px solid var(--line);
+      background:#fff
+    }
+
+    .summary-card.allowed{border-left:4px solid var(--green)}
+    .summary-card.forbidden{border-left:4px solid var(--red)}
+
+    .summary-card h2{
+      margin-bottom:12px;
+      font-size:1.22rem;
+      letter-spacing:-.025em
+    }
+
+    .summary-card ul{
+      padding-left:20px;
+      color:#566376
+    }
+
+    .summary-card li{margin:7px 0}
+
+    .legal-section{
+      padding-bottom:40px;
+      margin-bottom:40px;
+      border-bottom:1px solid var(--line)
+    }
+
+    .legal-section:last-child{
+      border-bottom:0;
+      margin-bottom:0
+    }
+
+    .section-no{
+      display:block;
+      margin-bottom:6px;
+      color:var(--blue);
+      font-size:.7rem;
+      font-weight:850;
+      letter-spacing:.12em;
+      text-transform:uppercase
+    }
+
+    .legal-section h2{
+      margin-bottom:16px;
+      font-size:clamp(1.7rem,2.5vw,2.45rem);
+      line-height:1.08;
+      letter-spacing:-.04em
+    }
+
+    p{
+      margin-bottom:14px;
+      color:#566376
+    }
+
+    ul{
+      padding-left:22px;
+      margin:8px 0 16px;
+      color:#566376
+    }
+
+    li{margin:6px 0}
+    strong{color:#182337}
+
+    .notice{
+      margin:20px 0;
+      padding:18px 20px;
+      border:1px solid #dce5f1;
+      background:linear-gradient(135deg,#f8fbff,#fff);
+      color:#556376
+    }
+
+    .notice strong{
+      display:block;
+      margin-bottom:5px
+    }
+
+    .widget-section{
+      border-left:4px solid var(--violet);
+      background:#faf9ff;
+      padding-left:24px
+    }
+
+    .support-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px
+    }
+
+    .small-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      min-height:39px;
+      padding:8px 12px;
+      border:1px solid #d9e1eb;
+      border-radius:8px;
+      background:#fff;
+      color:#455467;
+      text-decoration:none;
+      font-size:.8rem;
+      font-weight:750
+    }
+
+    .small-btn:hover{
+      color:var(--blue);
+      border-color:#afc5e5
+    }
+
+    aside{
+      position:sticky;
+      top:90px
+    }
+
+    .toc{
+      padding:20px;
+      border:1px solid var(--line);
+      background:#fff
+    }
+
+    .toc-title{
+      margin-bottom:12px;
+      color:#8a95a4;
+      font-size:.66rem;
+      font-weight:850;
+      letter-spacing:.11em;
+      text-transform:uppercase
+    }
+
+    .toc a{
+      display:block;
+      padding:7px 0;
+      border-bottom:1px solid #eef2f5;
+      color:#526074;
+      text-decoration:none;
+      font-size:.81rem
+    }
+
+    .toc a:last-child{border-bottom:0}
+    .toc a:hover{color:var(--blue)}
+
+    .contact-card{
+      margin-top:14px;
+      padding:20px;
+      background:var(--dark);
+      color:#fff
+    }
+
+    .contact-card small{
+      color:#9aabbd;
+      font-size:.64rem;
+      font-weight:850;
+      letter-spacing:.1em;
+      text-transform:uppercase
+    }
+
+    .contact-card p{
+      margin:10px 0 14px;
+      color:#c4ced9;
+      font-size:.83rem
+    }
+
+    .contact-card a{
+      color:#7bdaf1;
+      text-decoration:none;
+      font-size:.82rem;
+      font-weight:750
+    }
+
+    footer{
+      padding:38px 4vw;
+      border-top:1px solid var(--line);
+      text-align:center;
+      color:#7c8796;
+      font-size:.74rem;
+      line-height:1.9
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-bottom:10px
+    }
+
+    .footer-links a{text-decoration:none}
+    .footer-links a:hover{color:var(--blue)}
+
+    @media(max-width:1000px){
+      .layout{grid-template-columns:1fr}
+      aside{position:static}
+      .toc{display:none}
+    }
+
+    @media(max-width:700px){
+      .nav{padding:0 16px}
+      .nav-links a:not(.lang-link){display:none}
+      .hero{padding:72px 20px 58px}
+      .layout{padding:48px 20px 74px}
+      .summary-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-<div class="container">
 
-  <div class="badge">⚖️ Licenza</div>
-  <h1>Licenza d'uso<br><span>reindexme.com</span></h1>
-  <p class="meta">Versione <span>1.0</span> · Efficace dal <span>1 Gennaio 2026</span> · Autore: <span>Alessandro Memmola</span></p>
-  <a href="https://reindexme.com/license.html" class="lang-switch">🇬🇧 English version</a>
+<header class="site-header">
+  <div class="nav">
+    <a href="https://reindexme.com/it/index.html" class="brand">
+      <span class="brand-mark">RI</span>
+      <span>ReIndex<span>Me</span></span>
+    </a>
 
-  <div class="summary-grid">
-    <div class="summary-card allowed">
-      <h3>✅ Cosa puoi fare</h3>
-      <ul>
-        <li>Usare il tool su reindexme.com liberamente</li>
-        <li>Embeddare il widget su qualsiasi sito web</li>
-        <li>Usare il widget su siti commerciali e a pagamento</li>
-        <li>Condividere il link al tool e al widget</li>
-        <li>Suggerire miglioramenti e segnalare bug</li>
-      </ul>
-    </div>
-    <div class="summary-card forbidden">
-      <h3>❌ Cosa non puoi fare</h3>
-      <ul>
-        <li>Copiare o redistribuire il codice sorgente</li>
-        <li>Creare versioni modificate o fork pubblici</li>
-        <li>Rimuovere la firma "reindexme.com" dal widget</li>
-        <li>Vendere il tool o il widget come prodotto proprio</li>
-        <li>Usare il brand "reindexme" per altri prodotti</li>
-      </ul>
-    </div>
+    <nav class="nav-links" aria-label="Navigazione principale">
+      <a href="https://reindexme.com/it/index.html">Home</a>
+      <a href="https://reindexme.com/it/index.html#paths">Strumenti</a>
+      <a href="https://reindexme.com/it/index.html#linkedin">LinkedIn</a>
+      <a href="https://reindexme.com/it/widget-demo.html">Widget</a>
+      <a href="https://memmolalabs.com/">Memmola Labs</a>
+      <a class="lang-link" href="https://reindexme.com/license.html">English</a>
+    </nav>
   </div>
+</header>
 
-  <div class="lic-section">
-    <div class="lic-section-title"><span class="num">01 //</span> Il Sito Web (reindexme.com)</div>
-    <div class="lic-block">
-      <h4>Proprietà intellettuale</h4>
-      <p>Tutto il contenuto pubblicato su reindexme.com — inclusi testi, grafica, codice sorgente, struttura e design — è di proprietà esclusiva di <strong>Alessandro Memmola</strong> ed è protetto dalle leggi sul diritto d'autore vigenti in Italia e nell'Unione Europea.</p>
-    </div>
-    <div class="lic-block">
-      <h4>Utilizzo consentito</h4>
-      <p>Il sito è liberamente accessibile e utilizzabile da chiunque per uso personale e professionale. Non è richiesta registrazione né attribuzione per l'utilizzo del tool online.</p>
-    </div>
-    <div class="lic-block">
-      <h4>Utilizzo non consentito</h4>
-      <p>È espressamente vietato:</p>
-      <ul>
-        <li>Copiare, riprodurre o redistribuire il codice sorgente del sito in tutto o in parte</li>
-        <li>Creare servizi derivati basati sul codice o sulla struttura del sito</li>
-        <li>Effettuare scraping automatizzato dei contenuti del sito</li>
-        <li>Usare il marchio "reindexme" o "reindexme.com" senza autorizzazione scritta</li>
-      </ul>
-    </div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">ReIndexMe · Licenza e condizioni</div>
+    <h1>Gratuito da usare.<span>Chiaro su ciò che fa.</span></h1>
+    <p>
+      Queste condizioni riguardano reindexme.com, il workflow LinkedIn Refresh,
+      ReIndexMe Local Inspector quando sarà distribuito e il widget embeddabile.
+      Non concedono il diritto di copiare, ripubblicare o rebrandizzare il progetto.
+    </p>
+    <div class="meta">Versione 2.0 · Aggiornata ad agosto 2026 · Alessandro Memmola / Memmola Labs</div>
   </div>
+</section>
 
-  <div class="lic-section">
-    <div class="lic-section-title"><span class="num">02 //</span> Il Widget Embeddabile</div>
-    <div class="lic-block">
-      <h4>Licenza gratuita di embed</h4>
-      <p>Il widget reindexme è concesso in licenza <strong>gratuita e non esclusiva</strong> per l'incorporazione su qualsiasi sito web, sia personale che commerciale, a condizione che vengano rispettate le seguenti condizioni:</p>
-      <ul>
-        <li>Il widget deve essere incorporato tramite <strong>iframe o script tag ufficiale</strong> fornito da reindexme.com</li>
-        <li>La firma <strong>"reindexme.com"</strong> e l'attribuzione <strong>"BY ALESSANDRO MEMMOLA"</strong> visibili nel widget non devono essere rimosse o alterate</li>
-        <li>Il widget non deve essere modificato nel suo codice sorgente</li>
-      </ul>
-    </div>
-    <div class="lic-block">
-      <h4>Attribuzione richiesta</h4>
-      <p>L'embed include automaticamente la firma visibile. Non è richiesta attribuzione aggiuntiva nel testo della pagina che ospita il widget, purché la firma interna al widget rimanga intatta.</p>
-      <div class="attribution-box">
-        <span class="cm">// Firma inclusa automaticamente nel widget</span><br>
-        <span class="kw">powered by</span> <span class="str">reindexme.com</span> · BY ALESSANDRO MEMMOLA
+<div class="layout">
+
+  <main class="content">
+
+    <div class="summary-grid">
+      <div class="summary-card allowed">
+        <h2>✓ Cosa puoi fare</h2>
+        <ul>
+          <li>Usare gratuitamente gli strumenti pubblicati su reindexme.com.</li>
+          <li>Usare LinkedIn Refresh per finalità personali o professionali.</li>
+          <li>Usare Local Inspector quando sarà pubblicato, secondo le condizioni indicate con l'estensione.</li>
+          <li>Condividere link a ReIndexMe e alle sue pagine pubbliche.</li>
+          <li>Incorporare il widget ufficiale nei siti personali o commerciali, nel rispetto di questa licenza.</li>
+        </ul>
+      </div>
+
+      <div class="summary-card forbidden">
+        <h2>✕ Cosa non puoi fare</h2>
+        <ul>
+          <li>Copiare o ripubblicare il codice proprietario ReIndexMe come prodotto proprio.</li>
+          <li>Creare fork brandizzati o servizi derivati senza autorizzazione.</li>
+          <li>Rimuovere l'attribuzione ReIndexMe / Memmola Labs dove fa parte dell'interfaccia distribuita.</li>
+          <li>Vendere o rebrandizzare ReIndexMe come altro prodotto.</li>
+          <li>Presentare ReIndexMe come uno strumento capace di forzare o garantire l'indicizzazione.</li>
+        </ul>
       </div>
     </div>
-    <div class="lic-block">
-      <h4>Divieti</h4>
-      <p>È vietato:</p>
+
+    <section class="legal-section" id="ambito">
+      <span class="section-no">01 · Ambito</span>
+      <h2>Sito, workflow, estensione e widget sono parti diverse dello stesso progetto.</h2>
+      <p>
+        Queste condizioni regolano il sito pubblico ReIndexMe e gli strumenti distribuiti direttamente
+        da Alessandro Memmola / Memmola Labs, salvo che uno specifico componente sia accompagnato
+        da una licenza separata o da condizioni proprie dello store.
+      </p>
+      <p>
+        Piattaforme di terze parti, browser store, motori di ricerca e servizi esterni collegati
+        da ReIndexMe restano soggetti alle rispettive condizioni e informative privacy.
+      </p>
+    </section>
+
+    <section class="legal-section" id="sito">
+      <span class="section-no">02 · Sito web</span>
+      <h2>Il sito è gratuito da usare, non da ripubblicare.</h2>
+      <p>
+        Puoi accedere liberamente a ReIndexMe, usare gli strumenti pubblici e condividere link alle sue pagine.
+        Non è richiesto un account ReIndexMe per il workflow principale del sito.
+      </p>
+      <p>
+        Salvo diversa licenza espressamente indicata, testi originali, interfaccia, grafica,
+        struttura e codice proprietario di reindexme.com restano protetti.
+      </p>
       <ul>
-        <li>Copiare il codice HTML/CSS/JS del widget e re-hostarlo autonomamente</li>
-        <li>Creare versioni modificate del widget rimuovendo il branding</li>
-        <li>Vendere o sub-licenziare l'accesso al widget</li>
-        <li>Usare il widget in contesti illegali, fraudolenti o dannosi</li>
+        <li>Non è consentito copiare o ripubblicare in misura sostanziale il sito come altro servizio.</li>
+        <li>Non è consentito rimuovere copyright, attribuzioni o identità del prodotto.</li>
+        <li>Non è consentito usare il nome ReIndexMe in modo da suggerire un rapporto ufficiale non autorizzato.</li>
       </ul>
-    </div>
-  </div>
+    </section>
 
-  <div class="lic-section">
-    <div class="lic-section-title"><span class="num">03 //</span> Garanzie e Responsabilità</div>
-    <div class="lic-block">
-      <h4>Assenza di garanzie</h4>
-      <p>Il tool e il widget sono forniti <strong>"così come sono"</strong> (as-is), senza garanzie di alcun tipo, esplicite o implicite. Alessandro Memmola non garantisce che il tool produca risultati specifici nei tempi di indicizzazione dei motori di ricerca, che dipendono esclusivamente da Google, Bing e altri motori terzi.</p>
-    </div>
-    <div class="lic-block">
-      <h4>Limitazione di responsabilità</h4>
-      <p>In nessun caso Alessandro Memmola sarà responsabile per danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso o dall'impossibilità di usare il tool o il widget.</p>
-    </div>
-  </div>
+    <section class="legal-section" id="linkedin">
+      <span class="section-no">03 · LinkedIn Refresh</span>
+      <h2>Un workflow guidato, non una garanzia di indicizzazione.</h2>
+      <p>
+        LinkedIn Refresh aiuta l'utente a controllare un profilo LinkedIn pubblico,
+        verificare la visibilità attuale nei motori di ricerca, aprire strumenti diagnostici ufficiali
+        e seguire azioni di scoperta legittime.
+      </p>
 
-  <div class="lic-section">
-    <div class="lic-section-title"><span class="num">04 //</span> Privacy e Dati</div>
-    <div class="lic-block">
-      <h4>Nessun dato raccolto</h4>
-      <p>reindexme.com e il widget <strong>non raccolgono, trattano né conservano dati personali</strong> degli utenti. Gli URL inseriti nel tool vengono elaborati interamente nel browser dell'utente e inviati direttamente alle API di Bing, Yandex e Google senza passare per server propri.</p>
-      <p style="margin-top: 10px;">Il sito non utilizza cookie di profilazione né sistemi di tracciamento comportamentale.</p>
-    </div>
-  </div>
+      <div class="notice">
+        <strong>Nessun crawl forzato</strong>
+        ReIndexMe non dichiara di poter obbligare Google, Bing, LinkedIn o altri soggetti terzi
+        a effettuare il crawl, aggiornare o indicizzare un profilo. I motori di ricerca decidono
+        autonomamente quando e come aggiornare i propri risultati.
+      </div>
 
-  <div class="lic-section">
-    <div class="lic-section-title"><span class="num">05 //</span> Contatti e Autorizzazioni</div>
-    <div class="lic-block">
-      <h4>Richieste di autorizzazione</h4>
-      <p>Per usi non contemplati da questa licenza, per richieste di partnership o per segnalare violazioni, contatta Alessandro Memmola tramite:</p>
-      <ul style="margin-top: 10px;">
-        <li><a href="https://alessandromemmola.com" target="_blank">alessandromemmola.com</a></li>
-        <li><a href="https://www.linkedin.com/in/alessandro-memmola-233868372/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/alessandromemmola" target="_blank">GitHub</a></li>
+      <p>
+        Il workflow non presenta come “submission automatica” un'azione che si limita
+        ad aprire una ricerca, uno strumento diagnostico o un servizio esterno.
+      </p>
+    </section>
+
+    <section class="legal-section" id="inspector">
+      <span class="section-no">04 · Local Inspector</span>
+      <h2>L'estensione è progettata attorno a un'analisi locale avviata dall'utente.</h2>
+      <p>
+        ReIndexMe Local Inspector è pensato per analizzare la pagina che l'utente sceglie
+        esplicitamente di controllare, aiutando a individuare segnali come indicizzabilità,
+        canonical, metadata, dati strutturati e altre informazioni legate alla riscoperta.
+      </p>
+      <p>
+        Il progetto segue i principi di nessun account ReIndexMe, nessuna verifica del dominio,
+        nessun accesso permanente al sito e nessuna raccolta permanente degli URL
+        come parte del workflow principale di ispezione.
+      </p>
+      <p>
+        Permessi finali, requisiti dei browser store e comportamento tecnico sono determinati
+        dalla versione effettivamente distribuita attraverso lo store o repository pertinente.
+      </p>
+    </section>
+
+    <section class="legal-section widget-section" id="widget">
+      <span class="section-no">05 · Widget embeddabile</span>
+      <h2>Il widget ufficiale può essere incorporato gratuitamente.</h2>
+      <p>
+        Il widget ReIndexMe può essere incorporato gratuitamente su siti personali o commerciali
+        utilizzando il metodo ufficiale fornito dalla pagina widget di ReIndexMe.
+      </p>
+      <ul>
+        <li>L'attribuzione visibile ReIndexMe / Memmola Labs non deve essere rimossa o alterata.</li>
+        <li>Il widget non deve essere copiato e re-hostato come prodotto separato.</li>
+        <li>Il widget non deve essere venduto, sublicenziato o rebrandizzato.</li>
+        <li>Non deve essere utilizzato in contesti illegali, fraudolenti o dannosi.</li>
       </ul>
+      <p>
+        Gli aggiornamenti compatibili del widget possono essere distribuiti attraverso
+        l'endpoint ufficiale senza richiedere la sostituzione manuale dell'embed da parte del sito ospitante.
+      </p>
+      <p>
+        La disponibilità del widget e dei relativi endpoint può cambiare nel tempo.
+        Eventuali modifiche sostanziali alle condizioni saranno riportate in questa pagina.
+      </p>
+    </section>
+
+    <section class="legal-section" id="privacy">
+      <span class="section-no">06 · Privacy</span>
+      <h2>Gli strumenti principali non richiedono un rapporto di profilazione con ReIndexMe.</h2>
+      <p>
+        ReIndexMe non è progettato attorno ad account utente, profilazione comportamentale
+        o raccolta permanente degli URL inseriti o analizzati attraverso gli strumenti principali.
+      </p>
+      <p>
+        Il workflow LinkedIn corrente apre ricerche e strumenti diagnostici esterni nel browser dell'utente.
+        Questi servizi esterni possono trattare le richieste secondo le proprie condizioni
+        e informative privacy.
+      </p>
+      <p>
+        Local Inspector è progettato per analizzare localmente la pagina attiva quando viene avviato dall'utente.
+        Se versioni future introducessero servizi opzionali capaci di modificare questo comportamento,
+        le relative informazioni privacy dovranno essere aggiornate.
+      </p>
+    </section>
+
+    <section class="legal-section" id="terzi">
+      <span class="section-no">07 · Servizi di terze parti</span>
+      <h2>Google, Bing, LinkedIn e i browser store restano servizi indipendenti.</h2>
+      <p>
+        ReIndexMe può collegare a Google, Bing, LinkedIn, Chrome Web Store,
+        Microsoft Edge Add-ons, GitHub e altre piattaforme esterne.
+      </p>
+      <p>
+        ReIndexMe non controlla tempi di crawl, risultati di ricerca, disponibilità,
+        moderazione, politiche di indicizzazione, trattamento dati o comportamento tecnico
+        di tali servizi.
+      </p>
+    </section>
+
+    <section class="legal-section" id="proprieta">
+      <span class="section-no">08 · Proprietà intellettuale</span>
+      <h2>ReIndexMe resta un progetto Memmola Labs.</h2>
+      <p>
+        Salvo diversa indicazione, interfaccia originale, branding, documentazione,
+        materiali promozionali e codice proprietario ReIndexMe sono realizzati da
+        <strong>Alessandro Memmola / Memmola Labs</strong>.
+      </p>
+      <p>
+        Librerie, marchi, icone, servizi e altri materiali appartenenti a terzi
+        restano soggetti ai diritti e alle licenze dei rispettivi titolari.
+      </p>
+    </section>
+
+    <section class="legal-section" id="garanzia">
+      <span class="section-no">09 · Garanzia e responsabilità</span>
+      <h2>Nessuna promessa su ranking, tempi di crawl o risultato di indicizzazione.</h2>
+      <p>
+        ReIndexMe viene fornito “così com'è”. Non garantisce che un URL, una pagina o un profilo
+        venga sottoposto a crawl, nuovo crawl, indicizzazione, re-indicizzazione, ranking
+        o aggiornamento nei risultati entro un periodo specifico.
+      </p>
+      <p>
+        Nei limiti consentiti dalla normativa applicabile, Alessandro Memmola e Memmola Labs
+        non rispondono di perdite indirette o consequenziali derivanti dall'uso di ReIndexMe,
+        dall'indisponibilità di servizi terzi o da decisioni prese dai motori di ricerca.
+      </p>
+      <p>
+        Restano fermi i diritti e le tutele inderogabili previste dalla legge applicabile.
+      </p>
+    </section>
+
+    <section class="legal-section" id="supporto">
+      <span class="section-no">10 · Supporto volontario</span>
+      <h2>Donazioni e sponsorizzazioni non acquistano diritti sul progetto.</h2>
+      <p>
+        I contributi tramite PayPal, GitHub Sponsors o piattaforme analoghe sono volontari
+        e non attribuiscono diritti di proprietà intellettuale, proprietà del progetto,
+        controllo sulla roadmap o una licenza commerciale separata.
+      </p>
+      <div class="support-row">
+        <a class="small-btn" href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL" target="_blank" rel="noopener noreferrer">♡ Dona via PayPal</a>
+        <a class="small-btn" href="https://github.com/sponsors/alessandromemmola" target="_blank" rel="noopener noreferrer">☆ Sponsor su GitHub</a>
+      </div>
+    </section>
+
+    <section class="legal-section" id="modifiche">
+      <span class="section-no">11 · Modifiche</span>
+      <h2>ReIndexMe può evolvere, e queste condizioni con lui.</h2>
+      <p>
+        ReIndexMe può aggiornare sito, strumenti, estensione, widget e queste condizioni.
+        La versione pubblicata su questa pagina è quella corrente e riporta la data di aggiornamento.
+      </p>
+    </section>
+
+    <section class="legal-section" id="contatti">
+      <span class="section-no">12 · Autorizzazioni e contatti</span>
+      <h2>Per usi diversi da quelli previsti, chiedi prima.</h2>
+      <p>
+        Per licenze, partnership, autorizzazioni al riutilizzo, integrazioni o chiarimenti:
+      </p>
+      <p><a href="mailto:info@memmolalabs.com"><strong>info@memmolalabs.com</strong></a></p>
+    </section>
+
+  </main>
+
+  <aside>
+    <div class="toc">
+      <div class="toc-title">In questa pagina</div>
+      <a href="#ambito">Ambito</a>
+      <a href="#sito">Sito web</a>
+      <a href="#linkedin">LinkedIn Refresh</a>
+      <a href="#inspector">Local Inspector</a>
+      <a href="#widget">Widget</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#terzi">Servizi di terzi</a>
+      <a href="#proprieta">Proprietà intellettuale</a>
+      <a href="#garanzia">Garanzia e responsabilità</a>
+      <a href="#supporto">Supporto</a>
+      <a href="#modifiche">Modifiche</a>
+      <a href="#contatti">Contatti</a>
     </div>
-  </div>
+
+    <div class="contact-card">
+      <small>Serve un'autorizzazione?</small>
+      <p>Per integrazioni, partnership o utilizzi non chiaramente coperti da questa pagina, contatta Memmola Labs.</p>
+      <a href="mailto:info@memmolalabs.com">info@memmolalabs.com →</a>
+    </div>
+  </aside>
 
 </div>
 
 <footer>
-  <p id="footer-text">
-    reindexme.com e i suoi contenuti © Alessandro Memmola 2026 – Tutti i diritti riservati.<br>
-    Widget reindexme: gratuito per embed su qualsiasi sito (personale o commerciale).<br>
-    <a href="https://reindexme.com/it/widget-demo.html">Prova il Widget Gratuito</a> •
-    <a href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL">❤️ Donate via PayPal</a> •
-    <a href="https://github.com/sponsors/alessandromemmola">⭐ Sponsor on GitHub</a> •
-    Questo sito non raccoglie dati personali identificativi né utilizza cookie di profilazione
-  </p>
-  <p id="footer-links">
-    <a href="https://alessandromemmola.com">Sito personale</a> ·
-    <a href="https://github.com/alessandromemmola">GitHub</a> ·
-    <a href="https://www.producthunt.com/@alessandromemmola">Product Hunt</a> ·
-    <a href="https://www.linkedin.com/in/alessandro-memmola-233868372/">LinkedIn</a> ·
-    <a href="https://x.com/MemmolaLabs">X</a>
-  </p>
+  <div class="footer-links">
+    <a href="https://reindexme.com/it/index.html">ReIndexMe</a>
+    <a href="https://reindexme.com/it/widget-demo.html">Widget</a>
+    <a href="https://memmolalabs.com/">Memmola Labs</a>
+    <a href="https://alessandromemmola.com/" target="_blank" rel="noopener noreferrer">Alessandro Memmola</a>
+    <a href="https://github.com/alessandromemmola" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://x.com/MemmolaLabs" target="_blank" rel="noopener noreferrer">X</a>
+    <a href="mailto:info@memmolalabs.com">Contatti</a>
+  </div>
+  <div>reindexme.com e i suoi contenuti © Alessandro Memmola 2026 — Tutti i diritti riservati.</div>
 </footer>
 
 </body>
