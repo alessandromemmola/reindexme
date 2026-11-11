@@ -49,13 +49,13 @@ https://reindexme.com/it/widget-demo.html
 
 ## Screenshots
 
-![ReIndexMe screenshot](assets/reindexme.com_page-1.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-2.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-3.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-4.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-5.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-6.png)  
-![ReIndexMe screenshot](assets/reindexme.com_page-7.png)
+![ReIndexMe screenshot](assets/1.png)  
+![ReIndexMe screenshot](assets/2.png)  
+![ReIndexMe screenshot](assets/3.png)  
+![ReIndexMe screenshot](assets/4.png)  
+![ReIndexMe screenshot](assets/5.png)  
+![ReIndexMe screenshot](assets/6.png)  
+![ReIndexMe screenshot](assets/7.png)
 
 ---
 
