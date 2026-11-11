@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ReIndexMe Local Inspector — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for ReIndexMe Local Inspector, a Chrome and Microsoft Edge extension that analyzes webpages locally and on demand.">
+  <link rel="canonical" href="https://reindexme.com/local-inspector-privacy.html">
+  <style>
+    :root{--ink:#142238;--muted:#52647c;--line:#e0e8f2;--blue:#2563eb;--wash:#f5f8fc;--green:#1d7953}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font:16px/1.68 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    a{color:#174ec2;text-underline-offset:3px}
+    a:focus-visible{outline:3px solid #8fb4ff;outline-offset:3px}
+    header{border-bottom:1px solid var(--line);background:#fff}
+    .wrap{max-width:850px;margin:auto;padding:0 26px}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+    .brand{font-weight:800;letter-spacing:-.035em;color:var(--ink);font-size:22px;text-decoration:none}.brand span{color:var(--blue)}
+    .back{font-size:14px;text-decoration:none;font-weight:650}
+    main{padding:64px 0 76px}
+    .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--green)}
+    h1{font-size:clamp(34px,5.3vw,52px);line-height:1.13;letter-spacing:-.045em;margin:12px 0 20px}
+    .lead{font-size:18px;line-height:1.75;color:var(--muted);max-width:720px}
+    .meta{margin:18px 0 34px;font-size:14px;color:var(--muted)}
+    .summary{background:var(--wash);padding:22px 26px;border:1px solid var(--line);border-radius:14px;margin:30px 0 40px}
+    .summary strong{font-weight:800}
+    section{margin:35px 0;scroll-margin-top:20px}
+    h2{font-size:21px;line-height:1.3;letter-spacing:-.02em;margin:0 0 12px}
+    p{margin:8px 0 13px}
+    ul{padding-left:23px}li{margin:8px 0}
+    footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;padding:28px 0 46px}
+    @media(max-width:600px){header .wrap{min-height:64px}main{padding:42px 0 54px}.summary{padding:20px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="https://reindexme.com/" aria-label="ReIndexMe home">ReIndex<span>Me</span></a><a class="back" href="https://reindexme.com/">Back to website</a></div></header>
+  <main class="wrap">
+    <div class="eyebrow">Privacy by design · Browser extension</div>
+    <h1>Local Inspector<br>Privacy Policy</h1>
+    <p class="lead">This policy describes how the <strong>ReIndexMe Local Inspector</strong> browser extension for Microsoft Edge and Google Chrome accesses and processes webpage information.</p>
+    <div class="meta">Last updated: 11 November 2026 · Applies to extension version 0.1.0</div>
+    <div class="summary"><strong>In short:</strong> Local Inspector reads on-page SEO signals from the webpage you choose to inspect. The analysis is performed locally in your browser. The extension does not send inspected URLs, webpage content, or reports to ReIndexMe servers or other services; it does not use accounts, analytics, advertising trackers, or persistent inspection history.</div>
+
+    <section id="operator"><h2>1. Operator and scope</h2><p>ReIndexMe Local Inspector is provided by <strong>Memmola Labs</strong>. This policy applies to the browser extension, not to unrelated third-party webpages, search engines, browser stores, or the separate ReIndexMe LinkedIn Refresh website tool.</p></section>
+    <section id="access"><h2>2. Information accessed and why</h2><p>Only after you invoke the extension on an active webpage, Local Inspector temporarily accesses the page's browser-visible document to provide its requested SEO and discovery report. Depending on what the page contains, the analysis may read:</p><ul>
+      <li>The current webpage URL and origin.</li>
+      <li>Page title, meta description, robots directives, canonical URLs, language declarations, and hreflang tags.</li>
+      <li>Heading text and structure, structured-data blocks (JSON-LD), social metadata, modification-date hints, image alt-attribute availability, and link information.</li>
+    </ul><p>Website content can contain personal information placed on the page by the website operator. The extension reads only the signals required for the user-requested inspection; it does not extract form values, passwords, cookies, browsing history, or the content of other tabs.</p></section>
+    <section id="processing"><h2>3. Local processing, transmission and retention</h2><ul>
+      <li>All inspection processing runs locally within the browser using code packaged with the extension.</li>
+      <li>The URL, inspection signals and generated report exist temporarily in the extension popup while it is open.</li>
+      <li>The extension does not transmit this information to ReIndexMe, Memmola Labs, advertisers, analytics services, or other third parties.</li>
+      <li>No inspection history, inspected URL list, or report is stored in extension storage or a remote database.</li>
+      <li>Closing the popup clears the report from the popup's working memory. Reopening the extension performs a fresh inspection on request.</li>
+    </ul></section>
+    <section id="controls"><h2>4. User-initiated actions</h2><p><strong>Copy report:</strong> The extension copies a text report to your operating system's clipboard only when you click the Copy report button. Clipboard data is then subject to your device and the applications you choose to paste into.</p><p><strong>Manual checks:</strong> Buttons for paths such as <code>/robots.txt</code> or <code>/sitemap.xml</code> open pages in new browser tabs only when you select them. These normal browser visits contact the target website, which may handle your request under its own privacy policy; they do not transmit reports to ReIndexMe.</p></section>
+    <section id="permissions"><h2>5. Browser permissions</h2><p>The extension requests only <code>activeTab</code> and <code>scripting</code>. These permissions allow temporary access to the page currently selected by the user and execution of the bundled, read-only inspection function. It does not request permanent host permissions or background browsing access.</p></section>
+    <section id="sharing"><h2>6. No accounts, tracking or sale of data</h2><p>The extension does not require registration, use analytics or tracking cookies, build browsing profiles, sell data, or share inspection data with third parties. It has no advertising network integration and does not use remotely hosted executable code.</p></section>
+    <section id="control"><h2>7. Your choices</h2><p>You decide when to run an inspection and whether to copy or share the resulting report. You can close the popup at any time, adjust the extension's site-access settings in the browser, or uninstall the extension. Because the extension does not retain a report database, there is no inspection history to export or delete from ReIndexMe servers.</p></section>
+    <section id="limitations"><h2>8. Scope of inspection</h2><p>The local report evaluates browser-visible, on-page signals only. It does not automatically test server response headers, robots.txt rules, or actual indexing by search engines; it cannot guarantee crawling, indexing or search rankings.</p></section>
+    <section id="updates"><h2>9. Changes to this policy</h2><p>We may update this policy if the extension's functionality or data practices change. The latest version and update date will be published at this URL before or when material changes take effect.</p></section>
+    <section id="contact"><h2>10. Contact</h2><p>For questions about this policy or ReIndexMe Local Inspector, email <a href="mailto:info@memmolalabs.com">info@memmolalabs.com</a>.</p></section>
+  </main>
+  <footer><div class="wrap">© 2026 Memmola Labs · <a href="https://reindexme.com/">ReIndexMe</a> · <a href="https://reindexme.com/license.html">License &amp; terms</a></div></footer>
+</body>
+</html>
