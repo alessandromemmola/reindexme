@@ -81,22 +81,13 @@ Search engines independently decide when and how their results are crawled, inde
 
 ## ReIndexMe Local Inspector
 
-**Local Inspector is currently in development.**
+**Local Inspector.**
 
-It is planned as a browser extension that analyzes the page the user is currently viewing, locally and only when explicitly requested.
+ReIndexMe Local Inspector v0.1.0 is a privacy-first browser extension for Chrome and Edge. It analyzes the active webpage on demand, checking metadata, canonical URLs, robots directives, heading structure, structured data, social metadata and other on-page SEO signals.
 
-Its purpose is to help identify signals that may affect the rediscovery of an updated page, including:
+The extension runs locally, requires no ReIndexMe account or domain verification, and does not transmit inspection reports to ReIndexMe servers.
 
-- indexability
-- canonical URLs
-- title and meta description
-- structured data
-- `dateModified`
-- other relevant technical signals
-
-No ReIndexMe account or domain ownership verification will be required for the core inspection workflow.
-
-Extensions for **Google Chrome** and **Microsoft Edge** will be linked from ReIndexMe when available.
+Status: Submitted to Chrome Web Store and Microsoft Edge Add-ons for review. Store links will be added after approval.
 
 ---
 
