@@ -47,7 +47,7 @@ https://reindexme.com/it/widget-demo.html
 
 ---
 
-## Screenshots
+## Screenshots Local Inspector
 
 ![ReIndexMe screenshot](assets/1.png)  
 ![ReIndexMe screenshot](assets/2.png)  
@@ -56,6 +56,55 @@ https://reindexme.com/it/widget-demo.html
 ![ReIndexMe screenshot](assets/5.png)  
 ![ReIndexMe screenshot](assets/6.png)  
 ![ReIndexMe screenshot](assets/7.png)
+
+---
+
+## ReIndexMe Local Inspector
+
+**Version:** `0.1.0` · **Status:** Submitted for review to the **Chrome Web Store** and **Microsoft Edge Add-ons** (not yet published).
+
+ReIndexMe Local Inspector is a browser extension for Google Chrome and Microsoft Edge that inspects the **current webpage only when the user requests it**. It helps website owners, developers, and content creators identify on-page signals that may affect search discovery and indexability.
+
+### What it checks
+
+- Page title and meta description, including approximate length guidance.
+- On-page robots directives (for example, `noindex` in HTML metadata).
+- Canonical URL declarations.
+- H1 heading structure and document language.
+- JSON-LD structured data presence and syntax.
+- Open Graph and other social-sharing metadata.
+- Image alternative-text availability.
+- Hreflang declarations and modification-date hints.
+- Internal and external links.
+
+### How it works
+
+1. Open a regular webpage in Chrome or Edge.
+2. Click the ReIndexMe Local Inspector extension icon to inspect the active page.
+3. Review the **0–100 on-page signal score** and the `GOOD`, `WARN`, and `INFO` explanations.
+4. Use **Copy report** to copy the text results to the clipboard if needed.
+5. Open the suggested manual checks separately when you need to investigate server-side signals.
+
+The score is an **indicative on-page diagnostic**, not a search ranking, indexing probability, or guarantee of search-engine visibility.
+
+### Local processing and permissions
+
+Local Inspector v0.1.0 uses the browser permissions **`activeTab`** and **`scripting`**. It accesses the active webpage temporarily after a user action, performs its inspection locally, and does not require:
+
+- A ReIndexMe account or site-ownership verification.
+- Persistent access to websites or browsing history.
+- Analytics, advertising trackers, or a remote inspection backend.
+- Permanent storage of inspected URLs or reports.
+
+The **Copy report** action writes to the system clipboard only when the user requests it. See the [Local Inspector Privacy Policy](https://reindexme.com/local-inspector-privacy.html) for details.
+
+### What it does not verify
+
+The extension does not independently verify server response codes, `X-Robots-Tag` response headers, `robots.txt` restrictions, sitemap availability, or whether Google or Bing has indexed a page. Some of these can be opened for **manual checks**, but they are not included as verified on-page findings.
+
+**Availability:** The v0.1.0 packages were submitted for review in November 2026. Store links will be added here **after approval and publication**. Submission is not an approval or a public release.
+
+**Repository scope:** The existing repository primarily documents and hosts the ReIndexMe website. The Local Inspector extension package is a separate component; its source should not be assumed to be included in this repository until it has actually been committed here. The licensing terms for the website and extension are governed by their respective distributed materials.
 
 ---
 
@@ -76,18 +125,6 @@ LinkedIn Refresh provides a guided workflow to:
 ReIndexMe **does not submit indexing requests for linkedin.com** and does not claim to force Google, Bing, LinkedIn, or any other third party to recrawl a profile.
 
 Search engines independently decide when and how their results are crawled, indexed, and updated.
-
----
-
-## ReIndexMe Local Inspector
-
-**Local Inspector.**
-
-ReIndexMe Local Inspector v0.1.0 is a privacy-first browser extension for Chrome and Edge. It analyzes the active webpage on demand, checking metadata, canonical URLs, robots directives, heading structure, structured data, social metadata and other on-page SEO signals.
-
-The extension runs locally, requires no ReIndexMe account or domain verification, and does not transmit inspection reports to ReIndexMe servers.
-
-Status: Submitted to Chrome Web Store and Microsoft Edge Add-ons for review. Store links will be added after approval.
 
 ---
 
