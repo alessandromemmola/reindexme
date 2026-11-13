@@ -112,7 +112,8 @@ The extension does not independently verify server response codes, `X-Robots-Tag
 
 ![ReIndexMe screenshot](assets/8.png)  
 ![ReIndexMe screenshot](assets/9.png)  
-![ReIndexMe screenshot](assets/10.png)  
+![ReIndexMe screenshot](assets/10.png)
+![ReIndexMe screenshot](assets/11.png)
 
 ---
 
