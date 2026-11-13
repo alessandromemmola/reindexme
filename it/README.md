@@ -61,7 +61,7 @@ https://reindexme.com/it/widget-demo.html
 
 ## ReIndexMe Ispettore locale
 
-**Versione:**__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+**Versione:**
 
 ReIndexMe Local Inspector è un'estensione del browser per Google Chrome e Microsoft Edge che controlla la pagina web ** corrente solo quando l'utente lo richiede**. Aiuta i proprietari di siti web, sviluppatori e creatori di contenuti identificare segnali in pagina che possono influenzare la scoperta e l'indicizzazione della ricerca.
 
@@ -108,7 +108,7 @@ L'estensione non verifica in modo indipendente i codici di risposta del server, 
 
 ---
 
-Aggiorna ## collegato
+## collegato
 
 Avete aggiornato il vostro profilo LinkedIn mentre Google o Bing mostra ancora le informazioni più vecchie?
 
@@ -165,7 +165,16 @@ evento
 
 ---
 
-Widget incorporabile ##
+## Screenshots LinkedIn Refresh
+
+![ReIndexMe screenshot](assets/8.png)  
+![ReIndexMe screenshot](assets/9.png)  
+![ReIndexMe screenshot](assets/10.png)
+![ReIndexMe screenshot](assets/11.png)
+
+---
+
+## LinkedIn Refresh
 
 LinkedIn Refresh è disponibile anche come widget ** libero embeddable** per siti web personali e commerciali.
 
