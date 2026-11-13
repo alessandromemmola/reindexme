@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ReIndexMe ti aiuta a capire se contenuti aggiornati sono pronti per essere riscoperti dai motori di ricerca. Local Inspector per i siti web e workflow guidato per LinkedIn." />
+  <meta name="description" content="ReIndexMe ti aiuta a verificare i segnali SEO di una pagina e a confrontare la visibilità di un profilo LinkedIn su Google e Bing. Analisi locale e privacy." />
   <meta name="google-site-verification" content="h3ItFMYdPhIdpcXHcKBpt66gOeKzSw2Frw1vC7ATDKg" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://reindexme.com/it/index.html" />
   <title>ReIndexMe — Aiuta i motori di ricerca a riscoprire ciò che è cambiato</title>
+  <link rel="canonical" href="https://reindexme.com/it/index.html" />
+  <link rel="alternate" hreflang="en" href="https://reindexme.com/" />
+  <link rel="alternate" hreflang="it" href="https://reindexme.com/it/index.html" />
+  <link rel="alternate" hreflang="x-default" href="https://reindexme.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ReIndexMe" />
+  <meta property="og:url" content="https://reindexme.com/it/index.html" />
+  <meta property="og:title" content="ReIndexMe — Riscopri ciò che è cambiato" />
+  <meta property="og:description" content="Controlla i segnali SEO della pagina nel browser o confronta la visibilità del tuo profilo LinkedIn. Senza account o invii automatici ai motori di ricerca." />
 
   <style>
     :root{
@@ -24,12 +32,10 @@
       --violet:#7458e8;
       --dark:#09121d;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      background:#fff;
-      color:var(--text);
+      background:#fff;color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
       overflow-x:hidden
     }
@@ -166,7 +172,10 @@
         linear-gradient(180deg,#fff,#fbfdff)
     }
     .preview-kicker{font-size:.72rem;color:var(--muted2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-    .preview-title{margin-top:12px;width:72%;height:22px;border-radius:6px;background:#101828}
+    .preview-title{
+      margin-top:12px;
+      width:72%;height:22px;border-radius:6px;background:#101828
+    }
     .preview-line{margin-top:13px;width:84%;height:9px;border-radius:6px;background:#dfe6ef}
     .preview-line.short{width:56%}
     .preview-card{
@@ -183,13 +192,17 @@
       padding:5px 8px;border-radius:999px;background:#eef8f2;color:var(--green);
       font-size:.64rem;font-weight:850;text-transform:uppercase
     }
-    .score{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center;margin:24px 0}
+    .score{
+      display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:center;margin:24px 0
+    }
     .score-ring{
       width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
       background:conic-gradient(var(--green) 0 90%,#e8eef5 90% 100%);
       position:relative
     }
-    .score-ring::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff}
+    .score-ring::after{
+      content:"";position:absolute;inset:8px;border-radius:50%;background:#fff
+    }
     .score-ring strong{position:relative;z-index:1;font-size:1.25rem}
     .score-copy b{display:block;margin-bottom:3px}
     .score-copy span{color:var(--muted);font-size:.78rem}
@@ -206,25 +219,34 @@
       color:var(--muted);font-size:.72rem;line-height:1.5
     }
 
+    /* TWO PATHS */
     section{padding:68px 0}
     .section-heading{max-width:980px;margin-bottom:30px}
     .section-heading h2{
       font-size:clamp(2.6rem,4.2vw,4.8rem);
       line-height:.98;letter-spacing:-.052em
     }
-    .section-heading p{max-width:800px;margin-top:14px;color:var(--muted);line-height:1.7}
+    .section-heading p{
+      max-width:800px;margin-top:14px;color:var(--muted);line-height:1.7
+    }
 
-    .paths{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .paths{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px
+    }
     .path-card{
       min-height:420px;padding:34px;
       border:1px solid var(--line);border-radius:22px;
       position:relative;overflow:hidden
     }
     .path-card.website{
-      background:radial-gradient(circle at 78% 18%,rgba(47,115,255,.12),transparent 28%),linear-gradient(135deg,#f8fbff,#fff)
+      background:
+        radial-gradient(circle at 78% 18%,rgba(47,115,255,.12),transparent 28%),
+        linear-gradient(135deg,#f8fbff,#fff)
     }
     .path-card.linkedin{
-      background:radial-gradient(circle at 82% 16%,rgba(32,191,232,.13),transparent 28%),linear-gradient(135deg,#f7fcff,#fff)
+      background:
+        radial-gradient(circle at 82% 16%,rgba(32,191,232,.13),transparent 28%),
+        linear-gradient(135deg,#f7fcff,#fff)
     }
     .path-label{
       font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)
@@ -233,7 +255,9 @@
       margin-top:16px;max-width:520px;
       font-size:clamp(2.2rem,3.4vw,4rem);line-height:1;letter-spacing:-.05em
     }
-    .path-card p{max-width:560px;margin-top:14px;color:var(--muted);line-height:1.7}
+    .path-card p{
+      max-width:560px;margin-top:14px;color:var(--muted);line-height:1.7
+    }
     .path-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .mini-ui{
       position:absolute;right:24px;bottom:22px;width:40%;min-width:210px;
@@ -250,9 +274,14 @@
       background:#0a66c2;color:#fff;font-size:3rem;font-weight:900
     }
 
-    .principle-band{background:#08131f;color:#fff}
+    /* PRINCIPLES */
+    .principle-band{
+      background:#08131f;color:#fff
+    }
     .principle-band .section-heading p{color:#a9b4c2}
-    .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .principles{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px
+    }
     .principle{
       padding:26px;border:1px solid rgba(255,255,255,.10);
       border-radius:16px;background:rgba(255,255,255,.03)
@@ -260,6 +289,7 @@
     .principle b{display:block;margin-bottom:8px;font-size:1rem}
     .principle span{color:#aeb8c5;font-size:.9rem;line-height:1.6}
 
+    /* LINKEDIN TOOL */
     .tool-section{background:#fbfcfe}
     .tool-grid{
       display:grid;grid-template-columns:minmax(320px,.58fr) minmax(0,1.42fr);
@@ -327,6 +357,7 @@
     .summary-item .num{display:block;font-size:1.65rem;font-weight:900;color:var(--blue)}
     .summary-item .lbl{display:block;margin-top:3px;color:var(--muted2);font-size:.66rem;text-transform:uppercase;font-weight:850}
 
+    /* LEARN */
     .learn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .learn-card{
       min-height:210px;padding:24px;border:1px solid var(--line);border-radius:16px;background:#fff
@@ -388,6 +419,23 @@
       .footer{grid-template-columns:1fr;gap:28px}
       .footer-bottom{flex-direction:column}
     }
+    /* Store links, working checklist and user-entered comparison notes */
+    .store-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .store-actions a{gap:9px;font-size:.83rem}
+    .store-actions .chrome{background:#2361d7;border-color:#2361d7;color:#fff}
+    .store-actions .edge{background:#087b89;border-color:#087b89;color:#fff}
+    .inspector-extras{margin-top:19px;color:var(--muted);line-height:1.65;font-size:.83rem}
+    .inspector-extras a{color:var(--blue);font-weight:750;text-underline-offset:3px}
+    .step-note-label{font-size:.74rem;color:#344054;font-weight:800;letter-spacing:0;text-transform:none;margin:14px 0 6px}
+    .step-notes{width:100%;min-height:74px;resize:vertical;padding:11px 12px;border:1px solid #dbe3ed;border-radius:9px;background:white;color:var(--text);line-height:1.5}
+    .step-notes:focus{outline:2px solid #b9d6ff;border-color:var(--blue)}
+    .summary-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .summary-actions a,.summary-actions button{font-size:.78rem}
+    .summary-help{margin-top:12px!important;font-size:.77rem!important}
+    .feedback{margin-top:10px;min-height:1.2em;color:#087f50;font-size:.78rem;font-weight:700}
+    .input-error{margin-top:7px;color:#b42318;line-height:1.5;font-size:.78rem;display:none}
+    .input-error.visible{display:block}
+    @media(max-width:650px){.store-actions a{width:100%}.summary-actions>*{flex:1 1 auto}.inspector-extras{font-size:.8rem}}
   </style>
 </head>
 <body>
@@ -414,15 +462,15 @@
 
   <section class="hero">
     <div class="hero-copy">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> Strumenti per la riscoperta nei motori</div>
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Strumenti per la visibilità nei motori di ricerca</div>
       <h1>Aiuta i motori di ricerca a <span>riscoprire ciò che è cambiato.</span></h1>
       <p class="hero-subtitle">
-        ReIndexMe ti aiuta a capire se un contenuto aggiornato è pronto per essere ritrovato.
-        Analizza il tuo sito localmente nel browser oppure usa il workflow guidato per LinkedIn.
+        ReIndexMe ti aiuta a capire quali segnali rendono una pagina aggiornata più facile da scoprire.
+        Analizza il tuo sito localmente nel browser oppure segui la checklist per il tuo profilo LinkedIn.
       </p>
       <div class="hero-actions">
         <a class="btn primary" href="#paths">Scegli uno strumento</a>
-        <a class="btn" href="#linkedin">Aggiorna LinkedIn</a>
+        <a class="btn" href="#linkedin">Controlla LinkedIn</a>
       </div>
       <div class="hero-note">
         <span>Nessun account</span>
@@ -431,7 +479,7 @@
       </div>
     </div>
 
-    <div class="inspector-shell" aria-label="Anteprima ReIndexMe Local Inspector">
+    <div class="inspector-shell" aria-label="Anteprima di ReIndexMe Local Inspector">
       <div class="browser-bar">
         <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
         <div class="browser-address">https://tuosito.it/pagina-aggiornata</div>
@@ -452,8 +500,8 @@
           <div class="score">
             <div class="score-ring"><strong>90</strong></div>
             <div class="score-copy">
-              <b>Pronto per la riscoperta</b>
-              <span>I segnali principali sono configurati bene.</span>
+              <b>Anteprima dei segnali della pagina</b>
+              <span>Punteggio di esempio, non garanzia di indicizzazione.</span>
             </div>
           </div>
           <div class="check-list">
@@ -464,7 +512,7 @@
             <div class="check warn"><span>dateModified</span><span>!</span></div>
           </div>
           <div class="panel-footer">
-            Anteprima di ReIndexMe Local Inspector. L'estensione analizzerà la pagina attiva solo quando lo richiederai.
+            Anteprima di ReIndexMe Local Inspector. L'estensione analizza la pagina attiva solo quando lo richiedi.
           </div>
         </aside>
       </div>
@@ -475,7 +523,7 @@
     <div class="container">
       <div class="section-heading">
         <h2>Due aggiornamenti. Un solo problema.</h2>
-        <p>Hai cambiato qualcosa online. ReIndexMe ti aiuta a capire qual è il percorso corretto per far riscoprire quella modifica.</p>
+        <p>Hai aggiornato qualcosa online. ReIndexMe ti aiuta a seguire il percorso appropriato per verificarne la visibilità nei motori di ricerca.</p>
       </div>
 
       <div class="paths">
@@ -483,8 +531,8 @@
           <div class="path-label">Sito web</div>
           <h3>Ho modificato una pagina del mio sito.</h3>
           <p>
-            ReIndexMe Local Inspector analizzerà la pagina attiva direttamente nel browser
-            e mostrerà se i segnali principali di scoperta e indicizzabilità sono configurati correttamente.
+            ReIndexMe Local Inspector analizza la pagina attiva direttamente nel browser
+            e segnala i controlli SEO che meritano attenzione.
           </p>
           <div class="path-actions">
             <a class="btn primary" href="#local-inspector">Local Inspector</a>
@@ -502,8 +550,8 @@
           <div class="path-label">LinkedIn</div>
           <h3>Ho modificato il mio profilo LinkedIn.</h3>
           <p>
-            Controlla la visibilità attuale nei motori, apri strumenti diagnostici ufficiali
-            e segui un workflow guidato senza finte submission o promesse di crawl forzato.
+            Controlla la visibilità sui motori, confronta gli snippet e segui una checklist guidata,
+            senza finte richieste di indicizzazione né promesse di scansione forzata.
           </p>
           <div class="path-actions">
             <a class="btn primary" href="#linkedin">Apri LinkedIn Refresh</a>
@@ -519,13 +567,13 @@
     <div class="container">
       <div class="section-heading">
         <h2>Il tuo sito resta tuo.</h2>
-        <p>ReIndexMe nasce attorno a un modello di fiducia semplice: analizzare soltanto ciò che l'utente chiede esplicitamente, senza trasformarsi in un altro pannello webmaster.</p>
+        <p>ReIndexMe segue un principio semplice: analizzare soltanto ciò che scegli di controllare, senza chiederti di creare un altro account per webmaster.</p>
       </div>
       <div class="principles">
-        <div class="principle"><b>Nessun account</b><span>Non serve un login ReIndexMe per usare gli strumenti principali.</span></div>
+        <div class="principle"><b>Nessun account</b><span>Non occorre accedere a un account ReIndexMe per usare gli strumenti principali.</span></div>
         <div class="principle"><b>Nessuna verifica del dominio</b><span>Non devi dimostrare a ReIndexMe di possedere il sito.</span></div>
-        <div class="principle"><b>Nessun accesso permanente</b><span>Local Inspector analizzerà la pagina attiva soltanto quando lo avvierai.</span></div>
-        <div class="principle"><b>Nessuna raccolta permanente degli URL</b><span>Il prodotto non è costruito attorno a uno storico delle pagine analizzate.</span></div>
+        <div class="principle"><b>Nessun accesso permanente ai siti</b><span>Local Inspector analizza la pagina attiva soltanto quando lo avvii.</span></div>
+        <div class="principle"><b>Nessuna raccolta permanente degli URL</b><span>Non viene creato uno storico delle pagine che ispezioni.</span></div>
       </div>
     </div>
   </section>
@@ -533,17 +581,23 @@
   <section id="local-inspector">
     <div class="container">
       <div class="section-heading">
-        <h2>Local Inspector è il prossimo passo.</h2>
+        <h2>Local Inspector è disponibile.</h2>
         <p>
-          L'estensione browser analizzerà la pagina che stai visualizzando e segnalerà
-          indicizzabilità, canonical, metadata, dati strutturati e altri segnali utili alla riscoperta.
-          I link Chrome ed Edge appariranno qui quando le estensioni saranno pubblicate.
+          ReIndexMe Local Inspector v0.1.0 controlla la pagina attiva su richiesta: titolo,
+          descrizione, URL canonical, direttive robots, dati strutturati, metadati social
+          e altri segnali SEO. Il rapporto rimane nel browser e puoi copiarlo quando vuoi.
+          Disponibile per Google Chrome e Microsoft Edge.
         </p>
       </div>
-      <div class="hero-actions">
-        <span class="btn">Estensione Chrome — presto disponibile</span>
-        <span class="btn">Estensione Edge — presto disponibile</span>
+      <div class="store-actions">
+        <a class="btn chrome" href="https://chromewebstore.google.com/detail/reindexme-local-inspector/pogpjmankogopbecakjmkijonjkfpgfa" target="_blank" rel="noopener noreferrer" aria-label="Installa ReIndexMe Local Inspector dal Chrome Web Store">Installa su Chrome →</a>
+        <a class="btn edge" href="https://microsoftedge.microsoft.com/addons/detail/reindexme-local-inspector/efncjldjkpihgmjblkkimbklbppeiomj" target="_blank" rel="noopener noreferrer" aria-label="Installa ReIndexMe Local Inspector da Microsoft Edge Add-ons">Installa su Microsoft Edge →</a>
       </div>
+      <p class="inspector-extras">Per chi gestisce un sito: strumenti esterni facoltativi come
+        <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>
+        e <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer">Rich Results Test</a>
+        offrono verifiche tecniche separate. Non forzano la scansione né l'indicizzazione.
+      </p>
     </div>
   </section>
 
@@ -553,9 +607,9 @@
         <div class="eyebrow"><span class="eyebrow-dot"></span> LinkedIn Refresh</div>
         <h2>Hai aggiornato il profilo?</h2>
         <p>
-          ReIndexMe non può forzare Google o Bing a eseguire nuovamente il crawl di LinkedIn.
-          Può però aiutarti a controllare il profilo pubblico, confrontare la visibilità attuale,
-          aprire strumenti diagnostici ufficiali e seguire azioni di scoperta legittime.
+          ReIndexMe non può forzare Google o Bing a scansionare nuovamente LinkedIn.
+          Ti aiuta però a controllare il profilo pubblico, confrontare la visibilità nei motori,
+          annotare ciò che mostrano Google e Bing e seguire passaggi legittimi per farti trovare.
         </p>
       </div>
 
@@ -563,16 +617,17 @@
         <label for="urlInput">URL del tuo profilo LinkedIn</label>
         <div class="input-row">
           <input type="url" id="urlInput" placeholder="https://www.linkedin.com/in/tuonome" autocomplete="off" spellcheck="false" />
-          <button class="btn-primary" id="startBtn" onclick="startProcess()">Avvia controllo →</button>
+          <button class="btn-primary" id="startBtn" onclick="startProcess()">Prepara checklist →</button>
         </div>
+        <p class="input-error" id="urlError" role="alert">Inserisci un URL di profilo LinkedIn pubblico valido, ad esempio https://www.linkedin.com/in/tuonome.</p>
 
         <div id="stepsContainer" style="display:none">
-          <p class="steps-title">Workflow guidato</p>
+          <p class="steps-title">Workflow guidato di verifica</p>
 
           <div class="step" id="step1">
             <div class="step-header">
               <span class="step-num">01</span><span class="step-icon">🔵</span>
-              <div class="step-info"><div class="step-name">Controllo profilo</div><div class="step-desc">Verifica l'URL LinkedIn e apre il profilo pubblico</div></div>
+              <div class="step-info"><div class="step-name">Controllo del profilo</div><div class="step-desc">Verifica l’URL e apri il profilo pubblico</div></div>
               <span class="step-status status-waiting" id="status1">IN ATTESA</span>
             </div>
             <div class="step-body" id="body1"></div>
@@ -581,7 +636,7 @@
           <div class="step" id="step2">
             <div class="step-header">
               <span class="step-num">02</span><span class="step-icon">🔎</span>
-              <div class="step-info"><div class="step-name">Visibilità nei motori</div><div class="step-desc">Controlla come il profilo appare oggi su Google e Bing</div></div>
+              <div class="step-info"><div class="step-name">Visibilità nei motori</div><div class="step-desc">Controlla come appare oggi il profilo su Google e Bing</div></div>
               <span class="step-status status-waiting" id="status2">IN ATTESA</span>
             </div>
             <div class="step-body" id="body2"></div>
@@ -590,7 +645,7 @@
           <div class="step" id="step3">
             <div class="step-header">
               <span class="step-num">03</span><span class="step-icon">🧩</span>
-              <div class="step-info"><div class="step-name">Diagnostica Google</div><div class="step-desc">Apre strumenti ufficiali Google che possono analizzare l'URL pubblico</div></div>
+              <div class="step-info"><div class="step-name">Annota la situazione iniziale</div><div class="step-desc">Annota titolo e snippet prima di ricontrollarli</div></div>
               <span class="step-status status-waiting" id="status3">IN ATTESA</span>
             </div>
             <div class="step-body" id="body3"></div>
@@ -599,7 +654,7 @@
           <div class="step" id="step4">
             <div class="step-header">
               <span class="step-num">04</span><span class="step-icon">↗</span>
-              <div class="step-info"><div class="step-name">Migliora la riscoperta</div><div class="step-desc">Crea percorsi pubblici legittimi che possono aiutare il profilo a essere ritrovato</div></div>
+              <div class="step-info"><div class="step-name">Migliora la reperibilità</div><div class="step-desc">Crea collegamenti pubblici pertinenti verso il profilo</div></div>
               <span class="step-status status-waiting" id="status4">IN ATTESA</span>
             </div>
             <div class="step-body" id="body4"></div>
@@ -608,25 +663,33 @@
           <div class="step" id="step5">
             <div class="step-header">
               <span class="step-num">05</span><span class="step-icon">⏱</span>
-              <div class="step-info"><div class="step-name">Ricontrolla più avanti</div><div class="step-desc">Torna sui risultati quando i crawler avranno avuto tempo di aggiornarsi</div></div>
+              <div class="step-info"><div class="step-name">Ricontrolla più avanti</div><div class="step-desc">Ripeti le ricerche e confronta i risultati visibili</div></div>
               <span class="step-status status-waiting" id="status5">IN ATTESA</span>
             </div>
             <div class="step-body" id="body5"></div>
           </div>
         </div>
 
-        <div class="result-box" id="resultBox">
-          <h3>Workflow pronto <span>✓</span></h3>
+        <div class="result-box" id="resultBox" aria-live="polite">
+          <h3>La checklist manuale è pronta <span>✓</span></h3>
           <p>
-            ReIndexMe non può forzare Google, Bing o LinkedIn a eseguire nuovamente il crawl del profilo.
-            Ti aiuta a verificare l'URL pubblico, controllare la visibilità attuale,
-            usare strumenti diagnostici ufficiali e seguire azioni di scoperta legittime.
+            Usa i collegamenti qui sotto per controllare i risultati, confrontare titolo e snippet visibili
+            e ripetere la verifica più avanti. I controlli <strong>non vengono eseguiti automaticamente</strong>:
+            ReIndexMe non può imporre a Google, Bing o LinkedIn la scansione o l'indicizzazione del profilo.
           </p>
-          <div class="summary-grid">
-            <div class="summary-item"><span class="num" id="autoCount">0</span><span class="lbl">Controlli preparati</span></div>
-            <div class="summary-item"><span class="num" id="manualCount">0</span><span class="lbl">Azioni manuali</span></div>
-            <div class="summary-item"><span class="num" id="enginesCount">0</span><span class="lbl">Submission automatiche</span></div>
+          <div class="summary-grid" aria-label="Riepilogo informativo, non pulsanti cliccabili">
+            <div class="summary-item"><span class="num">5</span><span class="lbl">Passaggi preparati</span></div>
+            <div class="summary-item"><span class="num">2</span><span class="lbl">Motori da controllare</span></div>
+            <div class="summary-item"><span class="num">0</span><span class="lbl">Invii automatici</span></div>
           </div>
+          <div class="summary-actions" aria-label="Azioni disponibili">
+            <a class="btn primary" id="summaryGoogle" href="#" target="_blank" rel="noopener noreferrer">Controlla Google →</a>
+            <a class="btn" id="summaryBing" href="#" target="_blank" rel="noopener noreferrer">Controlla Bing →</a>
+            <button class="btn" type="button" id="copyChecklist">Copia checklist</button>
+            <button class="btn" type="button" id="resetWorkflow">Controlla un altro profilo</button>
+          </div>
+          <p class="summary-help">Per confrontare i risultati, annota titolo e snippet al passaggio 3 e copia le note. ReIndexMe non le conserva.</p>
+          <p class="feedback" id="summaryFeedback" role="status" aria-live="polite"></p>
         </div>
       </div>
     </div>
@@ -636,35 +699,32 @@
     <div class="container">
       <div class="section-heading">
         <h2>Capire cosa succede dopo un aggiornamento.</h2>
-        <p>Queste pagine diventeranno il livello editoriale di ReIndexMe. Possiamo costruirle una alla volta.</p>
+        <p>Queste guide approfondiranno i meccanismi della scoperta e dell’indicizzazione delle pagine.</p>
       </div>
 
       <div class="learn-grid">
         <article class="learn-card">
           <small>Guida 01</small>
-          <h3>Crawling non significa indexing</h3>
-          <p>Perché essere scoperti da un crawler non significa automaticamente comparire nei risultati.</p>
+          <h3>Crawling non significa indicizzazione</h3>
+          <p>Perché la scansione di una pagina non significa che comparirà automaticamente nei risultati.</p>
           <a href="#">Prossimamente →</a>
         </article>
-
         <article class="learn-card">
           <small>Guida 02</small>
-          <h3>Perché Google non ha ancora visto il tuo aggiornamento?</h3>
+          <h3>Perché Google non ha ancora visto l’aggiornamento?</h3>
           <p>Cosa può rallentare la riscoperta dopo una modifica.</p>
           <a href="#">Prossimamente →</a>
         </article>
-
         <article class="learn-card">
           <small>Guida 03</small>
           <h3>URL canonical</h3>
-          <p>Come i canonical possono cambiare quale URL viene considerato la versione preferita.</p>
+          <p>Come i canonical influenzano l’URL considerato la versione preferita dai motori.</p>
           <a href="#">Prossimamente →</a>
         </article>
-
         <article class="learn-card">
           <small>Guida 04</small>
           <h3>Sitemap e lastmod</h3>
-          <p>Come alcuni segnali possono aiutare i crawler a capire cosa è cambiato e quando.</p>
+          <p>Come i segnali di scoperta aiutano i crawler a capire cosa è cambiato e quando.</p>
           <a href="#">Prossimamente →</a>
         </article>
       </div>
@@ -680,7 +740,6 @@
         <strong>ReIndexMe</strong>
         <p>Aiuta i motori di ricerca a riscoprire ciò che è cambiato.</p>
       </div>
-
       <div>
         <span class="footer-group-title">Progetto</span>
         <div class="footer-links">
@@ -690,18 +749,16 @@
           <a href="https://reindexme.com/local-inspector-privacy.html">Inspector Privacy</a>
         </div>
       </div>
-
       <div>
         <span class="footer-group-title">Supporto</span>
         <div class="footer-links">
           <a class="support-link" href="https://www.paypal.com/donate/?hosted_button_id=BDKSZVWFYY5ZL" target="_blank" rel="noopener noreferrer">♡ Dona via PayPal</a>
-          <a class="support-link" href="https://github.com/sponsors/alessandromemmola" target="_blank" rel="noopener noreferrer">☆ Sponsor su GitHub</a>
+          <a class="support-link" href="https://github.com/sponsors/alessandromemmola" target="_blank" rel="noopener noreferrer">☆ Sostieni su GitHub</a>
         </div>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span>reindexme.com e i suoi contenuti © Alessandro Memmola 2026 — Tutti i diritti riservati. Nessun cookie di profilazione. Nessuna raccolta permanente degli URL.</span>
+      <span>reindexme.com e i suoi contenuti © Alessandro Memmola 2026 — Tutti i diritti riservati. Nessun cookie di profilazione. Nessuna raccolta permanente degli URL analizzati.</span>
       <div class="footer-bottom-links">
         <a href="https://reindexme.com/it/licenza.html">Licenza</a>
         <a href="#privacy">Privacy</a>
@@ -711,210 +768,183 @@
 </footer>
 
 <script>
+  // Only the currently entered profile URL is held in this page's memory.
+  // Neither search-result notes nor URLs are stored or sent to ReIndexMe.
   let profileUrl = '';
-  let checksPrepared = 0;
-  let manualSteps = 0;
-  let automaticSubmissions = 0;
+  let running = false;
+  const $ = id => document.getElementById(id);
+
+  function normalizeLinkedInProfile(raw) {
+    try {
+      const u = new URL(raw.trim());
+      if (u.protocol !== 'https:' || !/^(www\.)?linkedin\.com$/i.test(u.hostname)) return null;
+      if (!/^\/in\/[^/]+\/?$/i.test(u.pathname)) return null;
+      // Only unreserved URL path characters and percent-encoded characters are accepted.
+      // URL serialization also protects markup attributes from untrusted quotes.
+      const slug = u.pathname.replace(/^\/in\//i, '').replace(/\/$/, '');
+      if (!/^(?:[A-Za-z0-9._~-]|%[0-9A-Fa-f]{2})+$/.test(slug)) return null;
+      return 'https://www.linkedin.com/in/' + slug + '/';
+    } catch { return null; }
+  }
+
+  function safeAttr(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;');
+  }
+  const googleSearchUrl = url => 'https://www.google.com/search?q=' + encodeURIComponent('"' + url + '"');
+  const bingSearchUrl = url => 'https://www.bing.com/search?q=' + encodeURIComponent('"' + url + '"');
 
   function setStep(n, state, statusText) {
-    document.getElementById('step' + n).className = 'step ' + state;
-    const st = document.getElementById('status' + n);
-    st.className = 'step-status status-' + state;
+    $('step' + n).className = 'step ' + state;
+    const st = $('status' + n);
+    st.className = 'step-status status-' + (state === 'active' ? 'running' : state === 'manual' ? 'manual' : 'done');
     st.textContent = statusText;
   }
+  function setBody(n, markup) { $('body' + n).innerHTML = markup; }
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  function setBody(n, html) {
-    document.getElementById('body' + n).innerHTML = html;
-  }
-
-  function sleep(ms) {
-    return new Promise(r => setTimeout(r, ms));
-  }
-
-  function normalizeLinkedInUrl(value) {
-    let url = value.trim();
-    if (!url) return null;
-
-    if (!/^https?:\/\//i.test(url)) {
-      url = 'https://' + url;
-    }
-
+  async function copyText(text, feedbackId) {
+    const feedback = $(feedbackId);
     try {
-      const parsed = new URL(url);
-      const host = parsed.hostname.toLowerCase().replace(/^www\./, '');
-
-      if (host !== 'linkedin.com') return null;
-      if (!parsed.pathname.toLowerCase().startsWith('/in/')) return null;
-
-      parsed.hash = '';
-      return parsed.toString();
-    } catch (e) {
-      return null;
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const t = document.createElement('textarea');
+        t.value = text; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        const ok = document.execCommand('copy'); t.remove();
+        if (!ok) throw Error('Clipboard unavailable');
+      }
+      feedback.textContent = 'Copiato negli appunti.';
+    } catch {
+      feedback.textContent = 'Impossibile copiare: seleziona e copia manualmente le note.';
     }
   }
 
-  function googleSearchUrl(url) {
-    return 'https://www.google.com/search?q=' + encodeURIComponent('"' + url + '"');
+  function snapshotText() {
+    const google = $('googleBaseline')?.value.trim() || '(non annotato)';
+    const bing = $('bingBaseline')?.value.trim() || '(non annotato)';
+    return [
+      'ReIndexMe — note manuali sulla visibilità del profilo LinkedIn',
+      'Data: ' + new Date().toLocaleString('it-IT'),
+      'Profilo: ' + profileUrl,
+      '',
+      'Checklist manuale:',
+      '1. Apri il profilo LinkedIn pubblico e verifica le informazioni aggiornate.',
+      '2. Controlla cosa mostrano oggi Google e Bing per l’URL del profilo.',
+      '3. Annota titoli e snippet visibili per confrontarli in futuro.',
+      '4. Facoltativo: condividi il profilo pubblico o collegalo dal tuo sito.',
+      '5. Ripeti le stesse ricerche più avanti. Nessun aggiornamento è garantito.',
+      '',
+      'Risultato Google osservato: ' + google,
+      'Risultato Bing osservato: ' + bing,
+      'Osservazioni inserite dall’utente. Nessuna scansione o richiesta di indicizzazione eseguita.'
+    ].join('\n');
   }
 
-  function bingSearchUrl(url) {
-    return 'https://www.bing.com/search?q=' + encodeURIComponent('"' + url + '"');
+  function resetWorkflow() {
+    profileUrl = ''; running = false;
+    $('urlInput').value = '';
+    $('urlInput').disabled = false;
+    $('startBtn').disabled = false;
+    $('stepsContainer').style.display = 'none';
+    $('resultBox').classList.remove('show');
+    $('summaryFeedback').textContent = '';
+    $('urlError').classList.remove('visible');
+    for (let n=1;n<=5;n++) {
+      $('step'+n).className = 'step';
+      $('status'+n).textContent = 'IN ATTESA';
+      $('status'+n).className = 'step-status status-waiting';
+      $('body'+n).replaceChildren();
+    }
+    $('urlInput').focus();
   }
 
   async function startProcess() {
-    const input = document.getElementById('urlInput').value.trim();
-    const normalized = normalizeLinkedInUrl(input);
-
-    if (!normalized) {
-      alert('Inserisci un URL LinkedIn valido (es. https://www.linkedin.com/in/tuonome)');
-      return;
-    }
-
-    profileUrl = normalized;
-    document.getElementById('startBtn').disabled = true;
-    document.getElementById('urlInput').disabled = true;
-    document.getElementById('stepsContainer').style.display = 'block';
-
-    checksPrepared = 0;
-    manualSteps = 0;
-    automaticSubmissions = 0;
-
-    await runStep1();
-    await runStep2();
-    await runStep3();
-    await runStep4();
-    await runStep5();
-
-    document.getElementById('autoCount').textContent = checksPrepared;
-    document.getElementById('manualCount').textContent = manualSteps;
-    document.getElementById('enginesCount').textContent = automaticSubmissions;
-    document.getElementById('resultBox').classList.add('show');
+    if (running) return;
+    const valid = normalizeLinkedInProfile($('urlInput').value);
+    $('urlError').classList.toggle('visible', !valid);
+    if (!valid) { $('urlInput').focus(); return; }
+    profileUrl = valid;
+    running = true;
+    $('startBtn').disabled = true;
+    $('urlInput').disabled = true;
+    $('stepsContainer').style.display = 'block';
+    $('resultBox').classList.remove('show');
+    await runStep1(); await runStep2(); await runStep3(); await runStep4(); await runStep5();
+    $('summaryGoogle').href = googleSearchUrl(profileUrl);
+    $('summaryBing').href = bingSearchUrl(profileUrl);
+    $('resultBox').classList.add('show');
+    running = false;
   }
 
   async function runStep1() {
-    setStep(1, 'active', 'CONTROLLO...');
-    await sleep(450);
-
-    setStep(1, 'done', 'PRONTO ✓');
+    setStep(1,'active','PREPARAZIONE...'); await sleep(140);
+    setStep(1,'done','PRONTO ✓');
     setBody(1, `
-      <p>
-        ReIndexMe ha verificato il formato dell'URL. Apri il profilo pubblico e controlla
-        che posizione, headline e altre informazioni visibili siano aggiornate.
-      </p>
-      <a class="btn-manual" href="${profileUrl}" target="_blank" rel="noopener noreferrer">
-        🔗 Apri profilo LinkedIn →
-      </a>
+      <p>Il formato dell'URL del profilo LinkedIn è valido. Apri la pagina e controlla che
+      titolo professionale, posizione e dati pubblici siano aggiornati. ReIndexMe non può verificare automaticamente il contenuto del profilo.</p>
+      <a class="btn-manual" href="${safeAttr(profileUrl)}" target="_blank" rel="noopener noreferrer">🔗 Apri il profilo LinkedIn →</a>
     `);
-
-    checksPrepared++;
-    manualSteps++;
   }
 
   async function runStep2() {
-    setStep(2, 'active', 'PREPARAZIONE...');
-    await sleep(450);
-
-    setStep(2, 'manual', 'CONTROLLA');
+    setStep(2,'active','PREPARAZIONE...'); await sleep(140);
+    setStep(2,'manual','CONTROLLO MANUALE');
     setBody(2, `
-      <p>
-        Cerca l'URL pubblico esatto per verificare se Google o Bing mostrano ancora
-        un titolo o uno snippet precedente. I risultati dipendono dai motori e possono aggiornarsi in tempi diversi.
-      </p>
+      <p>Apri queste ricerche e controlla URL, titolo e snippet del tuo profilo.
+      I motori possono riscrivere o non mostrare alcuni risultati: la loro presenza non dimostra che l'aggiornamento sia avvenuto.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn-manual" href="${googleSearchUrl(profileUrl)}" target="_blank" rel="noopener noreferrer">
-          🔍 Controlla su Google →
-        </a>
-        <a class="btn-manual" href="${bingSearchUrl(profileUrl)}" target="_blank" rel="noopener noreferrer">
-          🔎 Controlla su Bing →
-        </a>
+        <a class="btn-manual" href="${safeAttr(googleSearchUrl(profileUrl))}" target="_blank" rel="noopener noreferrer">🔍 Controlla Google →</a>
+        <a class="btn-manual" href="${safeAttr(bingSearchUrl(profileUrl))}" target="_blank" rel="noopener noreferrer">🔎 Controlla Bing →</a>
       </div>
     `);
-
-    checksPrepared++;
-    manualSteps++;
   }
 
   async function runStep3() {
-    setStep(3, 'active', 'PREPARAZIONE...');
-    await sleep(450);
-
-    const encoded = encodeURIComponent(profileUrl);
-
-    setStep(3, 'manual', 'STRUMENTI PRONTI');
+    setStep(3,'active','PREPARAZIONE...'); await sleep(140);
+    setStep(3,'manual','NOTE FACOLTATIVE');
     setBody(3, `
-      <p>
-        Questi strumenti ufficiali Google possono analizzare un URL pubblico.
-        Sono strumenti diagnostici: usarli non garantisce e non forza l'indicizzazione.
-      </p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn-manual"
-           href="https://search.google.com/test/rich-results?url=${encoded}"
-           target="_blank" rel="noopener noreferrer">
-          🧩 Rich Results Test →
-        </a>
-        <a class="btn-manual"
-           href="https://pagespeed.web.dev/analysis?url=${encoded}"
-           target="_blank" rel="noopener noreferrer">
-          ⚡ PageSpeed Insights →
-        </a>
-      </div>
+      <p>Annota il titolo e lo snippet che oggi vedi nei risultati di ricerca. Sono note manuali
+      facoltative, non una diagnostica automatica di Google. Puoi copiarle e confrontarle in seguito.
+      Nulla viene salvato sui server ReIndexMe né nella memoria permanente del browser.</p>
+      <label class="step-note-label" for="googleBaseline">Titolo e snippet Google (facoltativo)</label>
+      <textarea class="step-notes" id="googleBaseline" maxlength="1500" placeholder="Incolla o descrivi ciò che Google mostra oggi"></textarea>
+      <label class="step-note-label" for="bingBaseline">Titolo e snippet Bing (facoltativo)</label>
+      <textarea class="step-notes" id="bingBaseline" maxlength="1500" placeholder="Incolla o descrivi ciò che Bing mostra oggi"></textarea>
+      <button class="btn-manual" type="button" id="copyBaseline">📋 Copia le note di confronto</button>
+      <p class="feedback" role="status" id="baselineFeedback" aria-live="polite"></p>
     `);
-
-    checksPrepared++;
-    manualSteps++;
+    $('copyBaseline').addEventListener('click', () => copyText(snapshotText(), 'baselineFeedback'));
   }
 
   async function runStep4() {
-    setStep(4, 'active', 'PREPARAZIONE...');
-    await sleep(450);
-
-    setStep(4, 'manual', 'AZIONI PRONTE');
+    setStep(4,'active','PREPARAZIONE...'); await sleep(140);
+    setStep(4,'manual','AZIONI FACOLTATIVE');
     setBody(4, `
-      <p>
-        ReIndexMe non invia URL LinkedIn tramite IndexNow perché l'host linkedin.com
-        non è controllato da ReIndexMe. Puoi invece creare percorsi pubblici legittimi
-        che aiutino il profilo aggiornato a essere riscoperto.
-      </p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn-manual"
-           href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}"
-           target="_blank" rel="noopener noreferrer">
-          📤 Condividi il profilo su LinkedIn →
-        </a>
-      </div>
-      <p>
-        Se possiedi un sito personale o aziendale, puoi anche assicurarti che una pagina pubblica pertinente
-        contenga un link al profilo LinkedIn aggiornato.
-      </p>
+      <p>ReIndexMe non può inviare un profilo LinkedIn ai motori per l'indicizzazione perché non controlla linkedin.com.
+      Per renderlo più facile da trovare, puoi condividere l'URL pubblico o aggiungere un link da una pagina pertinente
+      del tuo sito. Nessuna delle due azioni garantisce una nuova scansione.</p>
+      <a class="btn-manual" href="${safeAttr('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(profileUrl))}" target="_blank" rel="noopener noreferrer">📤 Condividi il profilo su LinkedIn →</a>
     `);
-
-    manualSteps++;
   }
 
   async function runStep5() {
-    setStep(5, 'active', 'PREPARAZIONE...');
-    await sleep(450);
-
-    setStep(5, 'done', 'PROMEMORIA ✓');
+    setStep(5,'active','PREPARAZIONE...'); await sleep(140);
+    setStep(5,'manual','RICONTROLLA PIÙ AVANTI');
     setBody(5, `
-      <p>
-        I motori di ricerca decidono quando tornare a eseguire il crawl di LinkedIn.
-        ReIndexMe non può forzare quell'evento. Ricontrolla le stesse ricerche più avanti
-        e confronta titolo e snippet visibili.
-      </p>
+      <p>Google e Bing decidono quando eseguire una nuova scansione di LinkedIn. Ripeti le stesse ricerche
+      nei giorni successivi e confronta i risultati con le note copiate al passaggio 3.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn-manual" href="${googleSearchUrl(profileUrl)}" target="_blank" rel="noopener noreferrer">
-          🔍 Ricontrolla Google →
-        </a>
-        <a class="btn-manual" href="${bingSearchUrl(profileUrl)}" target="_blank" rel="noopener noreferrer">
-          🔎 Ricontrolla Bing →
-        </a>
+        <a class="btn-manual" href="${safeAttr(googleSearchUrl(profileUrl))}" target="_blank" rel="noopener noreferrer">🔍 Ricontrolla Google →</a>
+        <a class="btn-manual" href="${safeAttr(bingSearchUrl(profileUrl))}" target="_blank" rel="noopener noreferrer">🔎 Ricontrolla Bing →</a>
       </div>
     `);
-
-    checksPrepared++;
   }
-</script>
 
+  $('copyChecklist').addEventListener('click', () => copyText(snapshotText(), 'summaryFeedback'));
+  $('resetWorkflow').addEventListener('click', resetWorkflow);
+  $('urlInput').addEventListener('input', () => $('urlError').classList.remove('visible'));
+  $('urlInput').addEventListener('keydown', e => { if (e.key === 'Enter') startProcess(); });
+</script>
 </body>
 </html>
