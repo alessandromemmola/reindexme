@@ -108,6 +108,14 @@ The extension does not independently verify server response codes, `X-Robots-Tag
 
 ---
 
+## Screenshots LinkedIn Refresh
+
+![ReIndexMe screenshot](assets/8.png)  
+![ReIndexMe screenshot](assets/9.png)  
+![ReIndexMe screenshot](assets/10.png)  
+
+---
+
 ## LinkedIn Refresh
 
 Have you updated your LinkedIn profile while Google or Bing still shows older information?
